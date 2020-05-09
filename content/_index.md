@@ -4,20 +4,19 @@ sort_by = "date"
 insert_anchor_links = "right"
 +++
 
-I was inspired by [Rusty Algorithms](https://pythonmath.github.io/rusty_algorithms/) to create a website for those who need a refresher on algorithms :+1:
+I was inspired by [Rusty Algorithms](https://pythonmath.github.io/rusty_algorithms/) to create a website for those who need a refresher on algorithms.
 
 ```
 Here is some example code
 ```
 
-## Perks
+## How to use this website
 
-* light / dark switcher
-* tags and authors taxonomies by default
-* search
-* useful UI both on mobiles and desktops 
+* Turn on light or dark mode by clicking the square on the top left.
+* Data structures and Algorithm questions are sorted by topic on the left, as well as tagged.
+* Search for specific questions or answers on the search bar
 
-## 6 steps build your knowledge base/docs repo
+<!-- ## 6 steps build your knowledge base/docs repo
 
 1. Fork the repo 
 2. delete demo content and add your own (I explain how to structure it below) 
@@ -94,8 +93,4 @@ Also, by default you have two taxonomies: _tags_ and _authors_. It's optional, n
       {% endfor %}
       </ul>
     {% endif %}
-```
-
-Done. I told you Zola is amazing :) 
-
-Anyway you can rewrite theme for your own wishes with Zola ([link to documentation](https://www.getzola.org/documentation/getting-started/installation/))
+``` -->
