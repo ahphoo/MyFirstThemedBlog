@@ -26,14 +26,15 @@ We have two variables that keep track of the current sum and the maximum sum at 
 ## Python
 
 ``` python
-cur_sum = nums[0]
-max_sum = nums[0]
+def maxSubArray(self, nums: List[int]) -> int:
+    cur_sum = nums[0]
+    max_sum = nums[0]
 
-for i in range(1, len(nums)):
-    cur_sum = max(cur_sum + nums[i], nums[i])
-    max_sum = max(max_sum, cur_sum)
+    for i in range(1, len(nums)):
+        cur_sum = max(cur_sum + nums[i], nums[i])
+        max_sum = max(max_sum, cur_sum)
 
-return max_sum
+    return max_sum
 ```
 
 ## Go
@@ -62,7 +63,7 @@ func Max(x, y int) int {
 ## Rust
 
 ``` rust
-use std::cmp::{max};
+use std::cmp::max;
 
 impl Solution {
     pub fn max_sub_array(nums: Vec<i32>) -> i32 {

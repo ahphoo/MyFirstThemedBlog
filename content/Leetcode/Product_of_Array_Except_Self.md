@@ -48,6 +48,7 @@ def productExceptSelf(self, nums: List[int]) -> List[int]:
 ## Go
 
 ``` go
+func productExceptSelf(nums []int) []int {
     L := make([]int, len(nums))
     for i := range L {
         L[i] = 1
@@ -65,6 +66,7 @@ def productExceptSelf(self, nums: List[int]) -> List[int]:
     }
 
     return ans
+}
 ```
 
 ## Rust
