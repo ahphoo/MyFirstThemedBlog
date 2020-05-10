@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title> Algostructures | Buy and Sell Stock I </title>     
+      <link rel="stylesheet" href="http://127.0.0.1:1111/main.css">
+    </head>
+
+    <body>
+      <nav>
+        <div id="subnav">
+          <form class="theme-selector">
+            <button type="button" id="theme-light-button" class="theme-button" onclick="enableTheme('light', true)">&#9706;</button>
+            <button type="button" id="theme-dark-button"  class="theme-button enabled" onclick="enableTheme('dark', true)">&#9705;</button>
+          </form>
+          <a href="/search">&#8981;</a>       
+        </div>
+
+      
+  <ul id="breadcrumbs">
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;">Algostructures</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;Leetcode&#x2F;">Leetcode</a>&nbsp;&#8594;&nbsp;</li> 
+    
+  </ul>
+  <h1>Buy and Sell Stock I</h1><em></em> 
+
+      </nav>
+
+      <main>
+      
+  <div id="taxonomies">
+    
+      <date>09.05.2020</date>
+       
+
+    
+    
+    
+  </div>
+
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+    
+      
+      
+    
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  
+
+  
+      <ul id="toc">
+        
+          <li><a href="http://127.0.0.1:1111/Leetcode/buy-and-sell-stock-i/#problem-link">Problem Link</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/buy-and-sell-stock-i/#how-to-solve">How to solve</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/buy-and-sell-stock-i/#complexity-analysis">Complexity Analysis</a>
+          <ul>        
+            
+            <li><a href="http://127.0.0.1:1111/Leetcode/buy-and-sell-stock-i/#time-o-n">Time: O(N)</a></li>
+          
+            <li><a href="http://127.0.0.1:1111/Leetcode/buy-and-sell-stock-i/#space-o-n">Space: O(N)</a></li>
+          
+         </ul>
+  
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/buy-and-sell-stock-i/#solutions">Solutions</a>
+          <ul>        
+            
+            <li><a href="http://127.0.0.1:1111/Leetcode/buy-and-sell-stock-i/#python">Python</a></li>
+          
+            <li><a href="http://127.0.0.1:1111/Leetcode/buy-and-sell-stock-i/#go">Go</a></li>
+          
+            <li><a href="http://127.0.0.1:1111/Leetcode/buy-and-sell-stock-i/#rust">Rust</a></li>
+          
+         </ul>
+  
+        </li>
+  
+      </ul>
+  
+
+  <article>
+    <h1 id="problem-link">Problem Link</h1>
+<p><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/">https://leetcode.com/problems/best-time-to-buy-and-sell-stock/</a></p>
+<h1 id="how-to-solve">How to solve</h1>
+<h1 id="complexity-analysis">Complexity Analysis</h1>
+<h2 id="time-o-n">Time: O(N)</h2>
+<h2 id="space-o-n">Space: O(N)</h2>
+<h1 id="solutions">Solutions</h1>
+<h2 id="python">Python</h2>
+<pre style="background-color:#383838;">
+<span style="color:#e6e1dc;">minBuy = float(&quot;inf&quot;)
+maxProfit = 0
+
+for price in prices:
+    minBuy = min(minBuy, price)
+    maxProfit = max(maxProfit, price - minBuy)
+
+return maxProfit
+</span></pre><h2 id="go">Go</h2>
+<pre style="background-color:#383838;">
+<span style="color:#e6e1dc;">func maxProfit(prices []int) int {
+    var minBuy int = math.MaxInt32
+    var maxProfit int = 0
+    
+    for _, price := range prices {
+        minBuy = Min(minBuy, price)
+        maxProfit = Max(maxProfit, price - minBuy)
+    }
+    
+    return maxProfit
+}
+
+func Min(x, y int) int {
+    if x &lt; y {
+        return x
+    }
+    return y
+}
+
+func Max(x, y int) int {
+    if x &gt; y {
+        return x
+    }
+    return y
+}
+</span></pre><h2 id="rust">Rust</h2>
+<pre style="background-color:#383838;">
+<span style="color:#e6e1dc;">impl Solution {
+    pub fn max_profit(prices: Vec&lt;i32&gt;) -&gt; i32 {
+        let mut minBuy = std::i32::MAX;
+        let mut maxProfit = 0;
+        
+        for &amp;price in &amp;prices {
+            minBuy = std::cmp::min(minBuy, price);
+            maxProfit = std::cmp::max(maxProfit, price - minBuy);           
+        }
+        
+        maxProfit   
+    }
+}
+</span></pre>
+  </article>
+
+      </main>
+
+      <script type="text/javascript" src="http://127.0.0.1:1111/themes.js"></script>
+
+      <script>
+        function burger() {
+          var x = document.getElementById("bger");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+    <script src="/livereload.js?port=1024&amp;mindelay=10"></script></body>
+</html>

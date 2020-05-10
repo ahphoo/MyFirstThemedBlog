@@ -4,7 +4,7 @@ sort_by = "date"
 insert_anchor_links = "right"
 +++
 
-I was inspired by [Rusty Algorithms](https://pythonmath.github.io/rusty_algorithms/) to create a website for those who need a refresher on algorithms.
+I was inspired by [Rusty Algorithms](https://raymondsheng.github.io/) to create a website for those who need a refresher on algorithms.
 
 ```
 Here is some example code

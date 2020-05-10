@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title> Algostructures | Two Sum </title>     
+      <link rel="stylesheet" href="http://127.0.0.1:1111/main.css">
+    </head>
+
+    <body>
+      <nav>
+        <div id="subnav">
+          <form class="theme-selector">
+            <button type="button" id="theme-light-button" class="theme-button" onclick="enableTheme('light', true)">&#9706;</button>
+            <button type="button" id="theme-dark-button"  class="theme-button enabled" onclick="enableTheme('dark', true)">&#9705;</button>
+          </form>
+          <a href="/search">&#8981;</a>       
+        </div>
+
+      
+  <ul id="breadcrumbs">
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;">Algostructures</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;Leetcode&#x2F;">Leetcode</a>&nbsp;&#8594;&nbsp;</li> 
+    
+  </ul>
+  <h1>Two Sum</h1><em></em> 
+
+      </nav>
+
+      <main>
+      
+  <div id="taxonomies">
+    
+      <date>09.05.2020</date>
+       
+
+    
+    
+    
+  </div>
+
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+      
+      
+    
+      
+      
+    
+  
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+  
+
+  
+      <ul id="toc">
+        
+          <li><a href="http://127.0.0.1:1111/Leetcode/two-sum/#problem-link">Problem Link</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/two-sum/#how-to-solve">How to solve</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/two-sum/#complexity-analysis">Complexity Analysis</a>
+          <ul>        
+            
+            <li><a href="http://127.0.0.1:1111/Leetcode/two-sum/#time-o-n">Time: O(N)</a></li>
+          
+            <li><a href="http://127.0.0.1:1111/Leetcode/two-sum/#space-o-n">Space: O(N)</a></li>
+          
+         </ul>
+  
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/two-sum/#solutions">Solutions</a>
+          <ul>        
+            
+            <li><a href="http://127.0.0.1:1111/Leetcode/two-sum/#python">Python</a></li>
+          
+            <li><a href="http://127.0.0.1:1111/Leetcode/two-sum/#go">Go</a></li>
+          
+            <li><a href="http://127.0.0.1:1111/Leetcode/two-sum/#rust">Rust</a></li>
+          
+         </ul>
+  
+        </li>
+  
+      </ul>
+  
+
+  <article>
+    <h1 id="problem-link">Problem Link</h1>
+<p><a href="https://leetcode.com/problems/two-sum/">https://leetcode.com/problems/two-sum/</a></p>
+<h1 id="how-to-solve">How to solve</h1>
+<p>Let <strong>a</strong> and <strong>b</strong> be two numbers that sum to <strong>c</strong>. Algebraically, <strong>a</strong> and <strong>b</strong> ,</p>
+<p><strong>a = c - b</strong> <br />
+<strong>b = c - a</strong></p>
+<p>You want to return the indices of two numbers that sum to c, that is, a and b. Let's say while iterating through the array nums, you see <strong>a</strong>. You want to remember the index of <strong>a</strong> so that if you see <strong>b</strong> (or equivalently <strong>c - a</strong>), you can return an array with their indices. We can &quot;remember&quot; the index of <strong>a</strong> by putting a <strong>a</strong> and it's index as a key-value pair into a dictionary. </p>
+<h1 id="complexity-analysis">Complexity Analysis</h1>
+<h2 id="time-o-n">Time: O(N)</h2>
+<p>We iterate through all N integers in the nums array. </p>
+<h2 id="space-o-n">Space: O(N)</h2>
+<p>For every i, we put the complement of nums[i] in our hash table.</p>
+<h1 id="solutions">Solutions</h1>
+<h2 id="python">Python</h2>
+<pre style="background-color:#383838;">
+<span style="color:#e6e1dc;">complements = {}
+for i in range(len(nums)):
+    if target - nums[i] in complements:
+        return [i, complements[target - nums[i]]]
+    complements[nums[i]] = i
+</span></pre><h2 id="go">Go</h2>
+<pre style="background-color:#383838;">
+<span style="color:#e6e1dc;">func twoSum(nums []int, target int) []int {
+    complements := make(map[int]int)
+    for i := 0; i &lt; len(nums); i++ {
+        if val, key_exists := complements[target - nums[i]]; key_exists {
+            return []int{ i, val }
+        }
+        complements[nums[i]] = i
+    }
+    return []int{}
+}
+</span></pre><h2 id="rust">Rust</h2>
+<pre style="background-color:#383838;">
+<span style="color:#e6e1dc;">use std::collections::HashMap;
+
+impl Solution {
+    pub fn two_sum(nums: Vec&lt;i32&gt;, target: i32) -&gt; Vec&lt;i32&gt; {
+        let mut num_to_index = HashMap::with_capacity(nums.len());
+
+        for (i, num) in nums.iter().enumerate() {
+            match num_to_index.get(&amp;(target - num)) {
+                Some(complement) =&gt; return vec![*complement as i32, i as i32],
+                None =&gt; num_to_index.insert(num, i)
+            };  
+        }
+        vec![]
+    }
+}   
+</span></pre>
+  </article>
+
+      </main>
+
+      <script type="text/javascript" src="http://127.0.0.1:1111/themes.js"></script>
+
+      <script>
+        function burger() {
+          var x = document.getElementById("bger");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+    <script src="/livereload.js?port=1024&amp;mindelay=10"></script></body>
+</html>
