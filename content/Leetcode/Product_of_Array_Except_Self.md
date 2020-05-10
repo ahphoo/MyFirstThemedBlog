@@ -21,9 +21,9 @@ To calculate the product of all numbers to the right of `i`, we don't need to cr
 
 We iterate through the nums array twice, which is `O(2n) = O(n)`. First, to create an array `L` which holds the products of all elements to the left of index `i`. Second, we iterate through `L` backwards, updating each index to hold the product of all numbers except nums[i] for all `i`.
 
-## Space: O(N)
+## Space: O(1)
 
-We create an array `L` of size N.
+Although we create an array of size `N` to store the products for each number in nums, the problem states that the output array does not count toward our space complexity.
 
 ## Solutions
 
