@@ -102,7 +102,7 @@ pub fn product_except_self(nums: Vec<i32>) -> Vec<i32> {
     }
 
     let mut ans = L;
-    let mut R: i32 = 1;
+    let mut R = 1;
     for j in (0..nums.len()).rev() {
         ans[j] *= R;
         R *= nums[j];
