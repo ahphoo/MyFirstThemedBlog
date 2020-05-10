@@ -11,7 +11,7 @@ date=2020-05-09
 
 ## Time: O(N)
 
-## Space: O(N)
+## Space: O(1)
 
 # Solutions
 
