@@ -25,12 +25,13 @@ In the worst case, all numbers are distinct, so we will insert all **N** element
 ## Python
 
 ``` python
-dups = set()
-for num in nums:
-    if num in dups:
-        return True
-    dups.add(num)
-return False
+def containsDuplicate(self, nums: List[int]) -> bool:
+    dups = set()
+    for num in nums:
+        if num in dups:
+            return True
+        dups.add(num)
+    return False
 ```
 
 ## Go

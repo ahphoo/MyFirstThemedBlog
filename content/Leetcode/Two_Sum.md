@@ -32,11 +32,12 @@ For every i, we put the complement of nums[i] in our hash table.
 ## Python
 
 ``` python
-complements = {}
-for i in range(len(nums)):
-    if target - nums[i] in complements:
-        return [i, complements[target - nums[i]]]
-    complements[nums[i]] = i
+def twoSum(self, nums: List[int], target: int) -> List[int]:
+    complements = {}
+    for i in range(len(nums)):
+        if target - nums[i] in complements:
+            return [i, complements[target - nums[i]]]
+        complements[nums[i]] = i
 ```
 
 ## Go
