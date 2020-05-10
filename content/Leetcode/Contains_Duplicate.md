@@ -4,6 +4,7 @@ date=2020-05-10
 +++
 
 ## Problem Link
+
 [https://leetcode.com/problems/contains-duplicate/submissions/](https://leetcode.com/problems/contains-duplicate/submissions/)
 
 ## How to solve
@@ -40,7 +41,8 @@ def containsDuplicate(self, nums: List[int]) -> bool:
 func containsDuplicate(nums []int) bool {
     set := make(map[int]bool)
     for _, num := range nums {
-        if _, present := set[num]; present {
+        in_set := set[num]
+        if in_set {
             return true
         }
         set[num] = true
@@ -56,7 +58,7 @@ use std::collections::HashSet;
 
 impl Solution {
     pub fn contains_duplicate(nums: Vec<i32>) -> bool {
-        let mut set = HashSet::new(nums.len());
+        let mut set = HashSet::with_capacity(nums.len());
 
         for &num in &nums {
             if set.contains(&num) {

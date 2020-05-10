@@ -15,13 +15,13 @@ Let **a** and **b** be two numbers that sum to **c**. Algebraically, **a** and *
 
 **b = c - a**
 
-You want to return the indices of two numbers that sum to c, that is, a and b. Let's say while iterating through the array nums, you see **a**. You want to remember the index of **a** so that if you see **b** (or equivalently **c - a**), you can return an array with their indices. We can "remember" the index of **a** by putting a **a** and it's index as a key-value pair into a dictionary. 
+You want to return the indices of two numbers that sum to c, that is, a and b. Let's say while iterating through the array nums, you see **a**. You want to remember the index of **a** so that if you see **b** (or equivalently **c - a**), you can return an array with their indices. We can "remember" the index of **a** by putting a **a** and it's index as a key-value pair into a dictionary.
 
 ## Complexity Analysis
 
 ## Time: O(N)
 
-We iterate through all N integers in the nums array. 
+We iterate through all N integers in the nums array.
 
 ## Space: O(N)
 

@@ -47,12 +47,12 @@ def productExceptSelf(self, nums: List[int]) -> List[int]:
 
 ## Go
 
+### Using C-style for-loop
+
 ``` go
 func productExceptSelf(nums []int) []int {
     L := make([]int, len(nums))
-    for i := range L {
-        L[i] = 1
-    }
+    L[0] = 1
 
     for j := 1; j < len(nums); j++ {
         L[j] = nums[j - 1] * L[j - 1]
@@ -63,6 +63,28 @@ func productExceptSelf(nums []int) []int {
     for k := len(nums) - 1; k > -1; k-- {
         ans[k] *= R
         R *= nums[k]
+    }
+
+    return ans
+}
+```
+
+### Using range loop
+
+``` go
+func productExceptSelf(nums []int) []int {
+    L := make([]int, len(nums))
+    L[0] = 1
+
+    for j, num := range nums[0 : len(nums) - 1] {
+        L[j + 1] = num * L[j]
+    }
+
+    ans := L
+    R := 1
+    for i, _ := range nums {
+        ans[len(nums) - 1 - i] *= R
+        R *= nums[len(nums) - 1 - i]
     }
 
     return ans
