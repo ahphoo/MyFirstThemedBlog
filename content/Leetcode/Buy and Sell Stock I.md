@@ -16,7 +16,7 @@ date=2020-05-09
 # Solutions
 
 ## Python
-```
+``` python
 minBuy = float("inf")
 maxProfit = 0
 
@@ -28,7 +28,7 @@ return maxProfit
 ```
 
 ## Go
-```
+``` go
 func maxProfit(prices []int) int {
     var minBuy int = math.MaxInt32
     var maxProfit int = 0
@@ -57,7 +57,7 @@ func Max(x, y int) int {
 ```
 
 ## Rust
-```
+``` rust
 impl Solution {
     pub fn max_profit(prices: Vec<i32>) -> i32 {
         let mut minBuy = std::i32::MAX;

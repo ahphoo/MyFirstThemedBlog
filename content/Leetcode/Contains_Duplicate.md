@@ -16,7 +16,7 @@ date=2020-05-10
 # Solutions
 
 ## Python
-```
+``` python
 dups = set()
 for num in nums:
     if num in dups:

@@ -3,28 +3,35 @@ title="Two Sum"
 date=2020-05-09
 +++
 
-# Problem Link
+## Problem Link
+
 [https://leetcode.com/problems/two-sum/](https://leetcode.com/problems/two-sum/)
 
-# How to solve
+## How to solve
+
 Let **a** and **b** be two numbers that sum to **c**. Algebraically, **a** and **b** ,
 
-**a = c - b** <br />
+**a = c - b** 
+
 **b = c - a**
 
 You want to return the indices of two numbers that sum to c, that is, a and b. Let's say while iterating through the array nums, you see **a**. You want to remember the index of **a** so that if you see **b** (or equivalently **c - a**), you can return an array with their indices. We can "remember" the index of **a** by putting a **a** and it's index as a key-value pair into a dictionary. 
-# Complexity Analysis
+
+## Complexity Analysis
 
 ## Time: O(N)
+
 We iterate through all N integers in the nums array. 
 
 ## Space: O(N)
+
 For every i, we put the complement of nums[i] in our hash table.
 
-# Solutions
+## Solutions
 
 ## Python
-```
+
+``` python
 complements = {}
 for i in range(len(nums)):
     if target - nums[i] in complements:
@@ -33,7 +40,8 @@ for i in range(len(nums)):
 ```
 
 ## Go
-```
+
+``` go
 func twoSum(nums []int, target int) []int {
     complements := make(map[int]int)
     for i := 0; i < len(nums); i++ {
@@ -47,7 +55,8 @@ func twoSum(nums []int, target int) []int {
 ```
 
 ## Rust
-```
+
+``` rust
 use std::collections::HashMap;
 
 impl Solution {
@@ -62,5 +71,5 @@ impl Solution {
         }
         vec![]
     }
-}   
+}
 ```

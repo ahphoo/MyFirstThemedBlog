@@ -17,7 +17,7 @@ date=2020-05-09
 # Solutions
 
 ## Python
-```
+``` python
 def countPrimes(self, n: int) -> int:
     primes = []
     is_prime = [False, False] + [True for _ in range(n - 1)]
