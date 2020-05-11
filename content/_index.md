@@ -6,10 +6,6 @@ insert_anchor_links = "right"
 
 I was inspired by [Rusty Algorithms](https://raymondsheng.github.io/) to create a website for those who need a refresher on algorithms.
 
-```
-Here is some example code
-```
-
 ## How to use this website
 
 * Turn on light or dark mode by clicking the square on the top left.

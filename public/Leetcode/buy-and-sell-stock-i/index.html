@@ -4,7 +4,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta http-equiv="content-type" content="text/html; charset=utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-      <title> Algostructures | Buy and Sell Stock I </title>     
+      <title> Algostructures | Best Time to Buy and Sell Stock </title>     
       <link rel="stylesheet" href="http://127.0.0.1:1111/main.css">
     </head>
 
@@ -28,7 +28,7 @@
       <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;Leetcode&#x2F;">Leetcode</a>&nbsp;&#8594;&nbsp;</li> 
     
   </ul>
-  <h1>Buy and Sell Stock I</h1><em></em> 
+  <h1>Best Time to Buy and Sell Stock</h1><em></em> 
 
       </nav>
 
@@ -54,23 +54,23 @@
   
     
     
-      
-      
+  
     
-      
-      
     
   
     
     
-      
-      
+  
     
-      
-      
     
-      
-      
+  
+    
+    
+  
+    
+    
+  
+    
     
   
 
@@ -86,91 +86,94 @@
         </li>
   
           <li><a href="http://127.0.0.1:1111/Leetcode/buy-and-sell-stock-i/#complexity-analysis">Complexity Analysis</a>
-          <ul>        
-            
-            <li><a href="http://127.0.0.1:1111/Leetcode/buy-and-sell-stock-i/#time-o-n">Time: O(N)</a></li>
           
-            <li><a href="http://127.0.0.1:1111/Leetcode/buy-and-sell-stock-i/#space-o-n">Space: O(N)</a></li>
-          
-         </ul>
+        </li>
   
+          <li><a href="http://127.0.0.1:1111/Leetcode/buy-and-sell-stock-i/#time-o-n">Time: O(N)</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/buy-and-sell-stock-i/#space-o-1">Space: O(1)</a>
+          
         </li>
   
           <li><a href="http://127.0.0.1:1111/Leetcode/buy-and-sell-stock-i/#solutions">Solutions</a>
-          <ul>        
-            
-            <li><a href="http://127.0.0.1:1111/Leetcode/buy-and-sell-stock-i/#python">Python</a></li>
           
-            <li><a href="http://127.0.0.1:1111/Leetcode/buy-and-sell-stock-i/#go">Go</a></li>
-          
-            <li><a href="http://127.0.0.1:1111/Leetcode/buy-and-sell-stock-i/#rust">Rust</a></li>
-          
-         </ul>
+        </li>
   
+          <li><a href="http://127.0.0.1:1111/Leetcode/buy-and-sell-stock-i/#python">Python</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/buy-and-sell-stock-i/#go">Go</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/buy-and-sell-stock-i/#rust">Rust</a>
+          
         </li>
   
       </ul>
   
 
   <article>
-    <h1 id="problem-link">Problem Link</h1>
+    <h2 id="problem-link">Problem Link</h2>
 <p><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/">https://leetcode.com/problems/best-time-to-buy-and-sell-stock/</a></p>
-<h1 id="how-to-solve">How to solve</h1>
-<h1 id="complexity-analysis">Complexity Analysis</h1>
+<h2 id="how-to-solve">How to solve</h2>
+<h2 id="complexity-analysis">Complexity Analysis</h2>
 <h2 id="time-o-n">Time: O(N)</h2>
-<h2 id="space-o-n">Space: O(N)</h2>
-<h1 id="solutions">Solutions</h1>
+<h2 id="space-o-1">Space: O(1)</h2>
+<h2 id="solutions">Solutions</h2>
 <h2 id="python">Python</h2>
 <pre style="background-color:#383838;">
-<span style="color:#e6e1dc;">minBuy = float(&quot;inf&quot;)
-maxProfit = 0
+<span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">maxProfit</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">prices</span><span style="color:#e6e1dc;">: List[</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">]) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">:
+    minBuy </span><span style="color:#cc7833;">= </span><span style="font-style:italic;color:#6e9cbe;">float</span><span style="color:#e6e1dc;">(</span><span style="color:#c1be91;">&quot;inf&quot;</span><span style="color:#e6e1dc;">)
+    maxProfit </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">0
 
-for price in prices:
-    minBuy = min(minBuy, price)
-    maxProfit = max(maxProfit, price - minBuy)
+    </span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">price </span><span style="color:#cc7833;">in </span><span style="color:#e6e1dc;">prices:
+        minBuy </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">min</span><span style="color:#e6e1dc;">(minBuy, price)
+        maxProfit </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">max</span><span style="color:#e6e1dc;">(maxProfit, price </span><span style="color:#cc7833;">- </span><span style="color:#e6e1dc;">minBuy)
 
-return maxProfit
+    </span><span style="color:#cc7833;">return </span><span style="color:#e6e1dc;">maxProfit
 </span></pre><h2 id="go">Go</h2>
 <pre style="background-color:#383838;">
-<span style="color:#e6e1dc;">func maxProfit(prices []int) int {
-    var minBuy int = math.MaxInt32
-    var maxProfit int = 0
-    
-    for _, price := range prices {
-        minBuy = Min(minBuy, price)
-        maxProfit = Max(maxProfit, price - minBuy)
+<span style="font-style:italic;color:#6e9cbe;">func </span><span style="color:#ffc66d;">maxProfit</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">prices </span><span style="color:#e6e1dc;">[]</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">) </span><span style="font-style:italic;color:#6e9cbe;">int </span><span style="color:#e6e1dc;">{
+    </span><span style="font-style:italic;color:#6e9cbe;">var </span><span style="color:#d0d0ff;">minBuy </span><span style="font-style:italic;color:#6e9cbe;">int </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> math.</span><span style="color:#d0d0ff;">MaxInt32
+    </span><span style="font-style:italic;color:#6e9cbe;">var </span><span style="color:#d0d0ff;">maxProfit </span><span style="font-style:italic;color:#6e9cbe;">int </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">0
+
+    </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">_</span><span style="color:#e6e1dc;">, </span><span style="color:#d0d0ff;">price </span><span style="color:#cc7833;">:= range</span><span style="color:#e6e1dc;"> prices {
+        minBuy </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">Min(minBuy, price)
+        maxProfit </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">Max(maxProfit, price </span><span style="color:#cc7833;">-</span><span style="color:#e6e1dc;"> minBuy)
     }
-    
-    return maxProfit
+
+    </span><span style="color:#cc7833;">return</span><span style="color:#e6e1dc;"> maxProfit
 }
 
-func Min(x, y int) int {
-    if x &lt; y {
-        return x
+</span><span style="font-style:italic;color:#6e9cbe;">func </span><span style="color:#ffc66d;">Min</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">x</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">y </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">) </span><span style="font-style:italic;color:#6e9cbe;">int </span><span style="color:#e6e1dc;">{
+    </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> x </span><span style="color:#cc7833;">&lt;</span><span style="color:#e6e1dc;"> y {
+        </span><span style="color:#cc7833;">return</span><span style="color:#e6e1dc;"> x
     }
-    return y
+    </span><span style="color:#cc7833;">return</span><span style="color:#e6e1dc;"> y
 }
 
-func Max(x, y int) int {
-    if x &gt; y {
-        return x
+</span><span style="font-style:italic;color:#6e9cbe;">func </span><span style="color:#ffc66d;">Max</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">x</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">y </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">) </span><span style="font-style:italic;color:#6e9cbe;">int </span><span style="color:#e6e1dc;">{
+    </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> x </span><span style="color:#cc7833;">&gt;</span><span style="color:#e6e1dc;"> y {
+        </span><span style="color:#cc7833;">return</span><span style="color:#e6e1dc;"> x
     }
-    return y
+    </span><span style="color:#cc7833;">return</span><span style="color:#e6e1dc;"> y
 }
 </span></pre><h2 id="rust">Rust</h2>
 <pre style="background-color:#383838;">
-<span style="color:#e6e1dc;">impl Solution {
-    pub fn max_profit(prices: Vec&lt;i32&gt;) -&gt; i32 {
-        let mut minBuy = std::i32::MAX;
-        let mut maxProfit = 0;
-        
-        for &amp;price in &amp;prices {
-            minBuy = std::cmp::min(minBuy, price);
-            maxProfit = std::cmp::max(maxProfit, price - minBuy);           
-        }
-        
-        maxProfit   
+<span style="color:#cc7833;">pub </span><span style="font-style:italic;color:#6e9cbe;">fn </span><span style="color:#ffc66d;">max_profit</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">prices</span><span style="color:#e6e1dc;">: Vec&lt;</span><span style="font-style:italic;color:#6e9cbe;">i32</span><span style="color:#e6e1dc;">&gt;) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">i32 </span><span style="color:#e6e1dc;">{
+    </span><span style="font-style:italic;color:#6e9cbe;">let </span><span style="color:#cc7833;">mut</span><span style="color:#e6e1dc;"> minBuy </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">std::i32::</span><span style="color:#6d9cbe;">MAX</span><span style="color:#e6e1dc;">;
+    </span><span style="font-style:italic;color:#6e9cbe;">let </span><span style="color:#cc7833;">mut</span><span style="color:#e6e1dc;"> maxProfit </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">;
+
+    </span><span style="color:#cc7833;">for &amp;</span><span style="color:#e6e1dc;">price </span><span style="color:#cc7833;">in &amp;</span><span style="color:#e6e1dc;">prices {
+        minBuy </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">std::cmp::min(minBuy, price);
+        maxProfit </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">std::cmp::max(maxProfit, price </span><span style="color:#cc7833;">-</span><span style="color:#e6e1dc;"> minBuy);
     }
+
+    maxProfit
 }
 </span></pre>
   </article>

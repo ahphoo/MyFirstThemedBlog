@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title> Algostructures | Contains Duplicate </title>     
+      <link rel="stylesheet" href="http://127.0.0.1:1111/main.css">
+    </head>
+
+    <body>
+      <nav>
+        <div id="subnav">
+          <form class="theme-selector">
+            <button type="button" id="theme-light-button" class="theme-button" onclick="enableTheme('light', true)">&#9706;</button>
+            <button type="button" id="theme-dark-button"  class="theme-button enabled" onclick="enableTheme('dark', true)">&#9705;</button>
+          </form>
+          <a href="/search">&#8981;</a>       
+        </div>
+
+      
+  <ul id="breadcrumbs">
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;">Algostructures</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;Leetcode&#x2F;">Leetcode</a>&nbsp;&#8594;&nbsp;</li> 
+    
+  </ul>
+  <h1>Contains Duplicate</h1><em></em> 
+
+      </nav>
+
+      <main>
+      
+  <div id="taxonomies">
+    
+      <date>10.05.2020</date>
+       
+
+    
+    
+    
+  </div>
+
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+  
+      <ul id="toc">
+        
+          <li><a href="http://127.0.0.1:1111/Leetcode/contains-duplicate/#problem-link">Problem Link</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/contains-duplicate/#how-to-solve">How to solve</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/contains-duplicate/#complexity-analysis">Complexity Analysis</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/contains-duplicate/#time-o-n">Time: O(N)</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/contains-duplicate/#space-o-n">Space: O(N)</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/contains-duplicate/#solutions">Solutions</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/contains-duplicate/#python">Python</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/contains-duplicate/#go">Go</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/contains-duplicate/#rust">Rust</a>
+          
+        </li>
+  
+      </ul>
+  
+
+  <article>
+    <h2 id="problem-link">Problem Link</h2>
+<p><a href="https://leetcode.com/problems/contains-duplicate/submissions/">https://leetcode.com/problems/contains-duplicate/submissions/</a></p>
+<h2 id="how-to-solve">How to solve</h2>
+<p>We iterate through the nums array and check if a number has been seen more than once. To remember numbers that we've already seen, we can store numbers in a hash set (python and rust) or a hash table (go). If we see a number that's already present in our hash set/hash table, we know that that number is a duplicate. If we iterate through all numbers without seeing a duplicate, that must mean all numbers in the nums array are distinct.</p>
+<h2 id="complexity-analysis">Complexity Analysis</h2>
+<h2 id="time-o-n">Time: O(N)</h2>
+<p>We have to check all <strong>N</strong> numbers in the nums array for duplicates.</p>
+<h2 id="space-o-n">Space: O(N)</h2>
+<p>In the worst case, all numbers are distinct, so we will insert all <strong>N</strong> elements into the hash set/ hash table.</p>
+<h2 id="solutions">Solutions</h2>
+<h2 id="python">Python</h2>
+<pre style="background-color:#383838;">
+<span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">containsDuplicate</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">nums</span><span style="color:#e6e1dc;">: List[</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">]) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">bool</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+    dups </span><span style="color:#cc7833;">= </span><span style="font-style:italic;color:#6e9cbe;">set</span><span style="color:#e6e1dc;">()</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">num </span><span style="color:#cc7833;">in </span><span style="color:#e6e1dc;">nums:</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">num </span><span style="color:#cc7833;">in </span><span style="color:#e6e1dc;">dups:</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">True</span><span style="color:#e6e1dc;">
+        dups.add(num)</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">False</span><span style="color:#e6e1dc;">
+</span></pre><h2 id="go">Go</h2>
+<pre style="background-color:#383838;">
+<span style="font-style:italic;color:#6e9cbe;">func </span><span style="color:#ffc66d;">containsDuplicate</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">nums </span><span style="color:#e6e1dc;">[]</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">) </span><span style="font-style:italic;color:#6e9cbe;">bool </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">set </span><span style="color:#cc7833;">:= </span><span style="color:#da4939;">make</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#6e9cbe;">map</span><span style="color:#e6e1dc;">[</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">]</span><span style="font-style:italic;color:#6e9cbe;">bool</span><span style="color:#e6e1dc;">)</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">_</span><span style="color:#e6e1dc;">, </span><span style="color:#d0d0ff;">num </span><span style="color:#cc7833;">:= range</span><span style="color:#e6e1dc;"> nums {</span><span style="color:#e6e1dc;">
+        </span><span style="color:#d0d0ff;">in_set </span><span style="color:#cc7833;">:=</span><span style="color:#e6e1dc;"> set[num]</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> in_set {</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">true</span><span style="color:#e6e1dc;">
+        }</span><span style="color:#e6e1dc;">
+        set[num] </span><span style="color:#cc7833;">= </span><span style="color:#6e9cbe;">true</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">false</span><span style="color:#e6e1dc;">
+}</span><span style="color:#e6e1dc;">
+</span></pre><h2 id="rust">Rust</h2>
+<pre style="background-color:#383838;">
+<span style="color:#cc7833;">use </span><span style="color:#e6e1dc;">std::collections::HashSet;</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+</span><span style="font-style:italic;color:#6e9cbe;">impl </span><span style="color:#e6e1dc;">Solution {</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">pub </span><span style="font-style:italic;color:#6e9cbe;">fn </span><span style="color:#ffc66d;">contains_duplicate</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">nums</span><span style="color:#e6e1dc;">: Vec&lt;</span><span style="font-style:italic;color:#6e9cbe;">i32</span><span style="color:#e6e1dc;">&gt;) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">bool </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+        </span><span style="font-style:italic;color:#6e9cbe;">let </span><span style="color:#cc7833;">mut</span><span style="color:#e6e1dc;"> set </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">HashSet::with_capacity(nums.</span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">());</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">for &amp;</span><span style="color:#e6e1dc;">num </span><span style="color:#cc7833;">in &amp;</span><span style="color:#e6e1dc;">nums {</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> set.</span><span style="color:#da4939;">contains</span><span style="color:#e6e1dc;">(</span><span style="color:#cc7833;">&amp;</span><span style="color:#e6e1dc;">num) {</span><span style="color:#e6e1dc;">
+                </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">true</span><span style="color:#e6e1dc;">;</span><span style="color:#e6e1dc;">
+            }</span><span style="color:#e6e1dc;">
+            set.</span><span style="color:#da4939;">insert</span><span style="color:#e6e1dc;">(num);</span><span style="color:#e6e1dc;">
+        }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+        </span><span style="color:#6e9cbe;">false</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+}</span><span style="color:#e6e1dc;">
+</span></pre>
+  </article>
+
+      </main>
+
+      <script type="text/javascript" src="http://127.0.0.1:1111/themes.js"></script>
+
+      <script>
+        function burger() {
+          var x = document.getElementById("bger");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+    <script src="/livereload.js?port=1024&amp;mindelay=10"></script></body>
+</html>

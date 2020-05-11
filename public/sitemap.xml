@@ -7,6 +7,18 @@
         </url>
     
         <url>
+            <loc>http://127.0.0.1:1111/EPI/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>http://127.0.0.1:1111/EPI/count-primes/</loc>
+            
+                <lastmod>2020-05-09</lastmod>
+            
+        </url>
+    
+        <url>
             <loc>http://127.0.0.1:1111/Leetcode/</loc>
             
         </url>
@@ -19,9 +31,23 @@
         </url>
     
         <url>
-            <loc>http://127.0.0.1:1111/Leetcode/count-primes/</loc>
+            <loc>http://127.0.0.1:1111/Leetcode/contains-duplicate/</loc>
             
-                <lastmod>2020-05-09</lastmod>
+                <lastmod>2020-05-10</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>http://127.0.0.1:1111/Leetcode/maximum-subarray/</loc>
+            
+                <lastmod>2020-05-10</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>http://127.0.0.1:1111/Leetcode/product-of-array-except-self/</loc>
+            
+                <lastmod>2020-05-10</lastmod>
             
         </url>
     
@@ -29,6 +55,18 @@
             <loc>http://127.0.0.1:1111/Leetcode/two-sum/</loc>
             
                 <lastmod>2020-05-09</lastmod>
+            
+        </url>
+    
+        <url>
+            <loc>http://127.0.0.1:1111/May Challenge/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>http://127.0.0.1:1111/May Challenge/find-the-town-judge/</loc>
+            
+                <lastmod>2020-05-10</lastmod>
             
         </url>
     
