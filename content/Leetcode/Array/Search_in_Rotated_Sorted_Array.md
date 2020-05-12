@@ -13,7 +13,7 @@ date=2020-05-11
 
 ## Time: O(log N)
 
-Binary search will find the minimum element in at most log N iterations.
+Binary search will find the minimum element in at most log N iterations, since it halves the search space every iteration.
 
 ## Space: O(1)
 
@@ -115,7 +115,7 @@ impl Solution {
                     hi = mid - 1;
                 }
             }
-        } 
+        }
         -1
     }
 }
