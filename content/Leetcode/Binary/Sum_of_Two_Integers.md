@@ -11,6 +11,8 @@ date=2020-05-12
 
 We xor `a` and `b` to get their sum without carries. We store the result in `a`. To find the carries, we do a bitwise `and`/`&` and leftshift by 1. We store this result in `b`. We repeat the above two steps until `b` is zero (we have no more bits to carry). Finally, we return `a`, which would then store the sum with carries.
 
+For Python, negative integers have an infinite number of ones. For example, if we add -1 and 1, we would carry 1 an infinite number of times. So we must limit the number of carries by checking if `a` exceeds the maximum positive value of a 32-bit integer. If `a` exceeds 2^31 - 1, we have to tell Python to interpret the number as a signed integer. We can do this by using the tilde ~ operator. However in Python, the ~ operator flips all the bits. To get around this, we flip 32 bits of `a` using a mask, then invoke the ~ operator.
+
 ## Complexity Analysis
 
 ## Time: O(N)
