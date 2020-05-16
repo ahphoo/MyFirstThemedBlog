@@ -9,11 +9,17 @@ date=2020-05-11
 
 ## How to solve
 
+Iterate through the first `N - 2` numbers, fixing each number as a possible first number in our triplet. At each iteration, we use two pointers, `lo` and `hi`. We initialize `lo` to point to the first number after `i`, and `hi` to point to the last number. Move both pointers inwards until you find two numbers that when summed with `i`, make a valid triplet.
+
 ## Complexity Analysis
 
-## Time: O(log N)
+## Time: O(N<sup>2</sup>)
 
-## Space: O(1)
+The outer for loop runs at least N - 2 times. In the worst case, the inner for-loop will have to run O(N) times.
+
+## Space: O(log N)
+
+nums.sort() uses log N space for function calls.
 
 ## Solutions
 
