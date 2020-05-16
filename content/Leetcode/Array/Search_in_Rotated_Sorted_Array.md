@@ -100,7 +100,7 @@ impl Solution {
             let mid = lo + (hi - lo) / 2;
             if nums[mid] == target {
                 return mid as i32;
-            } 
+            }
             else if nums[lo] <= nums[mid] {
                 if nums[lo] <= target && target < nums[mid] {
                     hi = mid - 1;
