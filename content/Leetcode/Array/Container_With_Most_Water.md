@@ -9,11 +9,13 @@ date=2020-05-11
 
 ## How to solve
 
+Note that the amount of water a container can hold is determined by the length of the shorter side. Using two pointers, we keep track of the maximum amount of water given pair of lines can hold. While the pointers have not crossed each other, we increment the pointer to the shorter line, in hope of finding a longer line to maximize the amount of water the container can hold.
+
 ## Complexity Analysis
 
 ## Time: O(N)
 
-We check all pairs of l, r, starting l from the leftmost line and r from the rightmost line. 
+We check all pairs of l, r, starting l from the leftmost line and r from the rightmost line.
 
 ## Space: O(1)
 
