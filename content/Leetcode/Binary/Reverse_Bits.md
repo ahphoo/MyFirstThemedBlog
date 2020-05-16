@@ -27,7 +27,7 @@ We save the results of our bit operations into `n`.
 
 ``` python
 def reverseBits(self, n: int) -> int:
-    n = (n & 0xFFFF0000) >> 16 | (n & 0x0000FFFF) << 16
+    n = n >> 16 | n << 16
     n = (n & 0xFF00FF00) >> 8  | (n & 0x00FF00FF) << 8
     n = (n & 0xF0F0F0F0) >> 4  | (n & 0x0F0F0F0F) << 4
     n = (n & 0xCCCCCCCC) >> 2  | (n & 0x33333333) << 2
@@ -51,5 +51,13 @@ func reverseBits(num uint32) uint32 {
 ## Rust
 
 ``` rust
-
+pub fn reverse_bits(num: u32) -> u32 {
+    let mut n = num;
+    n = n >> 16 | n << 16;
+    n = (n & 0xFF00FF00) >> 8  | (n & 0x00FF00FF) << 8;
+    n = (n & 0xF0F0F0F0) >> 4  | (n & 0x0F0F0F0F) << 4;
+    n = (n & 0xCCCCCCCC) >> 2  | (n & 0x33333333) << 2;
+    n = (n & 0xAAAAAAAA) >> 1  | (n & 0x55555555) << 1;
+    n
+}
 ```
