@@ -9,11 +9,30 @@ date=2020-05-17
 
 ## How to solve
 
+There is only one way to climb 1 stair (single step).
+
+There are two ways to climb 2 stairs,
+
+1. single step + single step
+2. double step
+
+Note that we can climb 3 stairs either by taking a single step after climbing 2 stairs, or a double step after climbing 1 stair. That is,
+
+Ways to climb 3 stairs = Ways to climb 2 stairs + Ways to climb 1 stair
+
+The same equation holds for finding the number of ways to climb N stairs.
+
+Ways to climb N stairs = Ways to climb N - 2 stairs + Ways to climb N - 1 stairs.
+
 ## Complexity Analysis
 
 ## Time: O(N)
 
+We calculate the ways we can climb 1, 2, ..., N stairs.
+
 ## Space: O(N)
+
+We allocate an array of size N to hold the number of ways we can climb 1, 2, ..., N stairs.
 
 ## Solutions
 
