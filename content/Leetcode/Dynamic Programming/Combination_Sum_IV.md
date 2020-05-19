@@ -9,7 +9,7 @@ date=2020-05-19
 
 ## How to solve
 
-Create a dp array of size target + 1. dp[i] represents the number of combinations of numbers in `nums` that add up to `i`. 
+Create a dp array of size target + 1. dp[i] represents the number of combinations of numbers in `nums` that add up to `i`.
 
 For every `i`, iterate through `nums` and add to dp[i] the number of combinations that add up to i - num (i.e. dp[i - num]).
 
