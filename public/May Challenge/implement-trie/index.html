@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title> Algostructures | Implement Trie </title>     
+      <link rel="stylesheet" href="http://127.0.0.1:1111/main.css">
+    </head>
+
+    <body>
+      <nav>
+        <div id="subnav">
+          <form class="theme-selector">
+            <button type="button" id="theme-light-button" class="theme-button" onclick="enableTheme('light', true)">&#9706;</button>
+            <button type="button" id="theme-dark-button"  class="theme-button enabled" onclick="enableTheme('dark', true)">&#9705;</button>
+          </form>
+          <a href="/search">&#8981;</a>       
+        </div>
+
+      
+  <ul id="breadcrumbs">
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;">Algostructures</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;May Challenge&#x2F;">May LeetCode Challenge</a>&nbsp;&#8594;&nbsp;</li> 
+    
+  </ul>
+  <h1>Implement Trie</h1><em></em> 
+
+      </nav>
+
+      <main>
+      
+  <div id="taxonomies">
+    
+      <date>14.05.2020</date>
+       
+
+    
+    
+    
+  </div>
+
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+  
+      <ul id="toc">
+        
+          <li><a href="http://127.0.0.1:1111/May Challenge/implement-trie/#problem-link">Problem Link</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/May Challenge/implement-trie/#how-to-solve">How to solve</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/May Challenge/implement-trie/#complexity-analysis">Complexity Analysis</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/May Challenge/implement-trie/#time">Time</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/May Challenge/implement-trie/#space">Space</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/May Challenge/implement-trie/#solutions">Solutions</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/May Challenge/implement-trie/#python">Python</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/May Challenge/implement-trie/#go">Go</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/May Challenge/implement-trie/#rust">Rust</a>
+          
+        </li>
+  
+      </ul>
+  
+
+  <article>
+    <h2 id="problem-link">Problem Link</h2>
+<p><a href="https://leetcode.com/problems/implement-trie-prefix-tree/">https://leetcode.com/problems/implement-trie-prefix-tree/</a></p>
+<h2 id="how-to-solve">How to solve</h2>
+<h2 id="complexity-analysis">Complexity Analysis</h2>
+<h2 id="time">Time</h2>
+<h2 id="space">Space</h2>
+<h2 id="solutions">Solutions</h2>
+<h2 id="python">Python</h2>
+<pre style="background-color:#383838;">
+<span style="font-style:italic;color:#3bc0f0;">class </span><span style="text-decoration:underline;color:#ffc66d;">TrieNode</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+    </span><span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#da4939;">__init__</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">):</span><span style="color:#e6e1dc;">
+        </span><span style="color:#d0d0ff;">self</span><span style="color:#e6e1dc;">.letters </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">{}</span><span style="color:#e6e1dc;">
+        </span><span style="color:#d0d0ff;">self</span><span style="color:#e6e1dc;">.isWord </span><span style="color:#cc7833;">= </span><span style="color:#6e9cbe;">False</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+</span><span style="font-style:italic;color:#3bc0f0;">class </span><span style="text-decoration:underline;color:#ffc66d;">Trie</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#da4939;">__init__</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">):</span><span style="color:#e6e1dc;">
+        </span><span style="color:#d0d0ff;">self</span><span style="color:#e6e1dc;">.root </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">TrieNode()</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">insert</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">word</span><span style="color:#e6e1dc;">: </span><span style="font-style:italic;color:#6e9cbe;">str</span><span style="color:#e6e1dc;">) -&gt; </span><span style="color:#6e9cbe;">None</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+        node </span><span style="color:#cc7833;">= </span><span style="color:#d0d0ff;">self</span><span style="color:#e6e1dc;">.root</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">ch </span><span style="color:#cc7833;">in </span><span style="color:#e6e1dc;">word:</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">ch </span><span style="color:#cc7833;">in </span><span style="color:#e6e1dc;">node.letters:</span><span style="color:#e6e1dc;">
+                node </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">node.letters[ch]</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">else</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+                node.letters[ch] </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">TrieNode()</span><span style="color:#e6e1dc;">
+                node </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">node.letters[ch]</span><span style="color:#e6e1dc;">
+        node.isWord </span><span style="color:#cc7833;">= </span><span style="color:#6e9cbe;">True</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">searchPrefix</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">prefix</span><span style="color:#e6e1dc;">: </span><span style="font-style:italic;color:#6e9cbe;">str</span><span style="color:#e6e1dc;">) -&gt; TrieNode:</span><span style="color:#e6e1dc;">
+        node </span><span style="color:#cc7833;">= </span><span style="color:#d0d0ff;">self</span><span style="color:#e6e1dc;">.root</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">ch </span><span style="color:#cc7833;">in </span><span style="color:#e6e1dc;">prefix:</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">ch </span><span style="color:#cc7833;">in </span><span style="color:#e6e1dc;">node.letters:</span><span style="color:#e6e1dc;">
+                node </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">node.letters[ch]</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">else</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+                </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">None</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">return </span><span style="color:#e6e1dc;">node</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">search</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">word</span><span style="color:#e6e1dc;">: </span><span style="font-style:italic;color:#6e9cbe;">str</span><span style="color:#e6e1dc;">) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">bool</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+        node </span><span style="color:#cc7833;">= </span><span style="color:#d0d0ff;">self</span><span style="color:#e6e1dc;">.searchPrefix(word)</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">node </span><span style="color:#cc7833;">and </span><span style="color:#e6e1dc;">node.isWord:</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">True</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">False</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">startsWith</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">prefix</span><span style="color:#e6e1dc;">: </span><span style="font-style:italic;color:#6e9cbe;">str</span><span style="color:#e6e1dc;">) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">bool</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+        node </span><span style="color:#cc7833;">= </span><span style="color:#d0d0ff;">self</span><span style="color:#e6e1dc;">.searchPrefix(prefix)</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">node:</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">True</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">False</span><span style="color:#e6e1dc;">
+</span></pre><h2 id="go">Go</h2>
+<pre style="background-color:#383838;">
+<span style="color:#e6e1dc;">
+</span></pre><h2 id="rust">Rust</h2>
+<pre style="background-color:#383838;">
+<span style="color:#e6e1dc;">
+</span></pre>
+  </article>
+
+      </main>
+
+      <script type="text/javascript" src="http://127.0.0.1:1111/themes.js"></script>
+
+      <script>
+        function burger() {
+          var x = document.getElementById("bger");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+    <script src="/livereload.js?port=1024&amp;mindelay=10"></script></body>
+</html>

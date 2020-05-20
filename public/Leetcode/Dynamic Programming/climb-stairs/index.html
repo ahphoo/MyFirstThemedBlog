@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title> Algostructures | Climbing Stairs </title>     
+      <link rel="stylesheet" href="http://127.0.0.1:1111/main.css">
+    </head>
+
+    <body>
+      <nav>
+        <div id="subnav">
+          <form class="theme-selector">
+            <button type="button" id="theme-light-button" class="theme-button" onclick="enableTheme('light', true)">&#9706;</button>
+            <button type="button" id="theme-dark-button"  class="theme-button enabled" onclick="enableTheme('dark', true)">&#9705;</button>
+          </form>
+          <a href="/search">&#8981;</a>       
+        </div>
+
+      
+  <ul id="breadcrumbs">
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;">Algostructures</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;Leetcode&#x2F;">Leetcode</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;Leetcode&#x2F;Dynamic Programming&#x2F;">Dynamic Programming</a>&nbsp;&#8594;&nbsp;</li> 
+    
+  </ul>
+  <h1>Climbing Stairs</h1><em></em> 
+
+      </nav>
+
+      <main>
+      
+  <div id="taxonomies">
+    
+      <date>17.05.2020</date>
+       
+
+    
+    
+    
+  </div>
+
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+  
+      <ul id="toc">
+        
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/climb-stairs/#problem-link">Problem Link</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/climb-stairs/#how-to-solve">How to solve</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/climb-stairs/#complexity-analysis">Complexity Analysis</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/climb-stairs/#time-o-n">Time: O(N)</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/climb-stairs/#space-o-n">Space: O(N)</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/climb-stairs/#solutions">Solutions</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/climb-stairs/#python">Python</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/climb-stairs/#go">Go</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/climb-stairs/#rust">Rust</a>
+          
+        </li>
+  
+      </ul>
+  
+
+  <article>
+    <h2 id="problem-link">Problem Link</h2>
+<p><a href="https://leetcode.com/problems/climbing-stairs/">https://leetcode.com/problems/climbing-stairs/</a></p>
+<h2 id="how-to-solve">How to solve</h2>
+<p>There is only one way to climb 1 stair (single step).</p>
+<p>There are two ways to climb 2 stairs,</p>
+<ol>
+<li>single step + single step</li>
+<li>double step</li>
+</ol>
+<p>Note that we can climb 3 stairs either by taking a single step after climbing 2 stairs, or a double step after climbing 1 stair. That is,</p>
+<p>Ways to climb 3 stairs = Ways to climb 2 stairs + Ways to climb 1 stair</p>
+<p>The same equation holds for finding the number of ways to climb N stairs.</p>
+<p>Ways to climb N stairs = Ways to climb N - 2 stairs + Ways to climb N - 1 stairs.</p>
+<h2 id="complexity-analysis">Complexity Analysis</h2>
+<h2 id="time-o-n">Time: O(N)</h2>
+<p>We calculate the ways we can climb 1, 2, ..., N stairs.</p>
+<h2 id="space-o-n">Space: O(N)</h2>
+<p>We allocate an array of size N to hold the number of ways we can climb 1, 2, ..., N stairs.</p>
+<h2 id="solutions">Solutions</h2>
+<h2 id="python">Python</h2>
+<pre style="background-color:#383838;">
+<span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">climbStairs</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">n</span><span style="color:#e6e1dc;">: </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">n </span><span style="color:#cc7833;">&lt;= </span><span style="color:#a5c261;">2</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">return </span><span style="color:#e6e1dc;">n</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    dp </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">[</span><span style="color:#a5c261;">0 </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">_ </span><span style="color:#cc7833;">in </span><span style="color:#da4939;">range</span><span style="color:#e6e1dc;">(n </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">)]</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    dp[</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">
+    dp[</span><span style="color:#a5c261;">2</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">2</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">i </span><span style="color:#cc7833;">in </span><span style="color:#da4939;">range</span><span style="color:#e6e1dc;">(</span><span style="color:#a5c261;">3</span><span style="color:#e6e1dc;">, </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(dp)):</span><span style="color:#e6e1dc;">
+        dp[i] </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">dp[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">2</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">+ </span><span style="color:#e6e1dc;">dp[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">return </span><span style="color:#e6e1dc;">dp[</span><span style="color:#cc7833;">-</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+</span></pre><h2 id="go">Go</h2>
+<pre style="background-color:#383838;">
+<span style="font-style:italic;color:#6e9cbe;">func </span><span style="color:#ffc66d;">climbStairs</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">n </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">) </span><span style="font-style:italic;color:#6e9cbe;">int </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> n </span><span style="color:#cc7833;">&lt;= </span><span style="color:#a5c261;">2 </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">return</span><span style="color:#e6e1dc;"> n</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">dp </span><span style="color:#cc7833;">:= </span><span style="color:#da4939;">make</span><span style="color:#e6e1dc;">([]</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">, n </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">)</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    dp[</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">
+    dp[</span><span style="color:#a5c261;">2</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">2</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">i </span><span style="color:#cc7833;">:= </span><span style="color:#a5c261;">3</span><span style="color:#e6e1dc;">; i </span><span style="color:#cc7833;">&lt;</span><span style="color:#e6e1dc;"> n </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">; i</span><span style="color:#cc7833;">++ </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+        dp[i] </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> dp[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">2</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">+</span><span style="color:#e6e1dc;"> dp[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">return</span><span style="color:#e6e1dc;"> dp[n]</span><span style="color:#e6e1dc;">
+}</span><span style="color:#e6e1dc;">
+</span></pre><h2 id="rust">Rust</h2>
+<pre style="background-color:#383838;">
+<span style="color:#cc7833;">pub </span><span style="font-style:italic;color:#6e9cbe;">fn </span><span style="color:#ffc66d;">climb_stairs</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">n</span><span style="color:#e6e1dc;">: </span><span style="font-style:italic;color:#6e9cbe;">i32</span><span style="color:#e6e1dc;">) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">i32 </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> n </span><span style="color:#cc7833;">&lt;= </span><span style="color:#a5c261;">2 </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">return</span><span style="color:#e6e1dc;"> n;</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="font-style:italic;color:#6e9cbe;">let </span><span style="color:#cc7833;">mut</span><span style="color:#e6e1dc;"> dp </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">vec![</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">; (n </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">) </span><span style="color:#cc7833;">as </span><span style="font-style:italic;color:#6e9cbe;">usize</span><span style="color:#e6e1dc;">];</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    dp[</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">;</span><span style="color:#e6e1dc;">
+    dp[</span><span style="color:#a5c261;">2</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">2</span><span style="color:#e6e1dc;">;</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for</span><span style="color:#e6e1dc;"> i </span><span style="color:#cc7833;">in </span><span style="color:#a5c261;">3</span><span style="color:#cc7833;">..</span><span style="color:#e6e1dc;">n </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1 </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+        dp[i </span><span style="color:#cc7833;">as </span><span style="font-style:italic;color:#6e9cbe;">usize</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> dp[(i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">2</span><span style="color:#e6e1dc;">) </span><span style="color:#cc7833;">as </span><span style="font-style:italic;color:#6e9cbe;">usize</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">+</span><span style="color:#e6e1dc;"> dp[(i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">) </span><span style="color:#cc7833;">as </span><span style="font-style:italic;color:#6e9cbe;">usize</span><span style="color:#e6e1dc;">];</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    dp[n </span><span style="color:#cc7833;">as </span><span style="font-style:italic;color:#6e9cbe;">usize</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+}</span><span style="color:#e6e1dc;">
+</span></pre>
+  </article>
+
+      </main>
+
+      <script type="text/javascript" src="http://127.0.0.1:1111/themes.js"></script>
+
+      <script>
+        function burger() {
+          var x = document.getElementById("bger");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+    <script src="/livereload.js?port=1024&amp;mindelay=10"></script></body>
+</html>

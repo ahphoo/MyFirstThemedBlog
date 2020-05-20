@@ -19,7 +19,7 @@ In the worst case, every other character of string `s` is a dictionary word.
 
 ## Space: O(max(M,N))
 
-Let N be the length of string `s`, and M the number of words in `wordDict`. We keep an array of size length `s` + 1 to keep track of words found. We also create a hashset of words in `wordDict`. 
+Let N be the length of string `s`, and M the number of words in `wordDict`. We keep an array of size length `s` + 1 to keep track of words found. We also create a hashset of words in `wordDict`.
 
 ## Solutions
 

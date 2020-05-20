@@ -9,6 +9,15 @@ date=2020-05-19
 
 ## How to solve
 
+### Table
+
+| Syntax      | Description |
+| ----------- | ----------- |
+| Header      | Title       |
+| Paragraph   | Text        |
+
+Every house, we decide if it is more profitable to rob the house or skip it.
+
 ## Complexity Analysis
 
 ## Time: O(N)

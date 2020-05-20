@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title> Algostructures | Longest Common Subsequence </title>     
+      <link rel="stylesheet" href="http://127.0.0.1:1111/main.css">
+    </head>
+
+    <body>
+      <nav>
+        <div id="subnav">
+          <form class="theme-selector">
+            <button type="button" id="theme-light-button" class="theme-button" onclick="enableTheme('light', true)">&#9706;</button>
+            <button type="button" id="theme-dark-button"  class="theme-button enabled" onclick="enableTheme('dark', true)">&#9705;</button>
+          </form>
+          <a href="/search">&#8981;</a>       
+        </div>
+
+      
+  <ul id="breadcrumbs">
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;">Algostructures</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;Leetcode&#x2F;">Leetcode</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;Leetcode&#x2F;Dynamic Programming&#x2F;">Dynamic Programming</a>&nbsp;&#8594;&nbsp;</li> 
+    
+  </ul>
+  <h1>Longest Common Subsequence</h1><em></em> 
+
+      </nav>
+
+      <main>
+      
+  <div id="taxonomies">
+    
+      <date>18.05.2020</date>
+       
+
+    
+      <ul>
+      
+        <li><a href="http://127.0.0.1:1111/authors/allan-phu/" >Allan Phu</a></li>
+      
+     </ul>
+    
+    
+    
+      <ul>
+      
+        <li><a href="http://127.0.0.1:1111/tags/dynamic-programming/" >#Dynamic Programming</a></li>
+      
+      </ul>
+    
+  </div>
+
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+  
+      <ul id="toc">
+        
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/longest-common-subsequence/#problem-link">Problem Link</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/longest-common-subsequence/#how-to-solve">How to solve</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/longest-common-subsequence/#complexity-analysis">Complexity Analysis</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/longest-common-subsequence/#time-o-text1-text2">Time: O(text1 * text2)</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/longest-common-subsequence/#space-o-text1-text2">Space: O(text1 * text2)</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/longest-common-subsequence/#solutions">Solutions</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/longest-common-subsequence/#python">Python</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/longest-common-subsequence/#go">Go</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/longest-common-subsequence/#rust">Rust</a>
+          
+        </li>
+  
+      </ul>
+  
+
+  <article>
+    <h2 id="problem-link">Problem Link</h2>
+<p><a href="https://leetcode.com/problems/longest-increasing-subsequence/">https://leetcode.com/problems/longest-increasing-subsequence/</a></p>
+<h2 id="how-to-solve">How to solve</h2>
+<p>Create a two-dimensional array of integers <code>dp</code>, where <code>dp[i][j]</code> represents the longest common subsequence between a substring of text1 from <code>0</code> to <code>i</code> and a substring of text2 from <code>0</code> to <code>j</code>. The length of the longest common subsequence of text1 and text2 is the last element in <code>dp</code>.</p>
+<h2 id="complexity-analysis">Complexity Analysis</h2>
+<h2 id="time-o-text1-text2">Time: O(text1 * text2)</h2>
+<p>For every character in text1, we check all substrings of text2.</p>
+<h2 id="space-o-text1-text2">Space: O(text1 * text2)</h2>
+<p>We have a two-dimensional dp array of size len(text1) * len(text2).</p>
+<h2 id="solutions">Solutions</h2>
+<h2 id="python">Python</h2>
+<pre style="background-color:#383838;">
+<span style="color:#e6e1dc;">rows </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(text1)</span><span style="color:#e6e1dc;">
+cols </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(text2)</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+dp </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">[[</span><span style="color:#a5c261;">0 </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">_ </span><span style="color:#cc7833;">in </span><span style="color:#da4939;">range</span><span style="color:#e6e1dc;">(cols </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">)] </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">_ </span><span style="color:#cc7833;">in </span><span style="color:#da4939;">range</span><span style="color:#e6e1dc;">(rows </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">)]</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+</span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">i </span><span style="color:#cc7833;">in </span><span style="color:#da4939;">range</span><span style="color:#e6e1dc;">(</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">, rows </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">):</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">j </span><span style="color:#cc7833;">in </span><span style="color:#da4939;">range</span><span style="color:#e6e1dc;">(</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">, cols </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">):</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">text1[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">== </span><span style="color:#e6e1dc;">text2[j </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">]:</span><span style="color:#e6e1dc;">
+            dp[i][j] </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">dp[i</span><span style="color:#cc7833;">-</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">][j</span><span style="color:#cc7833;">-</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">else</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+            dp[i][j] </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">max</span><span style="color:#e6e1dc;">(dp[i</span><span style="color:#cc7833;">-</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">][j], dp[i][j</span><span style="color:#cc7833;">-</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">])</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+</span><span style="color:#cc7833;">return </span><span style="color:#e6e1dc;">dp[</span><span style="color:#cc7833;">-</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">][</span><span style="color:#cc7833;">-</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+</span></pre><h2 id="go">Go</h2>
+<pre style="background-color:#383838;">
+<span style="font-style:italic;color:#6e9cbe;">func </span><span style="color:#ffc66d;">longestCommonSubsequence</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">text1 </span><span style="font-style:italic;color:#6e9cbe;">string</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">text2 </span><span style="font-style:italic;color:#6e9cbe;">string</span><span style="color:#e6e1dc;">) </span><span style="font-style:italic;color:#6e9cbe;">int </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">rows </span><span style="color:#cc7833;">:= </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(text1) </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">cols </span><span style="color:#cc7833;">:= </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(text2) </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">dp </span><span style="color:#cc7833;">:= </span><span style="color:#da4939;">make</span><span style="color:#e6e1dc;">([][]</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">, rows)</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">i </span><span style="color:#cc7833;">:= range</span><span style="color:#e6e1dc;"> dp {</span><span style="color:#e6e1dc;">
+        dp[i] </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">make</span><span style="color:#e6e1dc;">([]</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">, cols)</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">i </span><span style="color:#cc7833;">:= </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">; i </span><span style="color:#cc7833;">&lt;</span><span style="color:#e6e1dc;"> rows; i</span><span style="color:#cc7833;">++ </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">j </span><span style="color:#cc7833;">:= </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">; j </span><span style="color:#cc7833;">&lt;</span><span style="color:#e6e1dc;"> cols; j</span><span style="color:#cc7833;">++ </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> text1[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">==</span><span style="color:#e6e1dc;"> text2[j </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">] {</span><span style="color:#e6e1dc;">
+                dp[i][j] </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> dp[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">][j </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">
+            } </span><span style="color:#cc7833;">else if</span><span style="color:#e6e1dc;"> dp[i][j </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">&gt;</span><span style="color:#e6e1dc;"> dp[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">][j] {</span><span style="color:#e6e1dc;">
+                dp[i][j] </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> dp[i][j </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+            } </span><span style="color:#cc7833;">else </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+                dp[i][j] </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> dp[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">][j]</span><span style="color:#e6e1dc;">
+            }</span><span style="color:#e6e1dc;">
+        }</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">return</span><span style="color:#e6e1dc;"> dp[rows </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">][cols </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+}</span><span style="color:#e6e1dc;">
+</span></pre><h2 id="rust">Rust</h2>
+<pre style="background-color:#383838;">
+<span style="color:#cc7833;">pub </span><span style="font-style:italic;color:#6e9cbe;">fn </span><span style="color:#ffc66d;">longest_common_subsequence</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">text1</span><span style="color:#e6e1dc;">: String, </span><span style="font-style:italic;color:#fd971f;">text2</span><span style="color:#e6e1dc;">: String) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">i32 </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+    </span><span style="font-style:italic;color:#6e9cbe;">let</span><span style="color:#e6e1dc;"> rows </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> text1.</span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">() </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">;  </span><span style="color:#95815e;">// len() returns number of bytes in String, not necessarily</span><span style="color:#e6e1dc;">
+    </span><span style="font-style:italic;color:#6e9cbe;">let</span><span style="color:#e6e1dc;"> cols </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> text2.</span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">() </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">;  </span><span style="color:#95815e;">// the number of chars!</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="font-style:italic;color:#6e9cbe;">let </span><span style="color:#cc7833;">mut</span><span style="color:#e6e1dc;"> dp_row </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">vec![</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">; cols];</span><span style="color:#e6e1dc;">
+    </span><span style="font-style:italic;color:#6e9cbe;">let </span><span style="color:#cc7833;">mut</span><span style="color:#e6e1dc;"> dp </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">vec![dp_row; rows];</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="font-style:italic;color:#6e9cbe;">let</span><span style="color:#e6e1dc;"> txt1 </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> text1.</span><span style="color:#da4939;">as_bytes</span><span style="color:#e6e1dc;">(); </span><span style="color:#95815e;">// Convert to &amp;[u8] to index into String</span><span style="color:#e6e1dc;">
+    </span><span style="font-style:italic;color:#6e9cbe;">let</span><span style="color:#e6e1dc;"> txt2 </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> text2.</span><span style="color:#da4939;">as_bytes</span><span style="color:#e6e1dc;">();</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for</span><span style="color:#e6e1dc;"> i </span><span style="color:#cc7833;">in </span><span style="color:#a5c261;">1</span><span style="color:#cc7833;">..</span><span style="color:#e6e1dc;">rows {</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">for</span><span style="color:#e6e1dc;"> j </span><span style="color:#cc7833;">in </span><span style="color:#a5c261;">1</span><span style="color:#cc7833;">..</span><span style="color:#e6e1dc;">cols {</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> txt1[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">==</span><span style="color:#e6e1dc;"> txt2[j </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">] {</span><span style="color:#e6e1dc;">
+                dp[i][j] </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> dp[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">][j </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">;</span><span style="color:#e6e1dc;">
+            } </span><span style="color:#cc7833;">else if</span><span style="color:#e6e1dc;"> dp[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">][j] </span><span style="color:#cc7833;">&gt;</span><span style="color:#e6e1dc;"> dp[i][j </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">] {</span><span style="color:#e6e1dc;">
+                dp[i][j] </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> dp[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">][j];</span><span style="color:#e6e1dc;">
+            } </span><span style="color:#cc7833;">else </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+                dp[i][j] </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> dp[i][j </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">];</span><span style="color:#e6e1dc;">
+            }</span><span style="color:#e6e1dc;">
+        }</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+  </span><span style="color:#e6e1dc;">
+    dp[rows </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">][cols </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">as </span><span style="font-style:italic;color:#6e9cbe;">i32</span><span style="color:#e6e1dc;">
+}</span><span style="color:#e6e1dc;">
+</span></pre>
+  </article>
+
+      </main>
+
+      <script type="text/javascript" src="http://127.0.0.1:1111/themes.js"></script>
+
+      <script>
+        function burger() {
+          var x = document.getElementById("bger");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+    <script src="/livereload.js?port=1024&amp;mindelay=10"></script></body>
+</html>
