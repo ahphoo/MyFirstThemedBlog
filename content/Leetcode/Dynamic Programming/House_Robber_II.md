@@ -9,11 +9,33 @@ date=2020-05-19
 
 ## How to solve
 
+As with the problem House Robbers I, try to think of simpler cases first.
+
+If we only have 1 house to rob, we should just rob that house.
+
+If we have 2 houses to rob, we can't rob both houses, so we rob whichever house has the most money.
+
+If we have 3 houses to rob, we can only rob one house since the houses are arranged in circular order. If we try to rob two houses, both houses will be adjacent to each other. To prove this, try writing out all combinations of 2 from 3.
+
+If the number of houses is greater than 3, then the problem devolves into House Robbers I, but with one restriction. Given N houses, if we try to rob house 1 then we cannot also rob house N (because the houses are adjacent to each other when arranged circularly), and vice-versa.
+
+We can split up the problem into two subproblems:
+
+Find the maximum amount of money you can get by robbing houses 1 to N - 1
+
+Find the maximum amount of money you can get by robbing houses 2 to N
+
+The greater of the two amounts will be the answer.
+
 ## Complexity Analysis
 
 ## Time: O(N)
 
+We iterate over `nums` twice. The first time we calculate the maximum amount of money we can get by robbing houses `nums[0]` (i.e. the first house) to `nums[N - 2]`. We do the same thing the second time, except over houses `nums[1]` to `nums[N - 1]`.
+
 ## Space: O(1)
+
+We use temp variables to keep track of how much money we've obtained since the previous house (`one_house_ago`), and how much money we've obtained two houses ago (`two_houses_ago`).
 
 ## Solutions
 
