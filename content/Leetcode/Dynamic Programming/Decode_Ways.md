@@ -21,7 +21,11 @@ Hence, we get the recurrence,
 
 `# of ways to decode up to index i = # of ways to decode up to i - 1 + # of ways to decode up to i - 2`
 
-This relation should seem familiar. It's the fibonnaci sequence.
+This relation should seem familiar. It's the fibonnaci sequence, but with some extra conditions we have to check.
+
+First, if `s[i]` is the digit `0`, `s[i]` doesn't map to a letter. So the # of ways to decode `s` at index `i` is currently `0`.
+
+Second, if `s[i-1]s[i]` is not an integer between `10` and `26` inclusive, both digits cannot be decoded as a single letter. So we don't add any additional ways to decode `s` at index `i`.
 
 ## Complexity Analysis
 
