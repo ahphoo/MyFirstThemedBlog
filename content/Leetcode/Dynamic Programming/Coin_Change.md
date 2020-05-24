@@ -62,7 +62,7 @@ func coinChange(coins []int, amount int) int {
     last_coin_used := make([]int, amount + 1)
 
     for i := range num_coins {
-        num_coins[i] = math.MaxInt32
+        num_coins[i] = amount + 1
     }
 
     for i := range last_coin_used {
@@ -86,8 +86,8 @@ func coinChange(coins []int, amount int) int {
         ptr -= last_coin_used[ptr]
     }
 
-    if num_coins[len(num_coins) - 1] != math.MaxInt32 {
-        return num_coins[len(num_coins) - 1]
+    if num_coins[len(num_coins) - 1] != amount + 1 {
+        return num_coins[amount]
     }
     return -1
 }
@@ -98,14 +98,14 @@ func coinChange(coins []int, amount int) int {
 ``` rust
 pub fn coin_change(coins: Vec<i32>, amount: i32) -> i32 {
     let amount = amount as usize;
-    let mut num_coins = vec![std::i32::MAX; amount + 1];
+    let mut num_coins = vec![amount + 1; amount + 1];
     let mut last_coin_used = vec![std::i32::MIN; amount + 1];
     num_coins[0] = 0;
 
-    for coin in &coins {
-        let coin = *coin as usize;
+    for &coin in &coins {
+        let coin = coin as usize;
         for change in coin..amount + 1 {
-            if num_coins[change - coin] < std::i32::MAX && num_coins[change - coin] + 1 < num_coins[change] {
+            if num_coins[change - coin] + 1 < num_coins[change] {
                 last_coin_used[change] = coin as i32;
                 num_coins[change] = num_coins[change - coin] + 1;
             }
@@ -118,8 +118,8 @@ pub fn coin_change(coins: Vec<i32>, amount: i32) -> i32 {
         ptr -= last_coin_used[ptr] as usize;
     }
 
-    if num_coins[amount] != std::i32::MAX {
-        return num_coins[amount];
+    if num_coins[amount] != amount + 1 {
+        return num_coins[amount] as i32;
     }
     -1
 }
