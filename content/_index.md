@@ -12,6 +12,7 @@ I was inspired by [Rusty Algorithms](https://raymondsheng.github.io/) to create 
 * Data structures and Algorithm questions are sorted by topic on the left, as well as tagged.
 * Search for specific questions or answers on the search bar
 
+![alt text](https://img.devrant.com/devrant/rant/r_102813_Wx1Vb.jpg "Logo title")
 <!-- ## 6 steps build your knowledge base/docs repo
 
 1. Fork the repo 
