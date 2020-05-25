@@ -23,7 +23,7 @@ If we manage to iterate through all indices in `nums`, this means we were able t
 
 In the worst case, we have to iterate through all indices in the `nums` array.
 
-## Space O(1)
+## Space: O(1)
 
 We keep a temp variable to keep track of the maximum reacheable index.
 
