@@ -1,6 +1,10 @@
 +++
 title="Two Sum"
 date=2020-05-09
+
+[taxonomies]
+tags = ["Array"]
+authors = ["Allan Phu"]
 +++
 
 ## Problem Link

@@ -1,6 +1,10 @@
 +++
 title="Decode Ways"
 date=2020-05-21
+
+[taxonomies]
+tags = ["Dynamic Programming"]
+authors = ["Allan Phu"]
 +++
 
 ## Problem Link

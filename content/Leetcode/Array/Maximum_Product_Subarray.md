@@ -1,6 +1,10 @@
 +++
 title="Maximum Product Subarray"
 date=2020-05-11
+
+[taxonomies]
+tags = ["Array"]
+authors = ["Allan Phu"]
 +++
 
 ## Problem Link

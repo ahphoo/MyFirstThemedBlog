@@ -1,6 +1,10 @@
 +++
 title="Product of Array Except Self"
 date=2020-05-10
+
+[taxonomies]
+tags = ["Array"]
+authors = ["Allan Phu"]
 +++
 
 ## Problem Link

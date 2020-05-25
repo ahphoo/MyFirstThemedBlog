@@ -1,6 +1,10 @@
 +++
 title="Unique Paths"
 date=2020-05-23
+
+[taxonomies]
+tags = ["Dynamic Programming"]
+authors = ["Allan Phu"]
 +++
 
 ## Problem Link

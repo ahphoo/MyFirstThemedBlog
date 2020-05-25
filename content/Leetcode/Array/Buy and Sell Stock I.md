@@ -1,6 +1,10 @@
 +++
 title="Best Time to Buy and Sell Stock"
 date=2020-05-09
+
+[taxonomies]
+tags = ["Array"]
+authors = ["Allan Phu"]
 +++
 
 ## Problem Link

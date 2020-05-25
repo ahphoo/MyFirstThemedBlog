@@ -1,6 +1,10 @@
 +++
 title="Climbing Stairs"
 date=2020-05-17
+
+[taxonomies]
+tags = ["Dynamic Programming"]
+authors = ["Allan Phu"]
 +++
 
 ## Problem Link

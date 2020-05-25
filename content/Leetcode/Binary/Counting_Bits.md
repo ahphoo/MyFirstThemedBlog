@@ -1,6 +1,10 @@
 +++
 title="Counting Bits"
 date=2020-05-14
+
+[taxonomies]
+tags = ["Binary"]
+authors = ["Allan Phu"]
 +++
 
 ## Problem Link

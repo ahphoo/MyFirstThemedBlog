@@ -1,6 +1,10 @@
 +++
 title="Sum of Two Integers"
 date=2020-05-12
+
+[taxonomies]
+tags = ["Binary"]
+authors = ["Allan Phu"]
 +++
 
 ## Problem Link

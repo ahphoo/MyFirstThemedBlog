@@ -1,6 +1,10 @@
 +++
 title="Word Break"
 date=2020-05-18
+
+[taxonomies]
+tags = ["Dynamic Programming"]
+authors = ["Allan Phu"]
 +++
 
 ## Problem Link

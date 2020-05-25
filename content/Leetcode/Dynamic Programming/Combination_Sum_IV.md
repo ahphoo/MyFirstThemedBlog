@@ -1,6 +1,10 @@
 +++
 title="Combination Sum IV"
 date=2020-05-19
+
+[taxonomies]
+tags = ["Dynamic Programming"]
+authors = ["Allan Phu"]
 +++
 
 ## Problem Link
