@@ -78,7 +78,79 @@ def cloneGraph(self, node: 'Node') -> 'Node':
 ## Go
 
 ``` go
+func cloneGraph(node *Node) *Node {
+    //DFS Solution
+    if node == nil {
+        return nil;
+    }
 
+    new_node := new(Node)
+    new_node.Val = node.Val
+    new_node.Neighbors = make([]*Node, 0)
+
+    visited := make(map[*Node]*Node)
+    visited[node] = new_node
+
+    stack := make([]*Node, 0)
+    stack = append(stack, node)
+
+    for len(stack) > 0 {
+        old_node := stack[len(stack) - 1]
+        stack = stack[:len(stack) - 1]
+
+        for _, neighbor := range old_node.Neighbors {
+            if _, exists := visited[neighbor]; exists {
+                visited[old_node].Neighbors = append(visited[old_node].Neighbors, visited[neighbor])
+            } else {
+                visited[neighbor] = new(Node)
+                visited[neighbor].Val = neighbor.Val
+                visited[neighbor].Neighbors = make([]*Node, 0)
+                visited[old_node].Neighbors = append(visited[old_node].Neighbors, visited[neighbor])
+                stack = append(stack, neighbor)
+            }
+        }
+    }
+
+    return new_node
+}
+```
+
+``` go
+func cloneGraph(node *Node) *Node {
+    // BFS Solution
+    if node == nil {
+        return nil;
+    }
+
+    new_node := new(Node)
+    new_node.Val = node.Val
+    new_node.Neighbors = make([]*Node, 0)
+
+    visited := make(map[*Node]*Node)
+    visited[node] = new_node
+
+    queue := make([]*Node, 0)
+    queue = append(queue, node)
+
+    for len(queue) > 0 {
+        old_node := queue[0]
+        queue = queue[1:]
+
+        for _, neighbor := range old_node.Neighbors {
+            if _, exists := visited[neighbor]; exists {
+                visited[old_node].Neighbors = append(visited[old_node].Neighbors, visited[neighbor])
+            } else {
+                visited[neighbor] = new(Node)
+                visited[neighbor].Val = neighbor.Val
+                visited[neighbor].Neighbors = make([]*Node, 0)
+                visited[old_node].Neighbors = append(visited[old_node].Neighbors, visited[neighbor])
+                queue = append(queue, neighbor)
+            }
+        }
+    }
+
+    return new_node
+}
 ```
 
 ## Rust
