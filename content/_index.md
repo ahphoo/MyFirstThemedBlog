@@ -14,7 +14,9 @@ I was inspired by [Rusty Algorithms](https://raymondsheng.github.io/) to create 
 
 ![alt text](https://img.devrant.com/devrant/rant/r_102813_Wx1Vb.jpg "Logo title")
 
-{{ youtube(id="dQw4w9WgXcQ") }}
+{{ youtube(id="dQw4w9WgXcQ", autoplay=true) }}
+
+<!-- {{ youtube(id="dQw4w9WgXcQ") }} -->
 <!-- ## 6 steps build your knowledge base/docs repo
 
 1. Fork the repo 
