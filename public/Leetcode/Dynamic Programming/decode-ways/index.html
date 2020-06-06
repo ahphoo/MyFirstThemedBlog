@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title> Algostructures | Decode Ways </title>     
+      <link rel="stylesheet" href="http://127.0.0.1:1111/main.css">
+    </head>
+
+    <body>
+      <nav>
+        <div id="subnav">
+          <form class="theme-selector">
+            <button type="button" id="theme-light-button" class="theme-button" onclick="enableTheme('light', true)">&#9706;</button>
+            <button type="button" id="theme-dark-button"  class="theme-button enabled" onclick="enableTheme('dark', true)">&#9705;</button>
+          </form>
+          <a href="/search">&#8981;</a>       
+        </div>
+
+      
+  <ul id="breadcrumbs">
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;">Algostructures</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;Leetcode&#x2F;">Leetcode</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;Leetcode&#x2F;Dynamic Programming&#x2F;">Dynamic Programming</a>&nbsp;&#8594;&nbsp;</li> 
+    
+  </ul>
+  <h1>Decode Ways</h1><em></em> 
+
+      </nav>
+
+      <main>
+      
+  <div id="taxonomies">
+    
+      <date>21.05.2020</date>
+       
+
+    
+      <ul>
+      
+        <li><a href="http://127.0.0.1:1111/authors/allan-phu/" >Allan Phu</a></li>
+      
+     </ul>
+    
+    
+    
+      <ul>
+      
+        <li><a href="http://127.0.0.1:1111/tags/dynamic-programming/" >#Dynamic Programming</a></li>
+      
+      </ul>
+    
+  </div>
+
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+  
+      <ul id="toc">
+        
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/decode-ways/#problem-link">Problem Link</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/decode-ways/#how-to-solve">How to solve</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/decode-ways/#complexity-analysis">Complexity Analysis</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/decode-ways/#time-o-n">Time: O(N)</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/decode-ways/#space-o-n">Space: O(N)</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/decode-ways/#solutions">Solutions</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/decode-ways/#python">Python</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/decode-ways/#go">Go</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/decode-ways/#rust">Rust</a>
+          
+        </li>
+  
+      </ul>
+  
+
+  <article>
+    <h2 id="problem-link">Problem Link</h2>
+<p><a href="https://leetcode.com/problems/decode-ways/">https://leetcode.com/problems/decode-ways/</a></p>
+<h2 id="how-to-solve">How to solve</h2>
+<p>To make things simpler, let's start with the case where <code>s</code> is a string of length <code>1</code>. There is only one way to decode <code>s</code>, which is to interpret it as a single character if <code>s[0]</code> is between <code>1</code> and <code>9</code> inclusive. We can't decode <code>s</code> if <code>s[0]</code> is <code>0</code> because letters are mapped starting from <code>A -&gt; 1</code> to <code>Z -&gt; 26</code>. Hence, there is at most <code>1</code> way to decode <code>s</code>.</p>
+<p>When <code>s</code> is of length <code>2</code>, we can decode each character individually the same way as we did when <code>s</code> was of length <code>1</code>. Also, we can check if decoding both numbers together yields a valid letter. Specifically, if the integer formed by concatenating <code>s[0]</code> and <code>s[1]</code> is between <code>10</code> and <code>26</code> inclusive, we can decode them as a single letter. Hence, there are at most <code>2</code> ways to decode <code>s</code>.</p>
+<p>When <code>s</code> is of length <code>3</code>, we repeat the above steps to decode <code>s</code>. Note that we aren't adding any new ways to decode <code>s</code> if we decode each integer in <code>s</code> as individual letters. Suppose we check if we can decode <code>s[1]s[2]</code> as a single letter. If the sum can be intepreted as a single letter, then we need to know how many ways there are to interpret the first integer <code>s[0]</code> (could be 0 or 1). Hence, there are at most <code>3</code> ways to decode <code>s</code>.</p>
+<p>When <code>s</code> is of length <code>4</code>, we aren't adding any new ways to decode <code>s</code> if we interpret each individual digit as a letter. But if we interpret <code>s[2]s[3]</code> as a single letter, we need to know how many ways there are to intepret <code>s</code> up to index <code>1</code> (could be 0, 1, or 2).</p>
+<p>Hence, we get the recurrence,</p>
+<p><code># of ways to decode up to index i = # of ways to decode up to i - 1 + # of ways to decode up to i - 2</code></p>
+<p>This relation should seem familiar. It's the fibonnaci sequence, but with some extra conditions we have to check.</p>
+<p>First, if <code>s[i]</code> is the digit <code>0</code>, <code>s[i]</code> doesn't map to a letter. So the # of ways to decode <code>s</code> at index <code>i</code> is currently <code>0</code>.</p>
+<p>Second, if <code>s[i-1]s[i]</code> is not an integer between <code>10</code> and <code>26</code> inclusive, both digits cannot be decoded as a single letter. So we don't add any additional ways to decode <code>s</code> at index <code>i</code>.</p>
+<h2 id="complexity-analysis">Complexity Analysis</h2>
+<h2 id="time-o-n">Time: O(N)</h2>
+<p>We iterate through all digits in <code>s</code> once.</p>
+<h2 id="space-o-n">Space: O(N)</h2>
+<p>We need to remember the number of ways to decode <code>s</code> at each index. We create a dp array with the same length as <code>s</code>.</p>
+<h2 id="solutions">Solutions</h2>
+<h2 id="python">Python</h2>
+<pre style="background-color:#383838;">
+<span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">numDecodings</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">s</span><span style="color:#e6e1dc;">: </span><span style="font-style:italic;color:#6e9cbe;">str</span><span style="color:#e6e1dc;">) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">if not </span><span style="color:#e6e1dc;">s:</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">return </span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    num_decode </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">[</span><span style="color:#a5c261;">0 </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">_ </span><span style="color:#cc7833;">in </span><span style="color:#da4939;">range</span><span style="color:#e6e1dc;">(</span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(s))]</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">s[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">!= </span><span style="color:#c1be91;">&quot;0&quot;</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+        num_decode[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">i </span><span style="color:#cc7833;">in </span><span style="color:#da4939;">range</span><span style="color:#e6e1dc;">(</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">, </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(s)):</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">s[i] </span><span style="color:#cc7833;">!= </span><span style="color:#c1be91;">&quot;0&quot;</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+            num_decode[i] </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">num_decode[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">if </span><span style="color:#a5c261;">10 </span><span style="color:#cc7833;">&lt;= </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">(s[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1 </span><span style="color:#e6e1dc;">: i </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">]) </span><span style="color:#cc7833;">&lt;= </span><span style="color:#a5c261;">26</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">i </span><span style="color:#cc7833;">== </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+                num_decode[i] </span><span style="color:#cc7833;">+= </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">else</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+                num_decode[i] </span><span style="color:#cc7833;">+= </span><span style="color:#e6e1dc;">num_decode[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">2</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">return </span><span style="color:#e6e1dc;">num_decode[</span><span style="color:#cc7833;">-</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+</span></pre><h2 id="go">Go</h2>
+<pre style="background-color:#383838;">
+<span style="font-style:italic;color:#6e9cbe;">func </span><span style="color:#ffc66d;">numDecodings</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">s </span><span style="font-style:italic;color:#6e9cbe;">string</span><span style="color:#e6e1dc;">) </span><span style="font-style:italic;color:#6e9cbe;">int </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">if </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(s) </span><span style="color:#cc7833;">== </span><span style="color:#a5c261;">0 </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">return </span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">num_decode </span><span style="color:#cc7833;">:= </span><span style="color:#da4939;">make</span><span style="color:#e6e1dc;">([]</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">, </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(s))</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> s[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">!= </span><span style="color:#a5c261;">&#39;0&#39; </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+        num_decode[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">i </span><span style="color:#cc7833;">:= </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">; i </span><span style="color:#cc7833;">&lt; </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(s); i</span><span style="color:#cc7833;">++ </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> s[i] </span><span style="color:#cc7833;">!= </span><span style="color:#a5c261;">&#39;0&#39; </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+            num_decode[i] </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> num_decode[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+        }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+        </span><span style="color:#d0d0ff;">num</span><span style="color:#e6e1dc;">, </span><span style="color:#d0d0ff;">_ </span><span style="color:#cc7833;">:=</span><span style="color:#e6e1dc;"> strconv.Atoi(s[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1 </span><span style="color:#e6e1dc;">: i </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">])</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> num </span><span style="color:#cc7833;">&gt;= </span><span style="color:#a5c261;">10 </span><span style="color:#cc7833;">&amp;&amp;</span><span style="color:#e6e1dc;"> num </span><span style="color:#cc7833;">&lt;= </span><span style="color:#a5c261;">26 </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> i </span><span style="color:#cc7833;">== </span><span style="color:#a5c261;">1 </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+                num_decode[i] </span><span style="color:#cc7833;">+= </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">
+            } </span><span style="color:#cc7833;">else </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+                num_decode[i] </span><span style="color:#cc7833;">+=</span><span style="color:#e6e1dc;"> num_decode[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">2</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+            }</span><span style="color:#e6e1dc;">
+        }</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">return</span><span style="color:#e6e1dc;"> num_decode[</span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(s) </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+}</span><span style="color:#e6e1dc;">
+</span></pre><h2 id="rust">Rust</h2>
+<pre style="background-color:#383838;">
+<span style="color:#cc7833;">pub </span><span style="font-style:italic;color:#6e9cbe;">fn </span><span style="color:#ffc66d;">num_decodings</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">s</span><span style="color:#e6e1dc;">: String) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">i32 </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> s.</span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">() </span><span style="color:#cc7833;">== </span><span style="color:#a5c261;">0 </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">return </span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">;</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="font-style:italic;color:#6e9cbe;">let </span><span style="color:#cc7833;">mut</span><span style="color:#e6e1dc;"> dp </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">vec![</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">; s.</span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">()];</span><span style="color:#e6e1dc;">
+    </span><span style="font-style:italic;color:#6e9cbe;">let</span><span style="color:#e6e1dc;"> b </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> s.</span><span style="color:#da4939;">as_bytes</span><span style="color:#e6e1dc;">();  </span><span style="color:#95815e;">// have to convert s to byte array because rust doesn&#39;t support char</span><span style="color:#e6e1dc;">
+                            </span><span style="color:#95815e;">// indexing</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> b[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">!= </span><span style="font-style:italic;color:#6e9cbe;">b</span><span style="color:#a5c261;">&#39;0&#39; </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+        dp[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">;</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+  </span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for</span><span style="color:#e6e1dc;"> i </span><span style="color:#cc7833;">in </span><span style="color:#a5c261;">1</span><span style="color:#cc7833;">..</span><span style="color:#e6e1dc;">s.</span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">() {</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> b[i] </span><span style="color:#cc7833;">!= </span><span style="font-style:italic;color:#6e9cbe;">b</span><span style="color:#a5c261;">&#39;0&#39; </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+            dp[i] </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> dp[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">];</span><span style="color:#e6e1dc;">
+        }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+        </span><span style="font-style:italic;color:#6e9cbe;">let</span><span style="color:#e6e1dc;"> num </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">(b[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">- </span><span style="font-style:italic;color:#6e9cbe;">b</span><span style="color:#a5c261;">&#39;0&#39;</span><span style="color:#e6e1dc;">) </span><span style="color:#cc7833;">* </span><span style="color:#a5c261;">10 </span><span style="color:#cc7833;">+ </span><span style="color:#e6e1dc;">(b[i] </span><span style="color:#cc7833;">- </span><span style="font-style:italic;color:#6e9cbe;">b</span><span style="color:#a5c261;">&#39;0&#39;</span><span style="color:#e6e1dc;">);</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> num </span><span style="color:#cc7833;">&gt;= </span><span style="color:#a5c261;">10 </span><span style="color:#cc7833;">&amp;&amp;</span><span style="color:#e6e1dc;"> num </span><span style="color:#cc7833;">&lt;= </span><span style="color:#a5c261;">26 </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> i </span><span style="color:#cc7833;">== </span><span style="color:#a5c261;">1 </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+                dp[i] </span><span style="color:#cc7833;">+= </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">;</span><span style="color:#e6e1dc;">
+            } </span><span style="color:#cc7833;">else </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+                dp[i] </span><span style="color:#cc7833;">+=</span><span style="color:#e6e1dc;"> dp[i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">2</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+            }</span><span style="color:#e6e1dc;">
+        }</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    dp[s.</span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">() </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+}</span><span style="color:#e6e1dc;">
+</span></pre>
+  </article>
+
+      </main>
+
+      <script type="text/javascript" src="http://127.0.0.1:1111/themes.js"></script>
+
+      <script>
+        function burger() {
+          var x = document.getElementById("bger");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+    <script src="/livereload.js?port=1024&amp;mindelay=10"></script></body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title> Algostructures | Maximum Subarray </title>     
+      <link rel="stylesheet" href="http://127.0.0.1:1111/main.css">
+    </head>
+
+    <body>
+      <nav>
+        <div id="subnav">
+          <form class="theme-selector">
+            <button type="button" id="theme-light-button" class="theme-button" onclick="enableTheme('light', true)">&#9706;</button>
+            <button type="button" id="theme-dark-button"  class="theme-button enabled" onclick="enableTheme('dark', true)">&#9705;</button>
+          </form>
+          <a href="/search">&#8981;</a>       
+        </div>
+
+      
+  <ul id="breadcrumbs">
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;">Algostructures</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;Leetcode&#x2F;">Leetcode</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;Leetcode&#x2F;Array&#x2F;">Array</a>&nbsp;&#8594;&nbsp;</li> 
+    
+  </ul>
+  <h1>Maximum Subarray</h1><em></em> 
+
+      </nav>
+
+      <main>
+      
+  <div id="taxonomies">
+    
+      <date>10.05.2020</date>
+       
+
+    
+      <ul>
+      
+        <li><a href="http://127.0.0.1:1111/authors/allan-phu/" >Allan Phu</a></li>
+      
+     </ul>
+    
+    
+    
+      <ul>
+      
+        <li><a href="http://127.0.0.1:1111/tags/array/" >#Array</a></li>
+      
+      </ul>
+    
+  </div>
+
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+  
+      <ul id="toc">
+        
+          <li><a href="http://127.0.0.1:1111/Leetcode/Array/maximum-subarray/#problem-link">Problem Link</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Array/maximum-subarray/#how-to-solve">How to solve</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Array/maximum-subarray/#complexity-analysis">Complexity Analysis</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Array/maximum-subarray/#time-o-n">Time: O(N)</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Array/maximum-subarray/#space-o-1">Space: O(1)</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Array/maximum-subarray/#solutions">Solutions</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Array/maximum-subarray/#python">Python</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Array/maximum-subarray/#go">Go</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Array/maximum-subarray/#rust">Rust</a>
+          
+        </li>
+  
+      </ul>
+  
+
+  <article>
+    <h2 id="problem-link">Problem Link</h2>
+<p><a href="https://leetcode.com/problems/maximum-subarray/">https://leetcode.com/problems/maximum-subarray/</a></p>
+<h2 id="how-to-solve">How to solve</h2>
+<p>We want to find the contiguous subarray with the largest sum. First, we create two variables to keep track of the current sum and the maximum sum, initializing both of them to <code>nums[0]</code>. We iterate through the nums array starting at index 1. For each number <code>num</code> in the nums array, we decide whether to include <code>num</code> in our current subarray sum or to reset the current subarray sum to be <code>num</code>. That is, we take the max of <code>num</code> plus the current sum, or <code>num</code>. Next, we update the maximum sum, taking the max of maximum sum and current sum. After iterating through all numbers in the nums array, we return the maximum sum.</p>
+<h2 id="complexity-analysis">Complexity Analysis</h2>
+<h2 id="time-o-n">Time: O(N)</h2>
+<p>We iterate through <strong>N - 1</strong> elements, calculating the current sum and maximum sum at each step.</p>
+<h2 id="space-o-1">Space: O(1)</h2>
+<p>We have two variables that keep track of the current sum and the maximum sum at each step.</p>
+<h2 id="solutions">Solutions</h2>
+<h2 id="python">Python</h2>
+<pre style="background-color:#383838;">
+<span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">maxSubArray</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">nums</span><span style="color:#e6e1dc;">: List[</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">]) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+    cur_sum </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">nums[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+    max_sum </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">nums[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">i </span><span style="color:#cc7833;">in </span><span style="color:#da4939;">range</span><span style="color:#e6e1dc;">(</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">, </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(nums)):</span><span style="color:#e6e1dc;">
+        cur_sum </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">max</span><span style="color:#e6e1dc;">(cur_sum </span><span style="color:#cc7833;">+ </span><span style="color:#e6e1dc;">nums[i], nums[i])</span><span style="color:#e6e1dc;">
+        max_sum </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">max</span><span style="color:#e6e1dc;">(max_sum, cur_sum)</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">return </span><span style="color:#e6e1dc;">max_sum</span><span style="color:#e6e1dc;">
+</span></pre><h2 id="go">Go</h2>
+<pre style="background-color:#383838;">
+<span style="font-style:italic;color:#6e9cbe;">func </span><span style="color:#ffc66d;">maxSubArray</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">nums </span><span style="color:#e6e1dc;">[]</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">) </span><span style="font-style:italic;color:#6e9cbe;">int </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">cur_sum </span><span style="color:#cc7833;">:=</span><span style="color:#e6e1dc;"> nums[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">max_sum </span><span style="color:#cc7833;">:=</span><span style="color:#e6e1dc;"> nums[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">i </span><span style="color:#cc7833;">:= </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">; i </span><span style="color:#cc7833;">&lt; </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(nums); i</span><span style="color:#cc7833;">++ </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+        cur_sum </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">Max(cur_sum </span><span style="color:#cc7833;">+</span><span style="color:#e6e1dc;"> nums[i], nums[i])</span><span style="color:#e6e1dc;">
+        max_sum </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">Max(max_sum, cur_sum)</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">return</span><span style="color:#e6e1dc;"> max_sum</span><span style="color:#e6e1dc;">
+}</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+</span><span style="font-style:italic;color:#6e9cbe;">func </span><span style="color:#ffc66d;">Max</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">x</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">y </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">) </span><span style="font-style:italic;color:#6e9cbe;">int </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> x </span><span style="color:#cc7833;">&gt;</span><span style="color:#e6e1dc;"> y {</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">return</span><span style="color:#e6e1dc;"> x</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">return</span><span style="color:#e6e1dc;"> y</span><span style="color:#e6e1dc;">
+}</span><span style="color:#e6e1dc;">
+</span></pre><h2 id="rust">Rust</h2>
+<pre style="background-color:#383838;">
+<span style="color:#cc7833;">use </span><span style="color:#e6e1dc;">std::cmp::max;</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+</span><span style="font-style:italic;color:#6e9cbe;">impl </span><span style="color:#e6e1dc;">Solution {</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">pub </span><span style="font-style:italic;color:#6e9cbe;">fn </span><span style="color:#ffc66d;">max_sub_array</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">nums</span><span style="color:#e6e1dc;">: Vec&lt;</span><span style="font-style:italic;color:#6e9cbe;">i32</span><span style="color:#e6e1dc;">&gt;) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">i32 </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+        </span><span style="font-style:italic;color:#6e9cbe;">let </span><span style="color:#cc7833;">mut</span><span style="color:#e6e1dc;"> cur_sum: </span><span style="font-style:italic;color:#6e9cbe;">i32 </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> nums[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">];</span><span style="color:#e6e1dc;">
+        </span><span style="font-style:italic;color:#6e9cbe;">let </span><span style="color:#cc7833;">mut</span><span style="color:#e6e1dc;"> max_sum: </span><span style="font-style:italic;color:#6e9cbe;">i32 </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> nums[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">];</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">for</span><span style="color:#e6e1dc;"> i </span><span style="color:#cc7833;">in </span><span style="color:#a5c261;">1</span><span style="color:#cc7833;">..</span><span style="color:#e6e1dc;">nums.</span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">() {</span><span style="color:#e6e1dc;">
+            cur_sum </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">max</span><span style="color:#e6e1dc;">(cur_sum </span><span style="color:#cc7833;">+</span><span style="color:#e6e1dc;"> nums[i], nums[i]);</span><span style="color:#e6e1dc;">
+            max_sum </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">max</span><span style="color:#e6e1dc;">(max_sum, cur_sum);</span><span style="color:#e6e1dc;">
+        }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+        max_sum</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+}</span><span style="color:#e6e1dc;">
+</span></pre>
+  </article>
+
+      </main>
+
+      <script type="text/javascript" src="http://127.0.0.1:1111/themes.js"></script>
+
+      <script>
+        function burger() {
+          var x = document.getElementById("bger");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+    <script src="/livereload.js?port=1024&amp;mindelay=10"></script></body>
+</html>

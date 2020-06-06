@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title> Algostructures | Clone Graph </title>     
+      <link rel="stylesheet" href="http://127.0.0.1:1111/main.css">
+    </head>
+
+    <body>
+      <nav>
+        <div id="subnav">
+          <form class="theme-selector">
+            <button type="button" id="theme-light-button" class="theme-button" onclick="enableTheme('light', true)">&#9706;</button>
+            <button type="button" id="theme-dark-button"  class="theme-button enabled" onclick="enableTheme('dark', true)">&#9705;</button>
+          </form>
+          <a href="/search">&#8981;</a>       
+        </div>
+
+      
+  <ul id="breadcrumbs">
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;">Algostructures</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;Leetcode&#x2F;">Leetcode</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;Leetcode&#x2F;Graph&#x2F;">Graph</a>&nbsp;&#8594;&nbsp;</li> 
+    
+  </ul>
+  <h1>Clone Graph</h1><em></em> 
+
+      </nav>
+
+      <main>
+      
+  <div id="taxonomies">
+    
+      <date>25.05.2020</date>
+       
+
+    
+      <ul>
+      
+        <li><a href="http://127.0.0.1:1111/authors/allan-phu/" >Allan Phu</a></li>
+      
+     </ul>
+    
+    
+    
+      <ul>
+      
+        <li><a href="http://127.0.0.1:1111/tags/graph/" >#Graph</a></li>
+      
+      </ul>
+    
+  </div>
+
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+  
+      <ul id="toc">
+        
+          <li><a href="http://127.0.0.1:1111/Leetcode/Graph/clone-graph/#problem-link">Problem Link</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Graph/clone-graph/#how-to-solve">How to solve</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Graph/clone-graph/#complexity-analysis">Complexity Analysis</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Graph/clone-graph/#time-o-v-e">Time: O(|V| + |E|)</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Graph/clone-graph/#space-o-v">Space: O(|V|)</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Graph/clone-graph/#solutions">Solutions</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Graph/clone-graph/#python">Python</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Graph/clone-graph/#go">Go</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Graph/clone-graph/#rust">Rust</a>
+          
+        </li>
+  
+      </ul>
+  
+
+  <article>
+    <h2 id="problem-link">Problem Link</h2>
+<p><a href="https://leetcode.com/problems/clone-graph/">https://leetcode.com/problems/clone-graph/</a></p>
+<h2 id="how-to-solve">How to solve</h2>
+<p>This problem can be solved recursively or iteratively (for now, the solutions posted below are iterative).</p>
+<p>To perform a deep clone of a graph, we must do two things:</p>
+<ol>
+<li>Create a deep clone (i.e. allocate memory for a Node on the heap) for each of the nodes in the input graph</li>
+<li>For each cloned node, ensure that it has the same neighbors as in the input graph.</li>
+</ol>
+<p>First, clone the input <code>node</code>. Create a hashmap (called <code>visited</code>) that maps the nodes in the input graph to their cloned counterparts. Map the input <code>node</code> to the cloned node. Next, create a stack/queue and append to it input node. We will use the stack/queue to keep track of which nodes that still need their neighbor list populated.</p>
+<p>While the stack/queue is not empty, perform the following steps:</p>
+<ol>
+<li>Pop/Deque the node from stack/queue</li>
+<li>For each neighbor of node:</li>
+<li>Check if neighbor has been cloned
+<ol>
+<li>If so, append cloned neighbor to list of neighbors for the cloned node</li>
+<li>Else, create a clone of neighbor and add a pair (neighbor, cloned neighbor) to the hashmap. Then append the cloned neighbor to the list of neighbors for the cloned node</li>
+</ol>
+</li>
+<li>Return the cloned input node.</li>
+</ol>
+<h2 id="complexity-analysis">Complexity Analysis</h2>
+<h2 id="time-o-v-e">Time: O(|V| + |E|)</h2>
+<p>We clone every node in the original input graph. For every node, we check all of it's neighbors and append the cloned neighbors to the cloned node's neighbor list.</p>
+<h2 id="space-o-v">Space: O(|V|)</h2>
+<p>For depth-first-search or breadth-first-search, we maintain a stack or heap that holds the unprocessed nodes in the input graph. In the worst case, a node might be connected to every other node (i.e. have <code>|V| - 1</code> neighbors).</p>
+<h2 id="solutions">Solutions</h2>
+<h2 id="python">Python</h2>
+<pre style="background-color:#383838;">
+<span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">cloneGraph</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">node</span><span style="color:#e6e1dc;">: </span><span style="color:#a5c261;">&#39;Node&#39;</span><span style="color:#e6e1dc;">) -&gt; </span><span style="color:#a5c261;">&#39;Node&#39;</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+    </span><span style="color:#95815e;"># DFS solution</span><span style="color:#95815e;">
+    </span><span style="color:#cc7833;">if not </span><span style="color:#e6e1dc;">node:</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">None</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    new_node </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">Node(node.val)</span><span style="color:#e6e1dc;">
+    visited </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">{}</span><span style="color:#e6e1dc;">
+    visited[node] </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">new_node</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    stack </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">[node]</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">while </span><span style="color:#e6e1dc;">stack:</span><span style="color:#e6e1dc;">
+        old_node </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">stack.pop()</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">neighbor </span><span style="color:#cc7833;">in </span><span style="color:#e6e1dc;">old_node.neighbors:</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">neighbor </span><span style="color:#cc7833;">in </span><span style="color:#e6e1dc;">visited:</span><span style="color:#e6e1dc;">
+                visited[old_node].neighbors.append(visited[neighbor])</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">else</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+                visited[neighbor] </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">Node(neighbor.val)</span><span style="color:#e6e1dc;">
+                stack.append(neighbor)</span><span style="color:#e6e1dc;">
+                visited[old_node].neighbors.append(visited[neighbor])</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">return </span><span style="color:#e6e1dc;">new_node</span><span style="color:#e6e1dc;">
+</span></pre><pre style="background-color:#383838;">
+<span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">cloneGraph</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">node</span><span style="color:#e6e1dc;">: </span><span style="color:#a5c261;">&#39;Node&#39;</span><span style="color:#e6e1dc;">) -&gt; </span><span style="color:#a5c261;">&#39;Node&#39;</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+    </span><span style="color:#95815e;"># BFS solution</span><span style="color:#95815e;">
+    </span><span style="color:#cc7833;">if not </span><span style="color:#e6e1dc;">node:</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">None</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    new_node </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">Node(node.val)</span><span style="color:#e6e1dc;">
+    visited </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">{}</span><span style="color:#e6e1dc;">
+    visited[node] </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">new_node</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    queue </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">deque([node])</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">while </span><span style="color:#e6e1dc;">queue:</span><span style="color:#e6e1dc;">
+        old_node </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">queue.popleft()</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">neighbor </span><span style="color:#cc7833;">in </span><span style="color:#e6e1dc;">old_node.neighbors:</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">neighbor </span><span style="color:#cc7833;">in </span><span style="color:#e6e1dc;">visited:</span><span style="color:#e6e1dc;">
+                visited[old_node].neighbors.append(visited[neighbor])</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">else</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+                visited[neighbor] </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">Node(neighbor.val)</span><span style="color:#e6e1dc;">
+                queue.append(neighbor)</span><span style="color:#e6e1dc;">
+                visited[old_node].neighbors.append(visited[neighbor])</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">return </span><span style="color:#e6e1dc;">new_node</span><span style="color:#e6e1dc;">
+</span></pre><h2 id="go">Go</h2>
+<pre style="background-color:#383838;">
+<span style="font-style:italic;color:#6e9cbe;">func </span><span style="color:#ffc66d;">cloneGraph</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">node </span><span style="color:#cc7833;">*</span><span style="color:#e6e1dc;">Node) </span><span style="color:#cc7833;">*</span><span style="color:#e6e1dc;">Node {</span><span style="color:#e6e1dc;">
+    </span><span style="color:#95815e;">//DFS Solution</span><span style="color:#95815e;">
+    </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> node </span><span style="color:#cc7833;">== </span><span style="color:#6e9cbe;">nil </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">nil</span><span style="color:#e6e1dc;">;</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">new_node </span><span style="color:#cc7833;">:= </span><span style="color:#da4939;">new</span><span style="color:#e6e1dc;">(Node)</span><span style="color:#e6e1dc;">
+    new_node.</span><span style="color:#d0d0ff;">Val </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> node.</span><span style="color:#d0d0ff;">Val</span><span style="color:#e6e1dc;">
+    new_node.</span><span style="color:#d0d0ff;">Neighbors </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">make</span><span style="color:#e6e1dc;">([]</span><span style="color:#cc7833;">*</span><span style="color:#e6e1dc;">Node, </span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">)</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">visited </span><span style="color:#cc7833;">:= </span><span style="color:#da4939;">make</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#6e9cbe;">map</span><span style="color:#e6e1dc;">[*Node]</span><span style="color:#cc7833;">*</span><span style="color:#e6e1dc;">Node)</span><span style="color:#e6e1dc;">
+    visited[node] </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> new_node</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">stack </span><span style="color:#cc7833;">:= </span><span style="color:#da4939;">make</span><span style="color:#e6e1dc;">([]</span><span style="color:#cc7833;">*</span><span style="color:#e6e1dc;">Node, </span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">)</span><span style="color:#e6e1dc;">
+    stack </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">append</span><span style="color:#e6e1dc;">(stack, node)</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(stack) </span><span style="color:#cc7833;">&gt; </span><span style="color:#a5c261;">0 </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+        </span><span style="color:#d0d0ff;">old_node </span><span style="color:#cc7833;">:=</span><span style="color:#e6e1dc;"> stack[</span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(stack) </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+        stack </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> stack[:</span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(stack) </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">_</span><span style="color:#e6e1dc;">, </span><span style="color:#d0d0ff;">neighbor </span><span style="color:#cc7833;">:= range</span><span style="color:#e6e1dc;"> old_node.</span><span style="color:#d0d0ff;">Neighbors </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">if </span><span style="color:#d0d0ff;">_</span><span style="color:#e6e1dc;">, </span><span style="color:#d0d0ff;">exists </span><span style="color:#cc7833;">:=</span><span style="color:#e6e1dc;"> visited[neighbor]; exists {</span><span style="color:#e6e1dc;">
+                visited[old_node].</span><span style="color:#d0d0ff;">Neighbors </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">append</span><span style="color:#e6e1dc;">(visited[old_node].</span><span style="color:#d0d0ff;">Neighbors</span><span style="color:#e6e1dc;">, visited[neighbor])</span><span style="color:#e6e1dc;">
+            } </span><span style="color:#cc7833;">else </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+                visited[neighbor] </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">new</span><span style="color:#e6e1dc;">(Node)</span><span style="color:#e6e1dc;">
+                visited[neighbor].</span><span style="color:#d0d0ff;">Val </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> neighbor.</span><span style="color:#d0d0ff;">Val</span><span style="color:#e6e1dc;">
+                visited[neighbor].</span><span style="color:#d0d0ff;">Neighbors </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">make</span><span style="color:#e6e1dc;">([]</span><span style="color:#cc7833;">*</span><span style="color:#e6e1dc;">Node, </span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">)</span><span style="color:#e6e1dc;">
+                visited[old_node].</span><span style="color:#d0d0ff;">Neighbors </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">append</span><span style="color:#e6e1dc;">(visited[old_node].</span><span style="color:#d0d0ff;">Neighbors</span><span style="color:#e6e1dc;">, visited[neighbor])</span><span style="color:#e6e1dc;">
+                stack </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">append</span><span style="color:#e6e1dc;">(stack, neighbor)</span><span style="color:#e6e1dc;">
+            }</span><span style="color:#e6e1dc;">
+        }</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">return</span><span style="color:#e6e1dc;"> new_node</span><span style="color:#e6e1dc;">
+}</span><span style="color:#e6e1dc;">
+</span></pre><pre style="background-color:#383838;">
+<span style="font-style:italic;color:#6e9cbe;">func </span><span style="color:#ffc66d;">cloneGraph</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">node </span><span style="color:#cc7833;">*</span><span style="color:#e6e1dc;">Node) </span><span style="color:#cc7833;">*</span><span style="color:#e6e1dc;">Node {</span><span style="color:#e6e1dc;">
+    </span><span style="color:#95815e;">// BFS Solution</span><span style="color:#95815e;">
+    </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> node </span><span style="color:#cc7833;">== </span><span style="color:#6e9cbe;">nil </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">nil</span><span style="color:#e6e1dc;">;</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">new_node </span><span style="color:#cc7833;">:= </span><span style="color:#da4939;">new</span><span style="color:#e6e1dc;">(Node)</span><span style="color:#e6e1dc;">
+    new_node.</span><span style="color:#d0d0ff;">Val </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> node.</span><span style="color:#d0d0ff;">Val</span><span style="color:#e6e1dc;">
+    new_node.</span><span style="color:#d0d0ff;">Neighbors </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">make</span><span style="color:#e6e1dc;">([]</span><span style="color:#cc7833;">*</span><span style="color:#e6e1dc;">Node, </span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">)</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">visited </span><span style="color:#cc7833;">:= </span><span style="color:#da4939;">make</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#6e9cbe;">map</span><span style="color:#e6e1dc;">[*Node]</span><span style="color:#cc7833;">*</span><span style="color:#e6e1dc;">Node)</span><span style="color:#e6e1dc;">
+    visited[node] </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> new_node</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">queue </span><span style="color:#cc7833;">:= </span><span style="color:#da4939;">make</span><span style="color:#e6e1dc;">([]</span><span style="color:#cc7833;">*</span><span style="color:#e6e1dc;">Node, </span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">)</span><span style="color:#e6e1dc;">
+    queue </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">append</span><span style="color:#e6e1dc;">(queue, node)</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(queue) </span><span style="color:#cc7833;">&gt; </span><span style="color:#a5c261;">0 </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+        </span><span style="color:#d0d0ff;">old_node </span><span style="color:#cc7833;">:=</span><span style="color:#e6e1dc;"> queue[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+        queue </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> queue[</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">:]</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">_</span><span style="color:#e6e1dc;">, </span><span style="color:#d0d0ff;">neighbor </span><span style="color:#cc7833;">:= range</span><span style="color:#e6e1dc;"> old_node.</span><span style="color:#d0d0ff;">Neighbors </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">if </span><span style="color:#d0d0ff;">_</span><span style="color:#e6e1dc;">, </span><span style="color:#d0d0ff;">exists </span><span style="color:#cc7833;">:=</span><span style="color:#e6e1dc;"> visited[neighbor]; exists {</span><span style="color:#e6e1dc;">
+                visited[old_node].</span><span style="color:#d0d0ff;">Neighbors </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">append</span><span style="color:#e6e1dc;">(visited[old_node].</span><span style="color:#d0d0ff;">Neighbors</span><span style="color:#e6e1dc;">, visited[neighbor])</span><span style="color:#e6e1dc;">
+            } </span><span style="color:#cc7833;">else </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+                visited[neighbor] </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">new</span><span style="color:#e6e1dc;">(Node)</span><span style="color:#e6e1dc;">
+                visited[neighbor].</span><span style="color:#d0d0ff;">Val </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> neighbor.</span><span style="color:#d0d0ff;">Val</span><span style="color:#e6e1dc;">
+                visited[neighbor].</span><span style="color:#d0d0ff;">Neighbors </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">make</span><span style="color:#e6e1dc;">([]</span><span style="color:#cc7833;">*</span><span style="color:#e6e1dc;">Node, </span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">)</span><span style="color:#e6e1dc;">
+                visited[old_node].</span><span style="color:#d0d0ff;">Neighbors </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">append</span><span style="color:#e6e1dc;">(visited[old_node].</span><span style="color:#d0d0ff;">Neighbors</span><span style="color:#e6e1dc;">, visited[neighbor])</span><span style="color:#e6e1dc;">
+                queue </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">append</span><span style="color:#e6e1dc;">(queue, neighbor)</span><span style="color:#e6e1dc;">
+            }</span><span style="color:#e6e1dc;">
+        }</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">return</span><span style="color:#e6e1dc;"> new_node</span><span style="color:#e6e1dc;">
+}</span><span style="color:#e6e1dc;">
+</span></pre><h2 id="rust">Rust</h2>
+<pre style="background-color:#383838;">
+<span style="color:#e6e1dc;">No Rust option on Leetcode :(</span><span style="color:#e6e1dc;">
+</span></pre>
+  </article>
+
+      </main>
+
+      <script type="text/javascript" src="http://127.0.0.1:1111/themes.js"></script>
+
+      <script>
+        function burger() {
+          var x = document.getElementById("bger");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+    <script src="/livereload.js?port=1024&amp;mindelay=10"></script></body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title> Algostructures | Container_With_Most_Water </title>     
+      <link rel="stylesheet" href="http://127.0.0.1:1111/main.css">
+    </head>
+
+    <body>
+      <nav>
+        <div id="subnav">
+          <form class="theme-selector">
+            <button type="button" id="theme-light-button" class="theme-button" onclick="enableTheme('light', true)">&#9706;</button>
+            <button type="button" id="theme-dark-button"  class="theme-button enabled" onclick="enableTheme('dark', true)">&#9705;</button>
+          </form>
+          <a href="/search">&#8981;</a>       
+        </div>
+
+      
+  <ul id="breadcrumbs">
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;">Algostructures</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;Leetcode&#x2F;">Leetcode</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;Leetcode&#x2F;Array&#x2F;">Array</a>&nbsp;&#8594;&nbsp;</li> 
+    
+  </ul>
+  <h1>Container_With_Most_Water</h1><em></em> 
+
+      </nav>
+
+      <main>
+      
+  <div id="taxonomies">
+    
+      <date>11.05.2020</date>
+       
+
+    
+      <ul>
+      
+        <li><a href="http://127.0.0.1:1111/authors/allan-phu/" >Allan Phu</a></li>
+      
+     </ul>
+    
+    
+    
+      <ul>
+      
+        <li><a href="http://127.0.0.1:1111/tags/array/" >#Array</a></li>
+      
+      </ul>
+    
+  </div>
+
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+  
+      <ul id="toc">
+        
+          <li><a href="http://127.0.0.1:1111/Leetcode/Array/container-with-most-water/#problem-link">Problem Link</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Array/container-with-most-water/#how-to-solve">How to solve</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Array/container-with-most-water/#complexity-analysis">Complexity Analysis</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Array/container-with-most-water/#time-o-n">Time: O(N)</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Array/container-with-most-water/#space-o-1">Space: O(1)</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Array/container-with-most-water/#solutions">Solutions</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Array/container-with-most-water/#python">Python</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Array/container-with-most-water/#go">Go</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Array/container-with-most-water/#rust">Rust</a>
+          
+        </li>
+  
+      </ul>
+  
+
+  <article>
+    <h2 id="problem-link">Problem Link</h2>
+<p><a href="https://leetcode.com/problems/container-with-most-water/">https://leetcode.com/problems/container-with-most-water/</a></p>
+<h2 id="how-to-solve">How to solve</h2>
+<p>Note that the amount of water a container can hold is determined by the length of the shorter side. Using two pointers, we keep track of the maximum amount of water given pair of lines can hold. While the pointers have not crossed each other, we increment the pointer to the shorter line, in hope of finding a longer line to maximize the amount of water the container can hold.</p>
+<h2 id="complexity-analysis">Complexity Analysis</h2>
+<h2 id="time-o-n">Time: O(N)</h2>
+<p>We check all pairs of l, r, starting l from the leftmost line and r from the rightmost line.</p>
+<h2 id="space-o-1">Space: O(1)</h2>
+<p>We use constant space.</p>
+<h2 id="solutions">Solutions</h2>
+<h2 id="python">Python</h2>
+<pre style="background-color:#383838;">
+<span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">maxArea</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">height</span><span style="color:#e6e1dc;">: List[</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">]) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+    maxArea </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    l </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">
+    r </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(height) </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">while </span><span style="color:#e6e1dc;">l </span><span style="color:#cc7833;">&lt; </span><span style="color:#e6e1dc;">r:</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">height[l] </span><span style="color:#cc7833;">&lt; </span><span style="color:#e6e1dc;">height[r]:</span><span style="color:#e6e1dc;">
+            maxArea </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">max</span><span style="color:#e6e1dc;">(maxArea, height[l] </span><span style="color:#cc7833;">* </span><span style="color:#e6e1dc;">(r </span><span style="color:#cc7833;">- </span><span style="color:#e6e1dc;">l))</span><span style="color:#e6e1dc;">
+            l </span><span style="color:#cc7833;">+= </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">else</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+            maxArea </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">max</span><span style="color:#e6e1dc;">(maxArea, height[r] </span><span style="color:#cc7833;">* </span><span style="color:#e6e1dc;">(r </span><span style="color:#cc7833;">- </span><span style="color:#e6e1dc;">l))</span><span style="color:#e6e1dc;">
+            r </span><span style="color:#cc7833;">-= </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">return </span><span style="color:#e6e1dc;">maxArea</span><span style="color:#e6e1dc;">
+</span></pre><h2 id="go">Go</h2>
+<pre style="background-color:#383838;">
+<span style="font-style:italic;color:#6e9cbe;">func </span><span style="color:#ffc66d;">maxArea</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">height </span><span style="color:#e6e1dc;">[]</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">) </span><span style="font-style:italic;color:#6e9cbe;">int </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">max_area </span><span style="color:#cc7833;">:= </span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">l </span><span style="color:#cc7833;">:= </span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">r </span><span style="color:#cc7833;">:= </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(height) </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for</span><span style="color:#e6e1dc;"> l </span><span style="color:#cc7833;">&lt;</span><span style="color:#e6e1dc;"> r {</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> height[l] </span><span style="color:#cc7833;">&lt;</span><span style="color:#e6e1dc;"> height[r] {</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> max_area </span><span style="color:#cc7833;">&lt; </span><span style="color:#e6e1dc;">(height[l] </span><span style="color:#cc7833;">* </span><span style="color:#e6e1dc;">(r </span><span style="color:#cc7833;">-</span><span style="color:#e6e1dc;"> l)) {</span><span style="color:#e6e1dc;">
+                max_area </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> height[l] </span><span style="color:#cc7833;">* </span><span style="color:#e6e1dc;">(r </span><span style="color:#cc7833;">-</span><span style="color:#e6e1dc;"> l)</span><span style="color:#e6e1dc;">
+            }</span><span style="color:#e6e1dc;">
+            l </span><span style="color:#cc7833;">+= </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">
+        } </span><span style="color:#cc7833;">else </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> max_area </span><span style="color:#cc7833;">&lt; </span><span style="color:#e6e1dc;">(height[r] </span><span style="color:#cc7833;">* </span><span style="color:#e6e1dc;">(r </span><span style="color:#cc7833;">-</span><span style="color:#e6e1dc;"> l)) {</span><span style="color:#e6e1dc;">
+                max_area </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> height[r] </span><span style="color:#cc7833;">* </span><span style="color:#e6e1dc;">(r </span><span style="color:#cc7833;">-</span><span style="color:#e6e1dc;"> l)</span><span style="color:#e6e1dc;">
+            }</span><span style="color:#e6e1dc;">
+            r </span><span style="color:#cc7833;">-= </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">
+        }</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">return</span><span style="color:#e6e1dc;"> max_area</span><span style="color:#e6e1dc;">
+}</span><span style="color:#e6e1dc;">
+</span></pre><h2 id="rust">Rust</h2>
+<pre style="background-color:#383838;">
+<span style="color:#cc7833;">use </span><span style="color:#e6e1dc;">std::cmp::max;</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+</span><span style="font-style:italic;color:#6e9cbe;">impl </span><span style="color:#e6e1dc;">Solution {</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">pub </span><span style="font-style:italic;color:#6e9cbe;">fn </span><span style="color:#ffc66d;">max_area</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">height</span><span style="color:#e6e1dc;">: Vec&lt;</span><span style="font-style:italic;color:#6e9cbe;">i32</span><span style="color:#e6e1dc;">&gt;) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">i32 </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+        </span><span style="font-style:italic;color:#6e9cbe;">let </span><span style="color:#cc7833;">mut</span><span style="color:#e6e1dc;"> maxArea: </span><span style="font-style:italic;color:#6e9cbe;">i32 </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">;</span><span style="color:#e6e1dc;">
+        </span><span style="font-style:italic;color:#6e9cbe;">let </span><span style="color:#cc7833;">mut</span><span style="color:#e6e1dc;"> l </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">;</span><span style="color:#e6e1dc;">
+        </span><span style="font-style:italic;color:#6e9cbe;">let </span><span style="color:#cc7833;">mut</span><span style="color:#e6e1dc;"> r </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> height.</span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">() </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">;</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">while</span><span style="color:#e6e1dc;"> l </span><span style="color:#cc7833;">&lt;</span><span style="color:#e6e1dc;"> r {</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> height[l] </span><span style="color:#cc7833;">&lt;</span><span style="color:#e6e1dc;"> height[r] {</span><span style="color:#e6e1dc;">
+                maxArea </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">max</span><span style="color:#e6e1dc;">(maxArea, height[l] </span><span style="color:#cc7833;">* </span><span style="color:#e6e1dc;">((r</span><span style="color:#cc7833;">-</span><span style="color:#e6e1dc;">l) </span><span style="color:#cc7833;">as </span><span style="font-style:italic;color:#6e9cbe;">i32</span><span style="color:#e6e1dc;">));</span><span style="color:#e6e1dc;">
+                l </span><span style="color:#cc7833;">+= </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">;</span><span style="color:#e6e1dc;">
+            } </span><span style="color:#cc7833;">else </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+                maxArea </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">max</span><span style="color:#e6e1dc;">(maxArea, height[r] </span><span style="color:#cc7833;">* </span><span style="color:#e6e1dc;">((r</span><span style="color:#cc7833;">-</span><span style="color:#e6e1dc;">l) </span><span style="color:#cc7833;">as </span><span style="font-style:italic;color:#6e9cbe;">i32</span><span style="color:#e6e1dc;">));</span><span style="color:#e6e1dc;">
+                r </span><span style="color:#cc7833;">-= </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">;</span><span style="color:#e6e1dc;">
+            }</span><span style="color:#e6e1dc;">
+        }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+        maxArea</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+}</span><span style="color:#e6e1dc;">
+</span></pre>
+  </article>
+
+      </main>
+
+      <script type="text/javascript" src="http://127.0.0.1:1111/themes.js"></script>
+
+      <script>
+        function burger() {
+          var x = document.getElementById("bger");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+    <script src="/livereload.js?port=1024&amp;mindelay=10"></script></body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title> Algostructures | Course Schedule </title>     
+      <link rel="stylesheet" href="http://127.0.0.1:1111/main.css">
+    </head>
+
+    <body>
+      <nav>
+        <div id="subnav">
+          <form class="theme-selector">
+            <button type="button" id="theme-light-button" class="theme-button" onclick="enableTheme('light', true)">&#9706;</button>
+            <button type="button" id="theme-dark-button"  class="theme-button enabled" onclick="enableTheme('dark', true)">&#9705;</button>
+          </form>
+          <a href="/search">&#8981;</a>       
+        </div>
+
+      
+  <ul id="breadcrumbs">
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;">Algostructures</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;Leetcode&#x2F;">Leetcode</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;Leetcode&#x2F;Graph&#x2F;">Graph</a>&nbsp;&#8594;&nbsp;</li> 
+    
+  </ul>
+  <h1>Course Schedule</h1><em></em> 
+
+      </nav>
+
+      <main>
+      
+  <div id="taxonomies">
+    
+      <date>26.05.2020</date>
+       
+
+    
+      <ul>
+      
+        <li><a href="http://127.0.0.1:1111/authors/allan-phu/" >Allan Phu</a></li>
+      
+     </ul>
+    
+    
+    
+      <ul>
+      
+        <li><a href="http://127.0.0.1:1111/tags/graph/" >#Graph</a></li>
+      
+      </ul>
+    
+  </div>
+
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+  
+      <ul id="toc">
+        
+          <li><a href="http://127.0.0.1:1111/Leetcode/Graph/course-schedule/#problem-link">Problem Link</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Graph/course-schedule/#how-to-solve">How to solve</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Graph/course-schedule/#complexity-analysis">Complexity Analysis</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Graph/course-schedule/#time">Time</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Graph/course-schedule/#space">Space</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Graph/course-schedule/#solutions">Solutions</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Graph/course-schedule/#python">Python</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Graph/course-schedule/#go">Go</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Graph/course-schedule/#rust">Rust</a>
+          
+        </li>
+  
+      </ul>
+  
+
+  <article>
+    <h2 id="problem-link">Problem Link</h2>
+<p><a href="https://leetcode.com/problems/course-schedule/">https://leetcode.com/problems/course-schedule/</a></p>
+<h2 id="how-to-solve">How to solve</h2>
+<h2 id="complexity-analysis">Complexity Analysis</h2>
+<h2 id="time">Time</h2>
+<h2 id="space">Space</h2>
+<h2 id="solutions">Solutions</h2>
+<h2 id="python">Python</h2>
+<pre style="background-color:#383838;">
+<span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">canFinish</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">numCourses</span><span style="color:#e6e1dc;">: </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">prerequisites</span><span style="color:#e6e1dc;">: List[List[</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">]]) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">bool</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+    adj_list </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">[[] </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">_ </span><span style="color:#cc7833;">in </span><span style="color:#da4939;">range</span><span style="color:#e6e1dc;">(numCourses)]</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">preq </span><span style="color:#cc7833;">in </span><span style="color:#e6e1dc;">prerequisites:</span><span style="color:#e6e1dc;">
+        adj_list[preq[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">]].append(preq[</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">])</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    visiting </span><span style="color:#cc7833;">= </span><span style="font-style:italic;color:#6e9cbe;">set</span><span style="color:#e6e1dc;">()</span><span style="color:#e6e1dc;">
+    visited </span><span style="color:#cc7833;">= </span><span style="font-style:italic;color:#6e9cbe;">set</span><span style="color:#e6e1dc;">()</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">has_cycle</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">course</span><span style="color:#e6e1dc;">):</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">course </span><span style="color:#cc7833;">in </span><span style="color:#e6e1dc;">visiting:</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">True</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">course </span><span style="color:#cc7833;">in </span><span style="color:#e6e1dc;">visited:</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">False</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+        visiting.add(course)</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">preq_class </span><span style="color:#cc7833;">in </span><span style="color:#e6e1dc;">adj_list[course]:</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">has_cycle(preq_class):</span><span style="color:#e6e1dc;">
+                </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">True</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+        visiting.remove(course)</span><span style="color:#e6e1dc;">
+        visited.add(course)</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">False</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">i </span><span style="color:#cc7833;">in </span><span style="color:#da4939;">range</span><span style="color:#e6e1dc;">(numCourses):</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">has_cycle(i):</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">False</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">True</span><span style="color:#e6e1dc;">
+</span></pre><h2 id="go">Go</h2>
+<pre style="background-color:#383838;">
+<span style="font-style:italic;color:#6e9cbe;">func </span><span style="color:#ffc66d;">canFinish</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">numCourses </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">prerequisites</span><span style="color:#e6e1dc;"> [][]</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">) </span><span style="font-style:italic;color:#6e9cbe;">bool </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">adj_list </span><span style="color:#cc7833;">:= </span><span style="color:#da4939;">make</span><span style="color:#e6e1dc;">([][]</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">, numCourses)</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">i </span><span style="color:#cc7833;">:= range</span><span style="color:#e6e1dc;"> adj_list {</span><span style="color:#e6e1dc;">
+        adj_list[i] </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">make</span><span style="color:#e6e1dc;">([]</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">, </span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">)</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">i </span><span style="color:#cc7833;">:= range</span><span style="color:#e6e1dc;"> prerequisites {</span><span style="color:#e6e1dc;">
+        </span><span style="color:#d0d0ff;">preq </span><span style="color:#cc7833;">:=</span><span style="color:#e6e1dc;"> prerequisites[i][</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+        </span><span style="color:#d0d0ff;">class </span><span style="color:#cc7833;">:=</span><span style="color:#e6e1dc;"> prerequisites[i][</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+        adj_list[preq] </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">append</span><span style="color:#e6e1dc;">(adj_list[preq], class)</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">visiting </span><span style="color:#cc7833;">:= </span><span style="color:#da4939;">make</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#6e9cbe;">map</span><span style="color:#e6e1dc;">[</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">]</span><span style="font-style:italic;color:#6e9cbe;">bool</span><span style="color:#e6e1dc;">)</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">visited </span><span style="color:#cc7833;">:= </span><span style="color:#da4939;">make</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#6e9cbe;">map</span><span style="color:#e6e1dc;">[</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">]</span><span style="font-style:italic;color:#6e9cbe;">bool</span><span style="color:#e6e1dc;">)</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">i </span><span style="color:#cc7833;">:= </span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">; i </span><span style="color:#cc7833;">&lt;</span><span style="color:#e6e1dc;"> numCourses; i</span><span style="color:#cc7833;">++ </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">hasCycle(i, adj_list, visiting, visited) {</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">false</span><span style="color:#e6e1dc;">
+        }</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">true</span><span style="color:#e6e1dc;">
+}</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+</span><span style="font-style:italic;color:#6e9cbe;">func </span><span style="color:#ffc66d;">hasCycle</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">course </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">adj_list</span><span style="color:#e6e1dc;"> [][]</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">visiting </span><span style="font-style:italic;color:#6e9cbe;">map</span><span style="color:#e6e1dc;">[</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">]</span><span style="font-style:italic;color:#6e9cbe;">bool</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">visited </span><span style="font-style:italic;color:#6e9cbe;">map</span><span style="color:#e6e1dc;">[</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">]</span><span style="font-style:italic;color:#6e9cbe;">bool</span><span style="color:#e6e1dc;">) </span><span style="font-style:italic;color:#6e9cbe;">bool </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">if </span><span style="color:#d0d0ff;">_</span><span style="color:#e6e1dc;">, </span><span style="color:#d0d0ff;">ok </span><span style="color:#cc7833;">:=</span><span style="color:#e6e1dc;"> visiting[course]; ok {</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">true</span><span style="color:#e6e1dc;">
+    } </span><span style="color:#cc7833;">else if </span><span style="color:#d0d0ff;">_</span><span style="color:#e6e1dc;">, </span><span style="color:#d0d0ff;">ok </span><span style="color:#cc7833;">:=</span><span style="color:#e6e1dc;"> visited[course]; ok {</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">false</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    visiting[course] </span><span style="color:#cc7833;">= </span><span style="color:#6e9cbe;">true</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">i </span><span style="color:#cc7833;">:= range</span><span style="color:#e6e1dc;"> adj_list[course] {</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">hasCycle(adj_list[course][i], adj_list, visiting, visited) {</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">false</span><span style="color:#e6e1dc;">
+        }</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#da4939;">delete</span><span style="color:#e6e1dc;">(visiting, course)</span><span style="color:#e6e1dc;">
+    visited[course] </span><span style="color:#cc7833;">= </span><span style="color:#6e9cbe;">true</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">false</span><span style="color:#e6e1dc;">
+}</span><span style="color:#e6e1dc;">
+</span></pre><h2 id="rust">Rust</h2>
+<pre style="background-color:#383838;">
+<span style="color:#e6e1dc;">
+</span></pre>
+  </article>
+
+      </main>
+
+      <script type="text/javascript" src="http://127.0.0.1:1111/themes.js"></script>
+
+      <script>
+        function burger() {
+          var x = document.getElementById("bger");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+    <script src="/livereload.js?port=1024&amp;mindelay=10"></script></body>
+</html>

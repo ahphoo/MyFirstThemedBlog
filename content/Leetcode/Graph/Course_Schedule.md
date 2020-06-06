@@ -106,5 +106,55 @@ func hasCycle(course int, adj_list [][]int, visiting map[int]bool, visited map[i
 ## Rust
 
 ``` rust
+use std::collections::HashSet;
 
+impl Solution {
+    pub fn can_finish(num_courses: i32, prerequisites: Vec<Vec<i32>>) -> bool {
+
+        let num_courses = num_courses as usize;
+        let mut adj_list: Vec<Vec<i32>> = vec![Vec::new(); num_courses];
+        for preq in &prerequisites {
+            adj_list[preq[0] as usize].push(preq[1]);
+        }
+
+        let mut visiting = HashSet::new();
+        let mut visited = HashSet::new();
+
+        for i in 0..num_courses {
+            if has_cycle(i as i32, &adj_list, &mut visiting, &mut visited) {
+                return false;
+            }
+        }
+
+        true
+    }
+}
+
+pub fn has_cycle(course: i32, 
+                 adj_list: &Vec<Vec<i32>>, 
+                 mut visiting: &mut HashSet<i32>, 
+                 mut visited: &mut HashSet<i32>) -> bool {
+
+    if visiting.contains(&course) {
+        return true;
+    }
+    if visited.contains(&course) {
+        return false;
+    }
+
+    visiting.insert(course);
+
+    for i in 0..adj_list[course as usize].len() {
+        if has_cycle(adj_list[course as usize][i], 
+                     &adj_list, 
+                     &mut visiting, 
+                     &mut visited) {
+            return true;
+        }
+    }
+
+    visiting.remove(&course);
+    visited.insert(course);
+    false
+}
 ```

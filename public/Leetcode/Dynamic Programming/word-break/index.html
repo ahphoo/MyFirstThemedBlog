@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title> Algostructures | Word Break </title>     
+      <link rel="stylesheet" href="http://127.0.0.1:1111/main.css">
+    </head>
+
+    <body>
+      <nav>
+        <div id="subnav">
+          <form class="theme-selector">
+            <button type="button" id="theme-light-button" class="theme-button" onclick="enableTheme('light', true)">&#9706;</button>
+            <button type="button" id="theme-dark-button"  class="theme-button enabled" onclick="enableTheme('dark', true)">&#9705;</button>
+          </form>
+          <a href="/search">&#8981;</a>       
+        </div>
+
+      
+  <ul id="breadcrumbs">
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;">Algostructures</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;Leetcode&#x2F;">Leetcode</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="http:&#x2F;&#x2F;127.0.0.1:1111&#x2F;Leetcode&#x2F;Dynamic Programming&#x2F;">Dynamic Programming</a>&nbsp;&#8594;&nbsp;</li> 
+    
+  </ul>
+  <h1>Word Break</h1><em></em> 
+
+      </nav>
+
+      <main>
+      
+  <div id="taxonomies">
+    
+      <date>18.05.2020</date>
+       
+
+    
+      <ul>
+      
+        <li><a href="http://127.0.0.1:1111/authors/allan-phu/" >Allan Phu</a></li>
+      
+     </ul>
+    
+    
+    
+      <ul>
+      
+        <li><a href="http://127.0.0.1:1111/tags/dynamic-programming/" >#Dynamic Programming</a></li>
+      
+      </ul>
+    
+  </div>
+
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+  
+      <ul id="toc">
+        
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/word-break/#problem-link">Problem Link</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/word-break/#how-to-solve">How to solve</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/word-break/#complexity-analysis">Complexity Analysis</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/word-break/#time-o-n">Time: O(N)</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/word-break/#space-o-max-m-n">Space: O(max(M,N))</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/word-break/#solutions">Solutions</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/word-break/#python">Python</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/word-break/#go">Go</a>
+          
+        </li>
+  
+          <li><a href="http://127.0.0.1:1111/Leetcode/Dynamic Programming/word-break/#rust">Rust</a>
+          
+        </li>
+  
+      </ul>
+  
+
+  <article>
+    <h2 id="problem-link">Problem Link</h2>
+<p><a href="https://leetcode.com/problems/word-break/">https://leetcode.com/problems/word-break/</a></p>
+<h2 id="how-to-solve">How to solve</h2>
+<p>Create a hashset containing the words in <code>wordDict</code>. Create a dp array of length <code>s</code> + 1. dp[i] is true if the substring in <code>s</code> ending at index <code>i-1</code> is a dictionary word. Hence, the zero index of <code>dp</code> represents the empty string, which is trivially a word in <code>wordDict</code>. We iterate through the dp array, checking if index i is the end of a dictionary word (i.e. if dp[i] is true). If so, we iterate through the possible substrings from i to len(s) and check if those are dictionary words.</p>
+<h2 id="complexity-analysis">Complexity Analysis</h2>
+<h2 id="time-o-n">Time: O(N)</h2>
+<p>In the worst case, every other character of string <code>s</code> is a dictionary word.</p>
+<h2 id="space-o-max-m-n">Space: O(max(M,N))</h2>
+<p>Let N be the length of string <code>s</code>, and M the number of words in <code>wordDict</code>. We keep an array of size length <code>s</code> + 1 to keep track of words found. We also create a hashset of words in <code>wordDict</code>.</p>
+<h2 id="solutions">Solutions</h2>
+<h2 id="python">Python</h2>
+<pre style="background-color:#383838;">
+<span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">wordBreak</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">s</span><span style="color:#e6e1dc;">: </span><span style="font-style:italic;color:#6e9cbe;">str</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">wordDict</span><span style="color:#e6e1dc;">: List[</span><span style="font-style:italic;color:#6e9cbe;">str</span><span style="color:#e6e1dc;">]) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">bool</span><span style="color:#e6e1dc;">:</span><span style="color:#e6e1dc;">
+    words </span><span style="color:#cc7833;">= </span><span style="font-style:italic;color:#6e9cbe;">set</span><span style="color:#e6e1dc;">(wordDict)</span><span style="color:#e6e1dc;">
+    dp </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">[</span><span style="color:#6e9cbe;">False </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">_ </span><span style="color:#cc7833;">in </span><span style="color:#da4939;">range</span><span style="color:#e6e1dc;">(</span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(s))]</span><span style="color:#e6e1dc;">
+    dp[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">= </span><span style="color:#6e9cbe;">True</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">i </span><span style="color:#cc7833;">in </span><span style="color:#da4939;">range</span><span style="color:#e6e1dc;">(</span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(s)):</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">dp[i]:</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">j </span><span style="color:#cc7833;">in </span><span style="color:#da4939;">range</span><span style="color:#e6e1dc;">(i, </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(s)):</span><span style="color:#e6e1dc;">
+                </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">s[i:j</span><span style="color:#cc7833;">+</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">in </span><span style="color:#e6e1dc;">words:</span><span style="color:#e6e1dc;">
+                    dp[j</span><span style="color:#cc7833;">+</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">= </span><span style="color:#6e9cbe;">True</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">return </span><span style="color:#e6e1dc;">dp[</span><span style="color:#cc7833;">-</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">]</span><span style="color:#e6e1dc;">
+</span></pre><h2 id="go">Go</h2>
+<pre style="background-color:#383838;">
+<span style="font-style:italic;color:#6e9cbe;">func </span><span style="color:#ffc66d;">wordBreak</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">s </span><span style="font-style:italic;color:#6e9cbe;">string</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">wordDict </span><span style="color:#e6e1dc;">[]</span><span style="font-style:italic;color:#6e9cbe;">string</span><span style="color:#e6e1dc;">) </span><span style="font-style:italic;color:#6e9cbe;">bool </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">words </span><span style="color:#cc7833;">:= </span><span style="color:#da4939;">make</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#6e9cbe;">map</span><span style="color:#e6e1dc;">[</span><span style="font-style:italic;color:#6e9cbe;">string</span><span style="color:#e6e1dc;">]</span><span style="font-style:italic;color:#6e9cbe;">bool</span><span style="color:#e6e1dc;">)</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">_</span><span style="color:#e6e1dc;">, </span><span style="color:#d0d0ff;">word </span><span style="color:#cc7833;">:= range</span><span style="color:#e6e1dc;"> wordDict {</span><span style="color:#e6e1dc;">
+        words[word] </span><span style="color:#cc7833;">= </span><span style="color:#6e9cbe;">true</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#d0d0ff;">dp </span><span style="color:#cc7833;">:= </span><span style="color:#da4939;">make</span><span style="color:#e6e1dc;">([]</span><span style="font-style:italic;color:#6e9cbe;">bool</span><span style="color:#e6e1dc;">, </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(s) </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">)</span><span style="color:#e6e1dc;">
+    dp[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">= </span><span style="color:#6e9cbe;">true</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">i </span><span style="color:#cc7833;">:= range</span><span style="color:#e6e1dc;"> s {</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> dp[i] </span><span style="color:#cc7833;">== </span><span style="color:#6e9cbe;">true </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">for </span><span style="color:#d0d0ff;">j </span><span style="color:#cc7833;">:=</span><span style="color:#e6e1dc;"> i; j </span><span style="color:#cc7833;">&lt; </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(s); j</span><span style="color:#cc7833;">++ </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+                </span><span style="color:#cc7833;">if </span><span style="color:#d0d0ff;">_</span><span style="color:#e6e1dc;">, </span><span style="color:#d0d0ff;">ok </span><span style="color:#cc7833;">:=</span><span style="color:#e6e1dc;"> words[s[i : j </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">]]; ok {</span><span style="color:#e6e1dc;">
+                    dp[j </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">= </span><span style="color:#6e9cbe;">true</span><span style="color:#e6e1dc;">
+                }  </span><span style="color:#e6e1dc;">
+            }</span><span style="color:#e6e1dc;">
+        }</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">return</span><span style="color:#e6e1dc;"> dp[</span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(s)]</span><span style="color:#e6e1dc;">
+}</span><span style="color:#e6e1dc;">
+</span></pre><h2 id="rust">Rust</h2>
+<pre style="background-color:#383838;">
+<span style="color:#cc7833;">use </span><span style="color:#e6e1dc;">std::collections::HashSet;</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+</span><span style="font-style:italic;color:#6e9cbe;">impl </span><span style="color:#e6e1dc;">Solution {</span><span style="color:#e6e1dc;">
+    </span><span style="color:#cc7833;">pub </span><span style="font-style:italic;color:#6e9cbe;">fn </span><span style="color:#ffc66d;">word_break</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">s</span><span style="color:#e6e1dc;">: String, </span><span style="font-style:italic;color:#fd971f;">word_dict</span><span style="color:#e6e1dc;">: Vec&lt;String&gt;) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">bool </span><span style="color:#e6e1dc;">{</span><span style="color:#e6e1dc;">
+        </span><span style="font-style:italic;color:#6e9cbe;">let </span><span style="color:#cc7833;">mut</span><span style="color:#e6e1dc;"> words </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">HashSet::with_capacity(word_dict.</span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">());</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">for</span><span style="color:#e6e1dc;"> word </span><span style="color:#cc7833;">in &amp;</span><span style="color:#e6e1dc;">word_dict {</span><span style="color:#e6e1dc;">
+            words.</span><span style="color:#da4939;">insert</span><span style="color:#e6e1dc;">(word);</span><span style="color:#e6e1dc;">
+        }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+        </span><span style="font-style:italic;color:#6e9cbe;">let </span><span style="color:#cc7833;">mut</span><span style="color:#e6e1dc;"> dp </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">vec![</span><span style="color:#6e9cbe;">false</span><span style="color:#e6e1dc;">; s.</span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">() </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">];</span><span style="color:#e6e1dc;">
+        dp[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">= </span><span style="color:#6e9cbe;">true</span><span style="color:#e6e1dc;">;</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+        </span><span style="color:#cc7833;">for</span><span style="color:#e6e1dc;"> i </span><span style="color:#cc7833;">in </span><span style="color:#a5c261;">0</span><span style="color:#cc7833;">..</span><span style="color:#e6e1dc;">s.</span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">() {</span><span style="color:#e6e1dc;">
+            </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> dp[i] {</span><span style="color:#e6e1dc;">
+                </span><span style="color:#cc7833;">for</span><span style="color:#e6e1dc;"> j </span><span style="color:#cc7833;">in</span><span style="color:#e6e1dc;"> i</span><span style="color:#cc7833;">..</span><span style="color:#e6e1dc;">s.</span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">() {</span><span style="color:#e6e1dc;">
+                    </span><span style="color:#cc7833;">if</span><span style="color:#e6e1dc;"> words.</span><span style="color:#da4939;">contains</span><span style="color:#e6e1dc;">(</span><span style="color:#cc7833;">&amp;</span><span style="font-style:italic;color:#6e9cbe;">String</span><span style="color:#e6e1dc;">::from(</span><span style="color:#cc7833;">&amp;</span><span style="color:#e6e1dc;">s[i</span><span style="color:#cc7833;">..</span><span style="color:#e6e1dc;">j</span><span style="color:#cc7833;">+</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">])) {</span><span style="color:#e6e1dc;">
+                        dp[j </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">= </span><span style="color:#6e9cbe;">true</span><span style="color:#e6e1dc;">;</span><span style="color:#e6e1dc;">
+                    }</span><span style="color:#e6e1dc;">
+                }</span><span style="color:#e6e1dc;">
+            }</span><span style="color:#e6e1dc;">
+        }</span><span style="color:#e6e1dc;">
+</span><span style="color:#e6e1dc;">
+        dp[s.</span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">()]</span><span style="color:#e6e1dc;">
+    }</span><span style="color:#e6e1dc;">
+}</span><span style="color:#e6e1dc;">
+</span></pre>
+  </article>
+
+      </main>
+
+      <script type="text/javascript" src="http://127.0.0.1:1111/themes.js"></script>
+
+      <script>
+        function burger() {
+          var x = document.getElementById("bger");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+    <script src="/livereload.js?port=1024&amp;mindelay=10"></script></body>
+</html>
