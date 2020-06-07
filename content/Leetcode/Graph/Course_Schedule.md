@@ -13,11 +13,25 @@ authors = ["Allan Phu"]
 
 ## How to solve
 
+1. Create a 2-D vector of length `numCourses`. For each course, create a vector containing it's neighbors.
+
+2. Create two hashsets: `visiting` and `visited`. The `visiting` hashset holds all courses that we are running dfs against to find cycles. The `visited` hashset holds all courses that we know have no cycles.
+
+3. For each course, run dfs
+    1. If we run dfs on a course we are currently visiting, there is a cycle. Return false.
+    2. If we run dfs on a course we have already visted, there is no cycle
+
+4. If, after running dfs on all courses we encounter no cycles, we return true.
+
 ## Complexity Analysis
 
-## Time
+## Time: O(V + E)
 
-## Space
+We check if a course is in a cycle by running depth-first search on all of it's neighbors.
+
+## Space: O(V^2)
+
+We create a 2-D vector containing the neighbors of each node. There are `|V|` nodes and each node can have `|V - 1|` many connections.
 
 ## Solutions
 
@@ -130,9 +144,9 @@ impl Solution {
     }
 }
 
-pub fn has_cycle(course: i32, 
-                 adj_list: &Vec<Vec<i32>>, 
-                 mut visiting: &mut HashSet<i32>, 
+pub fn has_cycle(course: i32,
+                 adj_list: &Vec<Vec<i32>>,
+                 mut visiting: &mut HashSet<i32>,
                  mut visited: &mut HashSet<i32>) -> bool {
 
     if visiting.contains(&course) {
@@ -145,9 +159,9 @@ pub fn has_cycle(course: i32,
     visiting.insert(course);
 
     for i in 0..adj_list[course as usize].len() {
-        if has_cycle(adj_list[course as usize][i], 
-                     &adj_list, 
-                     &mut visiting, 
+        if has_cycle(adj_list[course as usize][i],
+                     &adj_list,
+                     &mut visiting,
                      &mut visited) {
             return true;
         }

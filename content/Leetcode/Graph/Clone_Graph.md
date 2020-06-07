@@ -52,8 +52,7 @@ def cloneGraph(self, node: 'Node') -> 'Node':
         return None
 
     new_node = Node(node.val)
-    visited = {}
-    visited[node] = new_node
+    visited = {node: new_node}
 
     stack = [node]
 
@@ -61,12 +60,10 @@ def cloneGraph(self, node: 'Node') -> 'Node':
         old_node = stack.pop()
 
         for neighbor in old_node.neighbors:
-            if neighbor in visited:
-                visited[old_node].neighbors.append(visited[neighbor])
-            else:
+            if neighbor not in visited:
                 visited[neighbor] = Node(neighbor.val)
                 stack.append(neighbor)
-                visited[old_node].neighbors.append(visited[neighbor])
+            visited[old_node].neighbors.append(visited[neighbor])
 
     return new_node
 ```
@@ -78,8 +75,7 @@ def cloneGraph(self, node: 'Node') -> 'Node':
         return None
 
     new_node = Node(node.val)
-    visited = {}
-    visited[node] = new_node
+    visited = {node: new_node}
 
     queue = deque([node])
 
@@ -87,12 +83,10 @@ def cloneGraph(self, node: 'Node') -> 'Node':
         old_node = queue.popleft()
 
         for neighbor in old_node.neighbors:
-            if neighbor in visited:
-                visited[old_node].neighbors.append(visited[neighbor])
-            else:
+            if neighbor not in visited:
                 visited[neighbor] = Node(neighbor.val)
                 queue.append(neighbor)
-                visited[old_node].neighbors.append(visited[neighbor])
+            visited[old_node].neighbors.append(visited[neighbor])
 
     return new_node
 ```
@@ -103,33 +97,26 @@ def cloneGraph(self, node: 'Node') -> 'Node':
 func cloneGraph(node *Node) *Node {
     //DFS Solution
     if node == nil {
-        return nil;
+        return nil
     }
 
-    new_node := new(Node)
-    new_node.Val = node.Val
-    new_node.Neighbors = make([]*Node, 0)
+    new_node := &Node{Val: node.Val}
 
     visited := make(map[*Node]*Node)
     visited[node] = new_node
 
-    stack := make([]*Node, 0)
-    stack = append(stack, node)
+    stack := []*Node{node}
 
     for len(stack) > 0 {
         old_node := stack[len(stack) - 1]
         stack = stack[:len(stack) - 1]
 
         for _, neighbor := range old_node.Neighbors {
-            if _, exists := visited[neighbor]; exists {
-                visited[old_node].Neighbors = append(visited[old_node].Neighbors, visited[neighbor])
-            } else {
-                visited[neighbor] = new(Node)
-                visited[neighbor].Val = neighbor.Val
-                visited[neighbor].Neighbors = make([]*Node, 0)
-                visited[old_node].Neighbors = append(visited[old_node].Neighbors, visited[neighbor])
+            if _, exists := visited[neighbor]; !exists {
+                visited[neighbor] = &Node{Val: neighbor.Val}
                 stack = append(stack, neighbor)
             }
+            visited[old_node].Neighbors = append(visited[old_node].Neighbors, visited[neighbor])
         }
     }
 
@@ -141,33 +128,26 @@ func cloneGraph(node *Node) *Node {
 func cloneGraph(node *Node) *Node {
     // BFS Solution
     if node == nil {
-        return nil;
+        return nil
     }
 
-    new_node := new(Node)
-    new_node.Val = node.Val
-    new_node.Neighbors = make([]*Node, 0)
+    new_node := &Node{Val: node.Val}
 
     visited := make(map[*Node]*Node)
     visited[node] = new_node
 
-    queue := make([]*Node, 0)
-    queue = append(queue, node)
+    queue := []*Node{node}
 
     for len(queue) > 0 {
         old_node := queue[0]
         queue = queue[1:]
 
         for _, neighbor := range old_node.Neighbors {
-            if _, exists := visited[neighbor]; exists {
-                visited[old_node].Neighbors = append(visited[old_node].Neighbors, visited[neighbor])
-            } else {
-                visited[neighbor] = new(Node)
-                visited[neighbor].Val = neighbor.Val
-                visited[neighbor].Neighbors = make([]*Node, 0)
-                visited[old_node].Neighbors = append(visited[old_node].Neighbors, visited[neighbor])
+            if _, exists := visited[neighbor]; !exists {
+                visited[neighbor] = &Node{Val: neighbor.Val}
                 queue = append(queue, neighbor)
             }
+            visited[old_node].Neighbors = append(visited[old_node].Neighbors,                                                              visited[neighbor])
         }
     }
 
