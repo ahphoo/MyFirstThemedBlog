@@ -13,11 +13,17 @@ authors = ["Allan Phu"]
 
 ## How to solve
 
+We keep track of two variables, `minBuy` and `maxProfit`. While iterating through the array of stock prices, we keep track of the cheapest/smallest stock price we've seen so far in `minBuy`. We see if we can get a higher profit by selling the stock after we buy it by taking the difference between the current day's stock price and `minBuy` price (i.e. `price - minBuy`). We store the highest profit in `maxProfit`. After iterating through all stock prices in the array, we return `maxProfit`.
+
 ## Complexity Analysis
 
 ## Time: O(N)
 
+We iterate through the entire array once.
+
 ## Space: O(1)
+
+We create two variables that take constant space.
 
 ## Solutions
 
@@ -78,5 +84,21 @@ pub fn max_profit(prices: Vec<i32>) -> i32 {
     }
 
     maxProfit
+}
+```
+
+## Java
+
+```java
+public int maxProfit(int[] prices) {
+    int profit = 0;
+    int minBuy = Integer.MAX_VALUE;
+        
+    for (int price : prices) {
+        minBuy = Math.min(minBuy, price);
+        profit = Math.max(profit, price - minBuy);
+    }
+        
+    return profit;
 }
 ```
