@@ -13,13 +13,17 @@ authors = ["Allan Phu"]
 
 ## How to solve
 
-Let **a** and **b** be two numbers that sum to **c**. Algebraically, **a** and **b** ,
+We iterate through the integers in the array, checking if we have seen it's complement in the array before.
 
-**a = c - b** 
+We store the complement and it's array index in a hashmap.
 
-**b = c - a**
+There are two different ways to check if the complement is in the array.
 
-You want to return the indices of two numbers that sum to c, that is, a and b. Let's say while iterating through the array nums, you see **a**. You want to remember the index of **a** so that if you see **b** (or equivalently **c - a**), you can return an array with their indices. We can "remember" the index of **a** by putting a **a** and it's index as a key-value pair into a dictionary.
+1. For each `num` in the array, check if `target - num` is in the hashmap.
+2. For each `num`, calculate `target - num` and check if `num` is in the hashmap.
+
+
+If the complement is not in the hashmap, we save the current integer and it's array index in the hashmap.
 
 ## Complexity Analysis
 
@@ -76,5 +80,20 @@ impl Solution {
         }
         vec![]
     }
+}
+```
+
+## Java
+
+``` java
+public int[] twoSum(int[] nums, int target) {
+    HashMap<Integer, Integer> complement = new HashMap<>();
+    for (int i = 0; i < nums.length; i++) {
+        if (complement.containsKey(target - nums[i])) {
+            return new int[] {i, complement.get(target - nums[i])};
+        }
+        complement.put(nums[i], i);
+    }
+    return new int[] {-1, -1};
 }
 ```
