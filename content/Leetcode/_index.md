@@ -2,4 +2,4 @@
 title = "Leetcode"
 +++
 
-Python, Go, and Rust solutions for Yang Shun Handbook.
+Python, Go, Rust, and Java solutions for Yang Shun Handbook.
