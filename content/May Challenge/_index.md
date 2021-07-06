@@ -1,3 +1,0 @@
-+++
-title = "May LeetCode Challenge"
-+++
