@@ -4,16 +4,17 @@ sort_by = "date"
 insert_anchor_links = "right"
 +++
 
-I was inspired by [Rusty Algorithms](https://raymondsheng.github.io/) to create a website for those who need a refresher on algorithms.
+## Ever feel like this?
 
-## How to use this website
+![alt text](https://img.devrant.com/devrant/rant/r_102813_Wx1Vb.jpg "Logo title")
 
-* Turn on light or dark mode by clicking the square on the top left.
-* Data structures and Algorithm questions are sorted by topic on the left, as well as tagged.
-* Search for specific questions or answers on the search bar
+I was inspired by [Rusty Algorithms](https://raymondsheng.github.io/) (now defunct 😢) to create a website for those who need a refresher on algorithms.
 
-![alt text](https://img.devrant.com/devrant/rant/r_102813_Wx1Vb.jpg "Logo title") 
-![alt text](https://i.warosu.org/data/g/img/0540/39/1460663695958.jpg "Logo title")
+## Quick Tips and Tricks
+
+* Data structures and Algorithm questions are tagged and sorted by topic on the left.
+* Search for specific questions or answers using the search bar.
+* Turn on light 💡 or dark 🦇 mode by clicking the square on the top left.
 
 <!-- {{ youtube(id="dQw4w9WgXcQ") }} -->
 <!-- ## 6 steps build your knowledge base/docs repo

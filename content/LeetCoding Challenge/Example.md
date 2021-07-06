@@ -1,11 +1,11 @@
 +++
-title=""
-date=0000-00-00
+title="Example Problem"
+date=2021-01-01
 +++
 
 ## Problem Link
 
-[]()
+[http://leetcode.com](http://leetcode.com)
 
 ## How to solve
 

@@ -1,3 +1,3 @@
 +++
-title = "April LeetCode Challenge 2020 (30-day LeetCoding Challenge)"
+title = "April (30-day LeetCoding Challenge)"
 +++

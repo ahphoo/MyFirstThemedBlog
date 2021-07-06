@@ -1,3 +1,3 @@
 +++
-title = "July LeetCode Challenge 2021"
+title = "July"
 +++
