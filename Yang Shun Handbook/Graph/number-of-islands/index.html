@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title> Algostructures | Number of Islands </title>     
+      <link rel="stylesheet" href="https://ahphoo.github.io/main.css">
+      <link rel="icon" href="https://i.pinimg.com/736x/67/5f/bf/675fbf80eabf11721c93f345a156b40f.jpg">
+    </head>
+
+    <body>
+      <nav>
+        <div id="subnav">
+          <form class="theme-selector">
+            <button type="button" id="theme-light-button" class="theme-button" onclick="enableTheme('light', true)">&#9706;</button>
+            <button type="button" id="theme-dark-button"  class="theme-button enabled" onclick="enableTheme('dark', true)">&#9705;</button>
+          </form>
+          <a href="/search">&#8981;</a>       
+        </div>
+
+      
+  <ul id="breadcrumbs">
+    
+      
+      <li><a href="https:&#x2F;&#x2F;ahphoo.github.io&#x2F;">Algostructures</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="https:&#x2F;&#x2F;ahphoo.github.io&#x2F;Yang Shun Handbook&#x2F;">Yang Shun Handbook</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="https:&#x2F;&#x2F;ahphoo.github.io&#x2F;Yang Shun Handbook&#x2F;Graph&#x2F;">Graph</a>&nbsp;&#8594;&nbsp;</li> 
+    
+  </ul>
+  <h1>Number of Islands</h1><em></em> 
+
+      </nav>
+
+      <main>
+      
+  <div id="taxonomies">
+    
+      <date>06.06.2020</date>
+       
+
+    
+      <ul>
+      
+        <li><a href="https://ahphoo.github.io/authors/allan-phu/" >Allan Phu</a></li>
+      
+     </ul>
+    
+    
+    
+      <ul>
+      
+        <li><a href="https://ahphoo.github.io/tags/graph/" >#Graph</a></li>
+      
+      </ul>
+    
+  </div>
+
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+  
+      <ul id="toc">
+        
+          <li><a href="https://ahphoo.github.io/Yang Shun Handbook/Graph/number-of-islands/#problem-link">Problem Link</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/Yang Shun Handbook/Graph/number-of-islands/#how-to-solve">How to solve</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/Yang Shun Handbook/Graph/number-of-islands/#complexity-analysis">Complexity Analysis</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/Yang Shun Handbook/Graph/number-of-islands/#time">Time</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/Yang Shun Handbook/Graph/number-of-islands/#space">Space</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/Yang Shun Handbook/Graph/number-of-islands/#solutions">Solutions</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/Yang Shun Handbook/Graph/number-of-islands/#python">Python</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/Yang Shun Handbook/Graph/number-of-islands/#go">Go</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/Yang Shun Handbook/Graph/number-of-islands/#rust">Rust</a>
+          
+        </li>
+  
+      </ul>
+  
+
+  <article>
+    <h2 id="problem-link">Problem Link</h2>
+<p><a href="https://leetcode.com/problems/number-of-islands/">https://leetcode.com/problems/number-of-islands/</a></p>
+<h2 id="how-to-solve">How to solve</h2>
+<h2 id="complexity-analysis">Complexity Analysis</h2>
+<h2 id="time">Time</h2>
+<h2 id="space">Space</h2>
+<h2 id="solutions">Solutions</h2>
+<h2 id="python">Python</h2>
+<pre style="background-color:#383838;">
+<span style="color:#95815e;"># O(mn) time | O(mn) space
+</span><span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">numIslands</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">grid</span><span style="color:#e6e1dc;">: List[List[</span><span style="font-style:italic;color:#6e9cbe;">str</span><span style="color:#e6e1dc;">]]) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">:
+    rows </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(grid)
+    cols </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(grid[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">])
+    num_islands </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">0
+    
+    </span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">i </span><span style="color:#cc7833;">in </span><span style="color:#da4939;">range</span><span style="color:#e6e1dc;">(rows):
+        </span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">j </span><span style="color:#cc7833;">in </span><span style="color:#da4939;">range</span><span style="color:#e6e1dc;">(cols):
+            </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">grid[i][j] </span><span style="color:#cc7833;">== </span><span style="color:#c1be91;">&quot;1&quot;</span><span style="color:#e6e1dc;">:
+                </span><span style="color:#d0d0ff;">self</span><span style="color:#e6e1dc;">.removeIsland(i, j, grid)
+                num_islands </span><span style="color:#cc7833;">+= </span><span style="color:#a5c261;">1
+    
+    </span><span style="color:#cc7833;">return </span><span style="color:#e6e1dc;">num_islands
+
+</span><span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">removeIsland</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">i</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">j</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">grid</span><span style="color:#e6e1dc;">):
+    </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">grid[i][j] </span><span style="color:#cc7833;">== </span><span style="color:#c1be91;">&quot;1&quot;</span><span style="color:#e6e1dc;">:
+        grid[i][j] </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">0
+        
+        </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">i </span><span style="color:#cc7833;">&gt; </span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">:
+            </span><span style="color:#d0d0ff;">self</span><span style="color:#e6e1dc;">.removeIsland(i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">, j, grid)
+        </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">i </span><span style="color:#cc7833;">&lt; </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(grid) </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">:
+            </span><span style="color:#d0d0ff;">self</span><span style="color:#e6e1dc;">.removeIsland(i </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">, j, grid)
+        </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">j </span><span style="color:#cc7833;">&gt; </span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">:
+            </span><span style="color:#d0d0ff;">self</span><span style="color:#e6e1dc;">.removeIsland(i, j </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">, grid)
+        </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">j </span><span style="color:#cc7833;">&lt; </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(grid[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">]) </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">:
+            </span><span style="color:#d0d0ff;">self</span><span style="color:#e6e1dc;">.removeIsland(i, j </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">, grid)
+</span></pre>
+<p>Iterative BFS solution</p>
+<pre style="background-color:#383838;">
+<span style="color:#95815e;"># O(mn) time | O(mn) space
+</span><span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">numIslands</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">grid</span><span style="color:#e6e1dc;">: List[List[</span><span style="font-style:italic;color:#6e9cbe;">str</span><span style="color:#e6e1dc;">]]) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">:
+    rows </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(grid)
+    cols </span><span style="color:#cc7833;">= </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(grid[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">])
+    num_islands </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">0
+    
+    </span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">i </span><span style="color:#cc7833;">in </span><span style="color:#da4939;">range</span><span style="color:#e6e1dc;">(rows):
+        </span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">j </span><span style="color:#cc7833;">in </span><span style="color:#da4939;">range</span><span style="color:#e6e1dc;">(cols):
+            </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">grid[i][j] </span><span style="color:#cc7833;">== </span><span style="color:#c1be91;">&quot;1&quot;</span><span style="color:#e6e1dc;">:
+                </span><span style="color:#d0d0ff;">self</span><span style="color:#e6e1dc;">.removeIsland(i, j, grid)
+                num_islands </span><span style="color:#cc7833;">+= </span><span style="color:#a5c261;">1
+    
+    </span><span style="color:#cc7833;">return </span><span style="color:#e6e1dc;">num_islands
+
+</span><span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">removeIsland</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">row</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">col</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">grid</span><span style="color:#e6e1dc;">):
+    stack </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">[(row, col)]
+    
+    </span><span style="color:#cc7833;">while </span><span style="color:#e6e1dc;">stack:
+        i, j </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">stack.pop()
+        
+        </span><span style="color:#cc7833;">if </span><span style="color:#d0d0ff;">self</span><span style="color:#e6e1dc;">.isLand(i, j, grid):
+            grid[i][j] </span><span style="color:#cc7833;">= </span><span style="color:#c1be91;">&quot;0&quot;
+            </span><span style="color:#e6e1dc;">stack.append((i </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">, j))
+            stack.append((i </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">, j))
+            stack.append((i, j </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">))
+            stack.append((i, j </span><span style="color:#cc7833;">+ </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">))
+            
+</span><span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">isLand</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">i</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">j</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">grid</span><span style="color:#e6e1dc;">):
+    valid_row </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">0 </span><span style="color:#cc7833;">&lt;= </span><span style="color:#e6e1dc;">i </span><span style="color:#cc7833;">&lt; </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(grid)
+    valid_col </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">0 </span><span style="color:#cc7833;">&lt;= </span><span style="color:#e6e1dc;">j </span><span style="color:#cc7833;">&lt; </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(grid[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">])
+    </span><span style="color:#cc7833;">return </span><span style="color:#e6e1dc;">valid_row </span><span style="color:#cc7833;">and </span><span style="color:#e6e1dc;">valid_col </span><span style="color:#cc7833;">and </span><span style="color:#e6e1dc;">grid[i][j] </span><span style="color:#cc7833;">== </span><span style="color:#c1be91;">&quot;1&quot;
+</span></pre><h2 id="go">Go</h2>
+<pre style="background-color:#383838;">
+<span style="color:#e6e1dc;">
+</span></pre><h2 id="rust">Rust</h2>
+<pre style="background-color:#383838;">
+<span style="color:#e6e1dc;">
+</span></pre>
+  </article>
+
+      </main>
+
+      <script type="text/javascript" src="https://ahphoo.github.io/themes.js"></script>
+
+      <script>
+        function burger() {
+          var x = document.getElementById("bger");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+    </body>
+</html>

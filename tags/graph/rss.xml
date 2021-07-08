@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Algostructures</title>
+        <link>https://ahphoo.github.io/</link>
+        <description></description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://ahphoo.github.io/tags/graph/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Sat, 06 Jun 2020 00:00:00 +0000</lastBuildDate>
+        
+            <item>
+                <title>Number of Islands</title>
+                <pubDate>Sat, 06 Jun 2020 00:00:00 +0000</pubDate>
+                <link>https://ahphoo.github.io/Yang Shun Handbook/Graph/number-of-islands/</link>
+                <guid>https://ahphoo.github.io/Yang Shun Handbook/Graph/number-of-islands/</guid>
+                <description>&lt;h2 id=&quot;problem-link&quot;&gt;Problem Link&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;number-of-islands&#x2F;&quot;&gt;https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;number-of-islands&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;how-to-solve&quot;&gt;How to solve&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;complexity-analysis&quot;&gt;Complexity Analysis&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;time&quot;&gt;Time&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;space&quot;&gt;Space&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;solutions&quot;&gt;Solutions&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;python&quot;&gt;Python&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#383838;&quot;&gt;
+&lt;span style=&quot;color:#95815e;&quot;&gt;# O(mn) time | O(mn) space
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#3bc0f0;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffc66d;&quot;&gt;numIslands&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;grid&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;: List[List[&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;str&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;]]) -&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;:
+    rows &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(grid)
+    cols &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(grid[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;])
+    num_islands &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0
+    
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(rows):
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(cols):
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;grid[i][j] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;== &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c1be91;&quot;&gt;&amp;quot;1&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;:
+                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;.removeIsland(i, j, grid)
+                num_islands &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;+= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1
+    
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;num_islands
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#3bc0f0;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffc66d;&quot;&gt;removeIsland&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;i&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;j&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;grid&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;):
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;grid[i][j] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;== &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c1be91;&quot;&gt;&amp;quot;1&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;:
+        grid[i][j] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0
+        
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;:
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;.removeIsland(i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, j, grid)
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;lt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(grid) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;:
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;.removeIsland(i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, j, grid)
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;:
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;.removeIsland(i, j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, grid)
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;lt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(grid[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;]) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;:
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;.removeIsland(i, j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, grid)
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Iterative BFS solution&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#383838;&quot;&gt;
+&lt;span style=&quot;color:#95815e;&quot;&gt;# O(mn) time | O(mn) space
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#3bc0f0;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffc66d;&quot;&gt;numIslands&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;grid&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;: List[List[&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;str&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;]]) -&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;:
+    rows &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(grid)
+    cols &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(grid[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;])
+    num_islands &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0
+    
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(rows):
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(cols):
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;grid[i][j] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;== &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c1be91;&quot;&gt;&amp;quot;1&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;:
+                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;.removeIsland(i, j, grid)
+                num_islands &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;+= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1
+    
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;num_islands
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#3bc0f0;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffc66d;&quot;&gt;removeIsland&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;row&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;col&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;grid&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;):
+    stack &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;[(row, col)]
+    
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;while &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;stack:
+        i, j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;stack.pop()
+        
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;.isLand(i, j, grid):
+            grid[i][j] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c1be91;&quot;&gt;&amp;quot;0&amp;quot;
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;stack.append((i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, j))
+            stack.append((i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, j))
+            stack.append((i, j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;))
+            stack.append((i, j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;))
+            
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#3bc0f0;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffc66d;&quot;&gt;isLand&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;i&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;j&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;grid&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;):
+    valid_row &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;lt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;lt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(grid)
+    valid_col &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;lt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;lt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(grid[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;])
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;valid_row &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;and &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;valid_col &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;and &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;grid[i][j] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;== &lt;&#x2F;span&gt;&lt;span style=&quot;color:#c1be91;&quot;&gt;&amp;quot;1&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;go&quot;&gt;Go&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#383838;&quot;&gt;
+&lt;span style=&quot;color:#e6e1dc;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;rust&quot;&gt;Rust&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#383838;&quot;&gt;
+&lt;span style=&quot;color:#e6e1dc;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;</description>
+            </item>
+        
+            <item>
+                <title>Pacific Atlantic Water Flow</title>
+                <pubDate>Sat, 06 Jun 2020 00:00:00 +0000</pubDate>
+                <link>https://ahphoo.github.io/Yang Shun Handbook/Graph/pacific-atlantic-water-flow/</link>
+                <guid>https://ahphoo.github.io/Yang Shun Handbook/Graph/pacific-atlantic-water-flow/</guid>
+                <description>&lt;h2 id=&quot;problem-link&quot;&gt;Problem Link&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;pacific-atlantic-water-flow&#x2F;&quot;&gt;https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;pacific-atlantic-water-flow&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;how-to-solve&quot;&gt;How to solve&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;complexity-analysis&quot;&gt;Complexity Analysis&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;time&quot;&gt;Time&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;space&quot;&gt;Space&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;solutions&quot;&gt;Solutions&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;python&quot;&gt;Python&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#383838;&quot;&gt;
+&lt;span style=&quot;font-style:italic;color:#3bc0f0;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffc66d;&quot;&gt;pacificAtlantic&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;matrix&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;: List[List[&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;]]) -&amp;gt; List[List[&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;]]:
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if not &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;matrix:
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;[]
+
+    rows &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(matrix)
+    cols &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(matrix[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;])
+
+    pacific &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;[[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;False &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;_ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(cols)] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;_ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(rows)]
+    atlantic &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;[[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;False &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;_ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(cols)] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;_ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(rows)]
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#3bc0f0;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffc66d;&quot;&gt;can_reach_ocean&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;ocean&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;i&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;j&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;):
+        ocean[i][j] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;True
+
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;and &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;matrix[i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;][j] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;matrix[i][j] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;and not &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;ocean[i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;][j]:
+            can_reach_ocean(ocean, i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, j)
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;lt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;rows &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;and &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;matrix[i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;][j] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;matrix[i][j] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;and not &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;ocean[i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;][j]:
+            can_reach_ocean(ocean, i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, j)
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;and &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;matrix[i][j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;matrix[i][j] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;and not &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;ocean[i][j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;]:
+            can_reach_ocean(ocean, i, j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;)
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;lt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;cols &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;and &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;matrix[i][j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;matrix[i][j] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;and not &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;ocean[i][j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;]:
+            can_reach_ocean(ocean, i, j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;+ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;)
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(rows):
+        can_reach_ocean(pacific, i, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;)
+        can_reach_ocean(atlantic, i, cols &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;)
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(cols):
+        can_reach_ocean(pacific, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, j)
+        can_reach_ocean(atlantic, rows &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, j)
+
+    ans &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;[]
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(rows):
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;j &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(cols):
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;pacific[i][j] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;and &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;atlantic[i][j]:
+                ans.append([i, j])
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;ans
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;go&quot;&gt;Go&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#383838;&quot;&gt;
+&lt;span style=&quot;color:#e6e1dc;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;rust&quot;&gt;Rust&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#383838;&quot;&gt;
+&lt;span style=&quot;color:#e6e1dc;&quot;&gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;</description>
+            </item>
+        
+            <item>
+                <title>Course Schedule</title>
+                <pubDate>Tue, 26 May 2020 00:00:00 +0000</pubDate>
+                <link>https://ahphoo.github.io/Yang Shun Handbook/Graph/course-schedule/</link>
+                <guid>https://ahphoo.github.io/Yang Shun Handbook/Graph/course-schedule/</guid>
+                <description>&lt;h2 id=&quot;problem-link&quot;&gt;Problem Link&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;course-schedule&#x2F;&quot;&gt;https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;course-schedule&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;how-to-solve&quot;&gt;How to solve&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Create a 2-D vector of length &lt;code&gt;numCourses&lt;&#x2F;code&gt;. For each course, create a vector containing it&#x27;s neighbors.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Create two hashsets: &lt;code&gt;visiting&lt;&#x2F;code&gt; and &lt;code&gt;visited&lt;&#x2F;code&gt;. The &lt;code&gt;visiting&lt;&#x2F;code&gt; hashset holds all courses that we are running dfs against to find cycles. The &lt;code&gt;visited&lt;&#x2F;code&gt; hashset holds all courses that we know have no cycles.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;For each course, run dfs&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;If we run dfs on a course we are currently visiting, there is a cycle. Return false.&lt;&#x2F;li&gt;
+&lt;li&gt;If we run dfs on a course we have already visted, there is no cycle&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;If, after running dfs on all courses we encounter no cycles, we return true.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h2 id=&quot;complexity-analysis&quot;&gt;Complexity Analysis&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;time-o-v-e&quot;&gt;Time: O(V + E)&lt;&#x2F;h2&gt;
+&lt;p&gt;We check if a course is in a cycle by running depth-first search on all of it&#x27;s neighbors.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;space-o-v-2&quot;&gt;Space: O(V^2)&lt;&#x2F;h2&gt;
+&lt;p&gt;We create a 2-D vector containing the neighbors of each node. There are &lt;code&gt;|V|&lt;&#x2F;code&gt; nodes and each node can have &lt;code&gt;|V - 1|&lt;&#x2F;code&gt; many connections.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;solutions&quot;&gt;Solutions&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;python&quot;&gt;Python&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#383838;&quot;&gt;
+&lt;span style=&quot;font-style:italic;color:#3bc0f0;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffc66d;&quot;&gt;canFinish&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;numCourses&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;prerequisites&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;: List[List[&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;]]) -&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;bool&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;:
+    adj_list &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;[[] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;_ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(numCourses)]
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;preq &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;prerequisites:
+        adj_list[preq[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;]].append(preq[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;])
+
+    visiting &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;set&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;()
+    visited &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;set&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;()
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#3bc0f0;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffc66d;&quot;&gt;has_cycle&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;course&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;):
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;course &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;visiting:
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;True
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;course &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;visited:
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;False
+
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;visiting.add(course)
+
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;preq_class &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;adj_list[course]:
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;has_cycle(preq_class):
+                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;True
+
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;visiting.remove(course)
+        visited.add(course)
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;False
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(numCourses):
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;has_cycle(i):
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;False
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;True
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;go&quot;&gt;Go&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#383838;&quot;&gt;
+&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;func &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffc66d;&quot;&gt;canFinish&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;numCourses &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;prerequisites&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; [][]&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;bool &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;{
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;adj_list &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;make&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;([][]&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, numCourses)
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:= range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; adj_list {
+        adj_list[i] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;make&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;([]&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;)
+    }
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:= range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; prerequisites {
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;preq &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; prerequisites[i][&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;]
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;class &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; prerequisites[i][&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;]
+        adj_list[preq] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;append&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(adj_list[preq], class)
+    }
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;visiting &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;make&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;map&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;bool&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;)
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;visited &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;make&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;map&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;bool&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;)
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; numCourses; i&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;++ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;{
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;hasCycle(i, adj_list, visiting, visited) {
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;false
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;}
+    }
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;true
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;}
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;func &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffc66d;&quot;&gt;hasCycle&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;course &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;adj_list&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; [][]&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;visiting &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;map&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;bool&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;visited &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;map&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;int&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;]&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;bool&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;) &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;bool &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;{
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;_&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;ok &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; visiting[course]; ok {
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;true
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;} &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;else if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;_&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;ok &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; visited[course]; ok {
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;false
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;}
+
+    visiting[course] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;true
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:= range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; adj_list[course] {
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;hasCycle(adj_list[course][i], adj_list, visiting, visited) {
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;false
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;}
+    }
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;delete&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(visiting, course)
+    visited[course] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;true
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;false
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;rust&quot;&gt;Rust&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#383838;&quot;&gt;
+&lt;span style=&quot;color:#cc7833;&quot;&gt;use &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;std::collections::HashSet;
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;impl &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;Solution {
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;pub &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffc66d;&quot;&gt;can_finish&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;num_courses&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;i32&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;prerequisites&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;: Vec&amp;lt;Vec&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;i32&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;&amp;gt;&amp;gt;) -&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;bool &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;{
+
+        &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; num_courses &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; num_courses &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;as &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;usize&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;;
+        &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;let &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;mut&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; adj_list: Vec&amp;lt;Vec&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;i32&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;&amp;gt;&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;vec![&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;Vec&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;::new(); num_courses];
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; preq &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;prerequisites {
+            adj_list[preq[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;as &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;usize&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;].&lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;push&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(preq[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;]);
+        }
+
+        &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;let &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;mut&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; visiting &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;HashSet::new();
+        &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;let &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;mut&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; visited &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;HashSet::new();
+
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;..&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;num_courses {
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;has_cycle&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;as &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;i32&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;adj_list, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;amp;mut&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; visiting, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;amp;mut&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; visited) {
+                &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;false&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;;
+            }
+        }
+
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;true
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;}
+}
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;pub &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffc66d;&quot;&gt;has_cycle&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;course&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;i32&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;,
+                 &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;adj_list&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;Vec&amp;lt;Vec&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;i32&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;&amp;gt;&amp;gt;,
+                 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;mut &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;visiting&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;amp;mut &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;HashSet&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;i32&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;&amp;gt;,
+                 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;mut &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;visited&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;amp;mut &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;HashSet&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;i32&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;&amp;gt;) -&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;bool &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;{
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; visiting.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;contains&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;course) {
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;true&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;;
+    }
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; visited.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;contains&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;course) {
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;false&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;;
+    }
+
+    visiting.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;insert&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(course);
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; i &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;..&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;adj_list[course &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;as &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;usize&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;].&lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;() {
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;has_cycle&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(adj_list[course &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;as &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;usize&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;][i],
+                     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;adj_list,
+                     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;amp;mut&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; visiting,
+                     &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;amp;mut&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; visited) {
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;true&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;;
+        }
+    }
+
+    visiting.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;remove&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;course);
+    visited.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;insert&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(course);
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;false
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;</description>
+            </item>
+        
+            <item>
+                <title>Clone Graph</title>
+                <pubDate>Mon, 25 May 2020 00:00:00 +0000</pubDate>
+                <link>https://ahphoo.github.io/Yang Shun Handbook/Graph/clone-graph/</link>
+                <guid>https://ahphoo.github.io/Yang Shun Handbook/Graph/clone-graph/</guid>
+                <description>&lt;h2 id=&quot;problem-link&quot;&gt;Problem Link&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;clone-graph&#x2F;&quot;&gt;https:&#x2F;&#x2F;leetcode.com&#x2F;problems&#x2F;clone-graph&#x2F;&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;how-to-solve&quot;&gt;How to solve&lt;&#x2F;h2&gt;
+&lt;p&gt;This problem can be solved recursively or iteratively (for now, the solutions posted below are iterative).&lt;&#x2F;p&gt;
+&lt;p&gt;To perform a deep clone of a graph, we must do two things:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a deep clone (i.e. allocate memory for a Node on the heap) for each of the nodes in the input graph&lt;&#x2F;li&gt;
+&lt;li&gt;For each cloned node, ensure that it has the same neighbors as in the input graph.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;First, clone the input &lt;code&gt;node&lt;&#x2F;code&gt;. Create a hashmap (called &lt;code&gt;visited&lt;&#x2F;code&gt;) that maps the nodes in the input graph to their cloned counterparts. Map the input &lt;code&gt;node&lt;&#x2F;code&gt; to the cloned node. Next, create a stack&#x2F;queue and append to it input node. We will use the stack&#x2F;queue to keep track of which nodes that still need their neighbor list populated.&lt;&#x2F;p&gt;
+&lt;p&gt;While the stack&#x2F;queue is not empty, perform the following steps:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Pop&#x2F;Deque the node from stack&#x2F;queue&lt;&#x2F;li&gt;
+&lt;li&gt;For each neighbor of node:&lt;&#x2F;li&gt;
+&lt;li&gt;Check if neighbor has been cloned
+&lt;ol&gt;
+&lt;li&gt;If so, append cloned neighbor to list of neighbors for the cloned node&lt;&#x2F;li&gt;
+&lt;li&gt;Else, create a clone of neighbor and add a pair (neighbor, cloned neighbor) to the hashmap. Then append the cloned neighbor to the list of neighbors for the cloned node&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;Return the cloned input node.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h2 id=&quot;complexity-analysis&quot;&gt;Complexity Analysis&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;time-o-v-e&quot;&gt;Time: O(|V| + |E|)&lt;&#x2F;h2&gt;
+&lt;p&gt;We clone every node in the original input graph. For every node, we check all of it&#x27;s neighbors and append the cloned neighbors to the cloned node&#x27;s neighbor list.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;space-o-v&quot;&gt;Space: O(|V|)&lt;&#x2F;h2&gt;
+&lt;p&gt;For depth-first-search or breadth-first-search, we maintain a stack or heap that holds the unprocessed nodes in the input graph. In the worst case, a node might be connected to every other node (i.e. have &lt;code&gt;|V| - 1&lt;&#x2F;code&gt; neighbors).&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;solutions&quot;&gt;Solutions&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;python&quot;&gt;Python&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#383838;&quot;&gt;
+&lt;span style=&quot;font-style:italic;color:#3bc0f0;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffc66d;&quot;&gt;cloneGraph&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;node&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;&amp;#39;Node&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;) -&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;&amp;#39;Node&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;:
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#95815e;&quot;&gt;# DFS solution
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if not &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;node:
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;None
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;new_node &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;Node(node.val)
+    visited &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;{node: new_node}
+
+    stack &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;[node]
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;while &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;stack:
+        old_node &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;stack.pop()
+
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;neighbor &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;old_node.neighbors:
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;neighbor &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;not in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;visited:
+                visited[neighbor] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;Node(neighbor.val)
+                stack.append(neighbor)
+            visited[old_node].neighbors.append(visited[neighbor])
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;new_node
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;&lt;pre style=&quot;background-color:#383838;&quot;&gt;
+&lt;span style=&quot;font-style:italic;color:#3bc0f0;&quot;&gt;def &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffc66d;&quot;&gt;cloneGraph&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;self&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;node&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;&amp;#39;Node&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;) -&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;&amp;#39;Node&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;:
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#95815e;&quot;&gt;# BFS solution
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if not &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;node:
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;None
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;new_node &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;Node(node.val)
+    visited &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;{node: new_node}
+
+    queue &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;deque([node])
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;while &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;queue:
+        old_node &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;queue.popleft()
+
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;neighbor &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;old_node.neighbors:
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;neighbor &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;not in &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;visited:
+                visited[neighbor] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;Node(neighbor.val)
+                queue.append(neighbor)
+            visited[old_node].neighbors.append(visited[neighbor])
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;new_node
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;go&quot;&gt;Go&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#383838;&quot;&gt;
+&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;func &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffc66d;&quot;&gt;cloneGraph&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;node &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;Node) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;Node {
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#95815e;&quot;&gt;&#x2F;&#x2F;DFS Solution
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; node &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;== &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;nil &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;{
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;nil
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;}
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;new_node &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:= &amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;Node{Val: node.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;Val&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;}
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;visited &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;make&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;map&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;[*Node]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;Node)
+    visited[node] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; new_node
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;stack &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;[]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;Node{node}
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(stack) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;{
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;old_node &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; stack[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(stack) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;]
+        stack &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; stack[:&lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(stack) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;- &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;]
+
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;_&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;neighbor &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:= range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; old_node.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;Neighbors &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;{
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;_&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;exists &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; visited[neighbor]; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;exists {
+                visited[neighbor] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;Node{Val: neighbor.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;Val&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;}
+                stack &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;append&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(stack, neighbor)
+            }
+            visited[old_node].&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;Neighbors &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;append&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(visited[old_node].&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;Neighbors&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, visited[neighbor])
+        }
+    }
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; new_node
+}
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;&lt;pre style=&quot;background-color:#383838;&quot;&gt;
+&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;func &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffc66d;&quot;&gt;cloneGraph&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;node &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;Node) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;Node {
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#95815e;&quot;&gt;&#x2F;&#x2F; BFS Solution
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; node &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;== &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;nil &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;{
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6e9cbe;&quot;&gt;nil
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;}
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;new_node &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:= &amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;Node{Val: node.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;Val&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;}
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;visited &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;make&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#6e9cbe;&quot;&gt;map&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;[*Node]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;Node)
+    visited[node] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; new_node
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;queue &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;[]&lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;*&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;Node{node}
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;len&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(queue) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;{
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;old_node &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; queue[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;]
+        queue &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; queue[&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a5c261;&quot;&gt;1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;:]
+
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;for &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;_&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;neighbor &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:= range&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; old_node.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;Neighbors &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;{
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;_&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;, &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;exists &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;:=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; visited[neighbor]; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;!&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;exists {
+                visited[neighbor] &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &amp;amp;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;Node{Val: neighbor.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;Val&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;}
+                queue &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;append&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(queue, neighbor)
+            }
+            visited[old_node].&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;Neighbors &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#da4939;&quot;&gt;append&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;(visited[old_node].&lt;&#x2F;span&gt;&lt;span style=&quot;color:#d0d0ff;&quot;&gt;Neighbors&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt;,                                                              visited[neighbor])
+        }
+    }
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#cc7833;&quot;&gt;return&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6e1dc;&quot;&gt; new_node
+}
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;rust&quot;&gt;Rust&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#383838;&quot;&gt;
+&lt;span style=&quot;color:#e6e1dc;&quot;&gt;No Rust option on Leetcode :(
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;</description>
+            </item>
+        
+    </channel>
+</rss>

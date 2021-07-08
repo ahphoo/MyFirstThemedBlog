@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title> Algostructures | Gray Code </title>     
+      <link rel="stylesheet" href="https://ahphoo.github.io/main.css">
+      <link rel="icon" href="https://i.pinimg.com/736x/67/5f/bf/675fbf80eabf11721c93f345a156b40f.jpg">
+    </head>
+
+    <body>
+      <nav>
+        <div id="subnav">
+          <form class="theme-selector">
+            <button type="button" id="theme-light-button" class="theme-button" onclick="enableTheme('light', true)">&#9706;</button>
+            <button type="button" id="theme-dark-button"  class="theme-button enabled" onclick="enableTheme('dark', true)">&#9705;</button>
+          </form>
+          <a href="/search">&#8981;</a>       
+        </div>
+
+      
+  <ul id="breadcrumbs">
+    
+      
+      <li><a href="https:&#x2F;&#x2F;ahphoo.github.io&#x2F;">Algostructures</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="https:&#x2F;&#x2F;ahphoo.github.io&#x2F;LeetCoding Challenge&#x2F;">LeetCoding Challenge</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="https:&#x2F;&#x2F;ahphoo.github.io&#x2F;LeetCoding Challenge&#x2F;2021&#x2F;">2021</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="https:&#x2F;&#x2F;ahphoo.github.io&#x2F;LeetCoding Challenge&#x2F;2021&#x2F;07 July&#x2F;">July</a>&nbsp;&#8594;&nbsp;</li> 
+    
+  </ul>
+  <h1>Gray Code</h1><em></em> 
+
+      </nav>
+
+      <main>
+      
+  <div id="taxonomies">
+    
+      <date>01.07.2020</date>
+       
+
+    
+    
+    
+  </div>
+
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+  
+      <ul id="toc">
+        
+          <li><a href="https://ahphoo.github.io/LeetCoding Challenge/2021/07 July/gray-code/#problem-link">Problem Link</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/LeetCoding Challenge/2021/07 July/gray-code/#how-to-solve">How to solve</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/LeetCoding Challenge/2021/07 July/gray-code/#complexity-analysis">Complexity Analysis</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/LeetCoding Challenge/2021/07 July/gray-code/#time-o-n">Time: O(N)</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/LeetCoding Challenge/2021/07 July/gray-code/#space-o-n">Space: O(N)</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/LeetCoding Challenge/2021/07 July/gray-code/#solutions">Solutions</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/LeetCoding Challenge/2021/07 July/gray-code/#python">Python</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/LeetCoding Challenge/2021/07 July/gray-code/#go">Go</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/LeetCoding Challenge/2021/07 July/gray-code/#rust">Rust</a>
+          
+        </li>
+  
+      </ul>
+  
+
+  <article>
+    <h2 id="problem-link">Problem Link</h2>
+<p><a href="https://leetcode.com/problems/gray-code/">https://leetcode.com/problems/gray-code/</a></p>
+<h2 id="how-to-solve">How to solve</h2>
+<h2 id="complexity-analysis">Complexity Analysis</h2>
+<h2 id="time-o-n">Time: O(N)</h2>
+<h2 id="space-o-n">Space: O(N)</h2>
+<h2 id="solutions">Solutions</h2>
+<h2 id="python">Python</h2>
+<pre style="background-color:#383838;">
+<span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">grayCode</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">n</span><span style="color:#e6e1dc;">: </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">) -&gt; List[</span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">]:
+    result </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">[</span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">]
+    used </span><span style="color:#cc7833;">= </span><span style="font-style:italic;color:#6e9cbe;">set</span><span style="color:#e6e1dc;">(result)
+    </span><span style="color:#d0d0ff;">self</span><span style="color:#e6e1dc;">.grayCodeHelper(result, used, n)
+    </span><span style="color:#cc7833;">return </span><span style="color:#e6e1dc;">result
+    
+</span><span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">grayCodeHelper</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">result</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">used</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">n</span><span style="color:#e6e1dc;">):
+    </span><span style="color:#95815e;"># 1 &lt;&lt; n is the same as 1 * 2**n
+    </span><span style="color:#cc7833;">if </span><span style="color:#da4939;">len</span><span style="color:#e6e1dc;">(result) </span><span style="color:#cc7833;">== </span><span style="color:#e6e1dc;">(</span><span style="color:#a5c261;">1 </span><span style="color:#cc7833;">&lt;&lt; </span><span style="color:#e6e1dc;">n):
+        </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">True
+    
+    </span><span style="color:#cc7833;">for </span><span style="color:#e6e1dc;">i </span><span style="color:#cc7833;">in </span><span style="color:#da4939;">range</span><span style="color:#e6e1dc;">(n):
+        mask </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">1 </span><span style="color:#cc7833;">&lt;&lt; </span><span style="color:#e6e1dc;">i
+        word </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">result[</span><span style="color:#cc7833;">-</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">] </span><span style="color:#cc7833;">^ </span><span style="color:#e6e1dc;">mask
+        
+        </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">word </span><span style="color:#cc7833;">in </span><span style="color:#e6e1dc;">used:
+            </span><span style="color:#cc7833;">continue
+            
+        </span><span style="color:#e6e1dc;">result.append(word)
+        used.add(word)
+        
+        </span><span style="color:#cc7833;">if </span><span style="color:#d0d0ff;">self</span><span style="color:#e6e1dc;">.grayCodeHelper(result, used, n):
+            </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">True
+        
+        </span><span style="color:#e6e1dc;">result </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">result[:</span><span style="color:#cc7833;">-</span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">]
+        used.remove(word)
+        
+    </span><span style="color:#cc7833;">return </span><span style="color:#6e9cbe;">False
+</span></pre><h2 id="go">Go</h2>
+<h2 id="rust">Rust</h2>
+
+  </article>
+
+      </main>
+
+      <script type="text/javascript" src="https://ahphoo.github.io/themes.js"></script>
+
+      <script>
+        function burger() {
+          var x = document.getElementById("bger");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+    </body>
+</html>
