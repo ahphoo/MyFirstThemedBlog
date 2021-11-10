@@ -1,6 +1,6 @@
 +++
 title="Angular"
-date=2021-11-9
+date=2021-11-09
 
 [taxonomies]
 tags = ["Javascript"]
