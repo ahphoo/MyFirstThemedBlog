@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title> Algostructures | Debian </title>     
+      <link rel="stylesheet" href="https://ahphoo.github.io/main.css">
+      <link rel="icon" href="https://i.pinimg.com/736x/67/5f/bf/675fbf80eabf11721c93f345a156b40f.jpg">
+    </head>
+
+    <body>
+      <nav>
+        <div id="subnav">
+          <form class="theme-selector">
+            <button type="button" id="theme-light-button" class="theme-button" onclick="enableTheme('light', true)">&#9706;</button>
+            <button type="button" id="theme-dark-button"  class="theme-button enabled" onclick="enableTheme('dark', true)">&#9705;</button>
+          </form>
+          <a href="/search">&#8981;</a>       
+        </div>
+
+      
+  <ul id="breadcrumbs">
+    
+      
+      <li><a href="https:&#x2F;&#x2F;ahphoo.github.io&#x2F;">Algostructures</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="https:&#x2F;&#x2F;ahphoo.github.io&#x2F;Linux&#x2F;">Linux</a>&nbsp;&#8594;&nbsp;</li> 
+    
+  </ul>
+  <h1>Debian</h1><em></em> 
+
+      </nav>
+
+      <main>
+      
+  <div id="taxonomies">
+    
+      <date>22.12.2020</date>
+       
+
+    
+      <ul>
+      
+        <li><a href="https://ahphoo.github.io/authors/allan-phu/" >Allan Phu</a></li>
+      
+     </ul>
+    
+    
+    
+      <ul>
+      
+        <li><a href="https://ahphoo.github.io/tags/linux/" >#Linux</a></li>
+      
+        <li><a href="https://ahphoo.github.io/tags/debian/" >#Debian</a></li>
+      
+      </ul>
+    
+  </div>
+
+  
+  
+    
+    
+  
+
+  
+
+  <article>
+    <h2 id="enabling-wifi-on-boot-for-hidden-ssids">Enabling wifi on boot for hidden ssids</h2>
+<p>In <strong>/etc/NetworkManager/NetworkManger.conf</strong>, under the <strong>[wifi]</strong> section add <strong>hidden=true</strong>.</p>
+<p>To test if the changes worked, you can do either of the following:</p>
+<ol>
+    <li> Restart NetworkManager by running `sudo systemctl restart NetworkManager` </li>
+    <li> Reboot your system by running `sudo reboot` </li>
+</ol>
+<p>Your system should now automatically scan and connect to your hidden ssid!</p>
+
+  </article>
+
+      </main>
+
+      <script type="text/javascript" src="https://ahphoo.github.io/themes.js"></script>
+
+      <script>
+        function burger() {
+          var x = document.getElementById("bger");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+    </body>
+</html>

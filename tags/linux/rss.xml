@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Algostructures</title>
+        <link>https://ahphoo.github.io/</link>
+        <description></description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://ahphoo.github.io/tags/linux/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Tue, 22 Dec 2020 00:00:00 +0000</lastBuildDate>
+        
+            <item>
+                <title>Debian</title>
+                <pubDate>Tue, 22 Dec 2020 00:00:00 +0000</pubDate>
+                <link>https://ahphoo.github.io/Linux/debian/</link>
+                <guid>https://ahphoo.github.io/Linux/debian/</guid>
+                <description>&lt;h2 id=&quot;enabling-wifi-on-boot-for-hidden-ssids&quot;&gt;Enabling wifi on boot for hidden ssids&lt;&#x2F;h2&gt;
+&lt;p&gt;In &lt;strong&gt;&#x2F;etc&#x2F;NetworkManager&#x2F;NetworkManger.conf&lt;&#x2F;strong&gt;, under the &lt;strong&gt;[wifi]&lt;&#x2F;strong&gt; section add &lt;strong&gt;hidden=true&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;To test if the changes worked, you can do either of the following:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+    &lt;li&gt; Restart NetworkManager by running `sudo systemctl restart NetworkManager` &lt;&#x2F;li&gt;
+    &lt;li&gt; Reboot your system by running `sudo reboot` &lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Your system should now automatically scan and connect to your hidden ssid!&lt;&#x2F;p&gt;
+</description>
+            </item>
+        
+    </channel>
+</rss>

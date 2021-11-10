@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Algostructures</title>
+        <link>https://ahphoo.github.io/</link>
+        <description></description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://ahphoo.github.io/tags/javascript/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Tue, 09 Nov 2021 00:00:00 +0000</lastBuildDate>
+        
+            <item>
+                <title>Angular</title>
+                <pubDate>Tue, 09 Nov 2021 00:00:00 +0000</pubDate>
+                <link>https://ahphoo.github.io/Javascript.Info/angular/</link>
+                <guid>https://ahphoo.github.io/Javascript.Info/angular/</guid>
+                <description>&lt;h2 id=&quot;what-is-angular&quot;&gt;What is Angular?&lt;&#x2F;h2&gt;
+&lt;p&gt;Framework for web-development.&lt;&#x2F;p&gt;
+</description>
+            </item>
+        
+            <item>
+                <title>Numbers</title>
+                <pubDate>Tue, 15 Dec 2020 00:00:00 +0000</pubDate>
+                <link>https://ahphoo.github.io/Javascript.Info/numbers/</link>
+                <guid>https://ahphoo.github.io/Javascript.Info/numbers/</guid>
+                <description>&lt;h2 id=&quot;what-are-numbers-in-javascript&quot;&gt;What are Numbers in Javascript?&lt;&#x2F;h2&gt;
+&lt;p&gt;They are 64-bit IEEE Double-precision floats. Wtf.&lt;&#x2F;p&gt;
+</description>
+            </item>
+        
+    </channel>
+</rss>

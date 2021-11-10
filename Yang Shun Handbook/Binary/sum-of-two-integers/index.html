@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+      <title> Algostructures | Sum of Two Integers </title>     
+      <link rel="stylesheet" href="https://ahphoo.github.io/main.css">
+      <link rel="icon" href="https://i.pinimg.com/736x/67/5f/bf/675fbf80eabf11721c93f345a156b40f.jpg">
+    </head>
+
+    <body>
+      <nav>
+        <div id="subnav">
+          <form class="theme-selector">
+            <button type="button" id="theme-light-button" class="theme-button" onclick="enableTheme('light', true)">&#9706;</button>
+            <button type="button" id="theme-dark-button"  class="theme-button enabled" onclick="enableTheme('dark', true)">&#9705;</button>
+          </form>
+          <a href="/search">&#8981;</a>       
+        </div>
+
+      
+  <ul id="breadcrumbs">
+    
+      
+      <li><a href="https:&#x2F;&#x2F;ahphoo.github.io&#x2F;">Algostructures</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="https:&#x2F;&#x2F;ahphoo.github.io&#x2F;Yang Shun Handbook&#x2F;">Yang Shun Handbook</a>&nbsp;&#8594;&nbsp;</li> 
+    
+      
+      <li><a href="https:&#x2F;&#x2F;ahphoo.github.io&#x2F;Yang Shun Handbook&#x2F;Binary&#x2F;">Binary</a>&nbsp;&#8594;&nbsp;</li> 
+    
+  </ul>
+  <h1>Sum of Two Integers</h1><em></em> 
+
+      </nav>
+
+      <main>
+      
+  <div id="taxonomies">
+    
+      <date>12.05.2020</date>
+       
+
+    
+      <ul>
+      
+        <li><a href="https://ahphoo.github.io/authors/allan-phu/" >Allan Phu</a></li>
+      
+     </ul>
+    
+    
+    
+      <ul>
+      
+        <li><a href="https://ahphoo.github.io/tags/binary/" >#Binary</a></li>
+      
+      </ul>
+    
+  </div>
+
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+  
+      <ul id="toc">
+        
+          <li><a href="https://ahphoo.github.io/Yang Shun Handbook/Binary/sum-of-two-integers/#problem-link">Problem Link</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/Yang Shun Handbook/Binary/sum-of-two-integers/#how-to-solve">How to solve</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/Yang Shun Handbook/Binary/sum-of-two-integers/#complexity-analysis">Complexity Analysis</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/Yang Shun Handbook/Binary/sum-of-two-integers/#time-o-n">Time: O(N)</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/Yang Shun Handbook/Binary/sum-of-two-integers/#space-o-1">Space: O(1)</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/Yang Shun Handbook/Binary/sum-of-two-integers/#solutions">Solutions</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/Yang Shun Handbook/Binary/sum-of-two-integers/#python">Python</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/Yang Shun Handbook/Binary/sum-of-two-integers/#go">Go</a>
+          
+        </li>
+  
+          <li><a href="https://ahphoo.github.io/Yang Shun Handbook/Binary/sum-of-two-integers/#rust">Rust</a>
+          
+        </li>
+  
+      </ul>
+  
+
+  <article>
+    <h2 id="problem-link">Problem Link</h2>
+<p><a href="https://leetcode.com/problems/sum-of-two-integers/">https://leetcode.com/problems/sum-of-two-integers/</a></p>
+<h2 id="how-to-solve">How to solve</h2>
+<p>We xor <code>a</code> and <code>b</code> to get their sum without carries. We store the result in <code>a</code>. To find the carries, we do a bitwise <code>and</code>/<code>&amp;</code> and leftshift by 1. We store this result in <code>b</code>. We repeat the above two steps until <code>b</code> is zero (we have no more bits to carry). Finally, we return <code>a</code>, which would then store the sum with carries.</p>
+<p>For Python, negative integers have an infinite number of ones. For example, if we add -1 and 1, we would carry 1 an infinite number of times. So we must limit the number of carries by checking if <code>a</code> exceeds the maximum positive value of a 32-bit integer. If <code>a</code> exceeds 2^31 - 1, we have to tell Python to interpret the number as a signed integer. We can do this by using the tilde ~ operator. However in Python, the ~ operator flips all the bits. To get around this, we flip 32 bits of <code>a</code> using a mask, then invoke the ~ operator.</p>
+<h2 id="complexity-analysis">Complexity Analysis</h2>
+<h2 id="time-o-n">Time: O(N)</h2>
+<p>In the worst case, we would have N - 1 carries.</p>
+<h2 id="space-o-1">Space: O(1)</h2>
+<p>In Python, we have constant variables for the bit mask and maximum positive 32-bit integer. In Go, we only use a and b. In Rust, we use one temp variable.</p>
+<h2 id="solutions">Solutions</h2>
+<h2 id="python">Python</h2>
+<pre style="background-color:#383838;">
+<span style="font-style:italic;color:#3bc0f0;">def </span><span style="color:#ffc66d;">getSum</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">self</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">a</span><span style="color:#e6e1dc;">: </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">b</span><span style="color:#e6e1dc;">: </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">:
+    mask </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">2</span><span style="color:#cc7833;">**</span><span style="color:#a5c261;">32 </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1
+    </span><span style="color:#e6e1dc;">max_pos_int </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">2</span><span style="color:#cc7833;">**</span><span style="color:#a5c261;">31 </span><span style="color:#cc7833;">- </span><span style="color:#a5c261;">1
+
+    </span><span style="color:#cc7833;">while </span><span style="color:#e6e1dc;">b:
+        a, b </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">(a </span><span style="color:#cc7833;">^ </span><span style="color:#e6e1dc;">b) </span><span style="color:#cc7833;">&amp; </span><span style="color:#e6e1dc;">mask, ((a </span><span style="color:#cc7833;">&amp; </span><span style="color:#e6e1dc;">b) </span><span style="color:#cc7833;">&lt;&lt; </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">) </span><span style="color:#cc7833;">&amp; </span><span style="color:#e6e1dc;">mask
+
+    </span><span style="color:#cc7833;">if </span><span style="color:#e6e1dc;">a </span><span style="color:#cc7833;">&lt;= </span><span style="color:#e6e1dc;">max_pos_int:
+        </span><span style="color:#cc7833;">return </span><span style="color:#e6e1dc;">a
+    </span><span style="color:#cc7833;">else</span><span style="color:#e6e1dc;">:
+        </span><span style="color:#cc7833;">return ~</span><span style="color:#e6e1dc;">(a </span><span style="color:#cc7833;">^ </span><span style="color:#e6e1dc;">mask)
+</span></pre><h2 id="go">Go</h2>
+<pre style="background-color:#383838;">
+<span style="font-style:italic;color:#6e9cbe;">func </span><span style="color:#ffc66d;">getSum</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">a </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">b </span><span style="font-style:italic;color:#6e9cbe;">int</span><span style="color:#e6e1dc;">) </span><span style="font-style:italic;color:#6e9cbe;">int </span><span style="color:#e6e1dc;">{
+    </span><span style="color:#cc7833;">for</span><span style="color:#e6e1dc;"> b </span><span style="color:#cc7833;">!= </span><span style="color:#a5c261;">0 </span><span style="color:#e6e1dc;">{
+        a, b </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> a </span><span style="color:#cc7833;">^</span><span style="color:#e6e1dc;"> b, (a </span><span style="color:#cc7833;">&amp;</span><span style="color:#e6e1dc;"> b) </span><span style="color:#cc7833;">&lt;&lt; </span><span style="color:#a5c261;">1
+    </span><span style="color:#e6e1dc;">}
+    </span><span style="color:#cc7833;">return</span><span style="color:#e6e1dc;"> a
+}
+</span></pre><h2 id="rust">Rust</h2>
+<pre style="background-color:#383838;">
+<span style="color:#cc7833;">pub </span><span style="font-style:italic;color:#6e9cbe;">fn </span><span style="color:#ffc66d;">get_sum</span><span style="color:#e6e1dc;">(</span><span style="font-style:italic;color:#fd971f;">a</span><span style="color:#e6e1dc;">: </span><span style="font-style:italic;color:#6e9cbe;">i32</span><span style="color:#e6e1dc;">, </span><span style="font-style:italic;color:#fd971f;">b</span><span style="color:#e6e1dc;">: </span><span style="font-style:italic;color:#6e9cbe;">i32</span><span style="color:#e6e1dc;">) -&gt; </span><span style="font-style:italic;color:#6e9cbe;">i32 </span><span style="color:#e6e1dc;">{
+    </span><span style="font-style:italic;color:#6e9cbe;">let </span><span style="color:#cc7833;">mut</span><span style="color:#e6e1dc;"> sum </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> a;
+    </span><span style="font-style:italic;color:#6e9cbe;">let </span><span style="color:#cc7833;">mut</span><span style="color:#e6e1dc;"> carry </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> b;
+    </span><span style="font-style:italic;color:#6e9cbe;">let </span><span style="color:#cc7833;">mut</span><span style="color:#e6e1dc;"> temp </span><span style="color:#cc7833;">= </span><span style="color:#a5c261;">0</span><span style="color:#e6e1dc;">;
+    </span><span style="color:#cc7833;">while</span><span style="color:#e6e1dc;"> carry </span><span style="color:#cc7833;">!= </span><span style="color:#a5c261;">0 </span><span style="color:#e6e1dc;">{
+        temp </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> sum </span><span style="color:#cc7833;">^</span><span style="color:#e6e1dc;"> carry;
+        carry </span><span style="color:#cc7833;">= </span><span style="color:#e6e1dc;">(sum </span><span style="color:#cc7833;">&amp;</span><span style="color:#e6e1dc;"> carry) </span><span style="color:#cc7833;">&lt;&lt; </span><span style="color:#a5c261;">1</span><span style="color:#e6e1dc;">;
+        sum </span><span style="color:#cc7833;">=</span><span style="color:#e6e1dc;"> temp;
+    }
+    sum
+}
+</span></pre>
+  </article>
+
+      </main>
+
+      <script type="text/javascript" src="https://ahphoo.github.io/themes.js"></script>
+
+      <script>
+        function burger() {
+          var x = document.getElementById("bger");
+          if (x.style.display === "block") {
+            x.style.display = "none";
+          } else {
+            x.style.display = "block";
+          }
+        }
+        </script>
+    </body>
+</html>
